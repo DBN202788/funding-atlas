@@ -78,7 +78,7 @@ The job finds new Florida years, likely new Florida budgets, and new Delaware ac
 |---|---|---|
 | Florida | 19,178 Senate requests, FY2017-18 to FY2026-27. 10,262 linked to enrolled budgets by form number. | Veto messages for years before FY2026-27. House requests. Review 14 uncertain vetoes. |
 | Delaware | 4,575 appropriations for FY2019, 2021, 2022, 2025, 2026, 2027. | Fix parsing for FY2017, 2018, 2020, 2023, 2024, which don't yet match printed totals. |
-| Louisiana | None yet. | `legis.la.gov` fails DNS lookups on the build machine. Once it opens, parse the NGO directory and requests, then every relevant appropriation bill, and account for vetoes. |
+| Louisiana | 227 NGO requests from the 2026 session, matched to Acts 3, 4 and 961 by name, with vetoes applied. | Load earlier sessions. Check 8 possible matches by hand. `legis.la.gov` fails DNS lookups on the build machine, so it's read only through GitHub's servers; use the Louisiana setup workflow for manual runs. New sessions need their budget bills added to `SESSION_BILLS`. |
 | Utah | None yet. | `le.utah.gov` could not be reached from the build machine. |
 | Hawaii | None yet. | The site blocks automated access. Use a manual export or ask for permission. |
 

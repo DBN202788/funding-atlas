@@ -79,6 +79,39 @@ print(f"INFO Florida records budgeted above 3x the request: {len(odd)}")
 for row in odd[:15]:
     print("     ", dict(row))
 
+# 5b. Louisiana: anchors read by hand from the acts, and every veto letter fully applied.
+la_total = db.execute("select count(*) from records where state='LA'").fetchone()[0]
+if la_total:
+    def la_row(pattern):
+        return db.execute("select * from records where state='LA' and name like ?", (pattern,)).fetchone()
+    ward = la_row("18th Ward")
+    check("Louisiana: 18th Ward has Act 961 $25,000 plus Act 4 $95,000", ward["appropriated"] == 120000 and ward["requested"] == 150000, str(ward["appropriated"]))
+    raices = la_row("RAICES NUEVAS")
+    check("Louisiana: Raices Nuevas is vetoed, per veto no. 11 of HB 312", raices["status"] == "Vetoed by Governor" and raices["appropriated"] == 0)
+    project = la_row("Project 70805%")
+    check("Louisiana: Project 70805 is vetoed, per veto no. 9 of HB 2", project["status"] == "Vetoed by Governor")
+    team = la_row("Team Gleason%")
+    check("Louisiana: Team Gleason has Act 961 $1,000,000", team["appropriated"] == 1000000)
+    meta_reports = json.loads((WEB / "meta.json").read_text(encoding="utf-8"))["reports"]
+    la_report = next(r for r in meta_reports if r["state"] == "LA" and r.get("status") == "published")
+    for bill, info in la_report["acts"].items():
+        check(f"Louisiana {bill}: every veto in the letter was read", info["vetoes_in_letter"] == info["veto_ranges_read"], f"{info['veto_ranges_read']} of {info['vetoes_in_letter']}")
+        check(f"Louisiana {bill}: every veto lands on a parsed line or is explained", len(info["vetoes_not_placed"]) <= (1 if bill == "HB1" else 0), str(info["vetoes_not_placed"]))
+    check("Louisiana: every listed request has a record, except excluded test entries", la_total + la_report["excluded"] == la_report["listed"], f"{la_total} + {la_report['excluded']} of {la_report['listed']}")
+    overstated = db.execute("select sum(appropriated) from records where state='LA' and status like 'Possible%'").fetchone()[0]
+    check("Louisiana: possible matches never count as money", not overstated)
+    # Only approved fields may appear, so a new personal field can't slip through.
+    allowed = {"entity_type", "request_type", "good_standing", "audit_issues", "summary", "purpose", "goals", "time_estimate",
+               "budget_salaries", "budget_professional", "budget_contracts", "budget_acquisitions", "budget_repairs",
+               "budget_operating", "budget_other", "budget_lines"}
+    la_details = json.loads((WEB / "forms_LA-26RS.json").read_text(encoding="utf-8"))
+    unexpected = {key for detail in la_details.values() for key in detail} - allowed
+    check("Louisiana: published forms use only approved fields", not unexpected, str(unexpected))
+    raw_requests = json.loads((ROOT / "data" / "derived" / "la_requests_26RS.json").read_text(encoding="utf-8"))
+    saved_fields = {key for request in raw_requests.values() for key in request}
+    check("Louisiana: saved requests use only approved fields", not (saved_fields - allowed - {"name", "listed_name", "amount"}), str(saved_fields - allowed))
+    check("Louisiana: no request pages were saved", not (ROOT / "data" / "raw" / "louisiana_requests").exists())
+
 # 6. Personal contact details must not be in the published files.
 web = "".join(pathlib.Path(p).read_text(encoding="utf-8") for p in glob.glob(str(WEB / "*.json")))
 emails = re.findall(r"[\w.+-]+@[\w-]+\.[a-zA-Z]{2,}", web)

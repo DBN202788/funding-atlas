@@ -46,7 +46,8 @@ def build():
 """
     (DIST / "index.html").write_text(page, encoding="utf-8")
     for item in (WEB / "data").iterdir():
-        shutil.copy2(item, DIST / "data" / item.name)
+        if item.is_file():
+            shutil.copy2(item, DIST / "data" / item.name)
     shutil.copy2(ROOT / "data" / "out" / "funding.csv", DIST / "data" / "funding.csv")
     (DIST / "robots.txt").write_text("User-agent: *\nAllow: /\n", encoding="utf-8")
     (DIST / ".nojekyll").write_text("", encoding="utf-8")

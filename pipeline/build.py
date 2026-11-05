@@ -59,6 +59,7 @@ def apply_forms(records):
             form = forms.get(record["form_number"])
             if not form:
                 continue
+            record["search_text"] = (form.get("description") or "")[:300]
             if form.get("organization"):
                 record["organization"] = form["organization"]
             if form.get("org_type") in FORM_TYPE_LABEL:
@@ -78,7 +79,7 @@ def collect_all(refresh=False):
     de_records, de_reports = delaware.collect(refresh=refresh)
     records += de_records
     reports += de_reports
-    la_records, la_reports = louisiana.collect()
+    la_records, la_reports = louisiana.collect(refresh=refresh)
     records += la_records
     reports += la_reports
     all_forms, comparisons, form_reports = apply_forms(records)
@@ -152,12 +153,15 @@ def write_web(records, reports, all_forms, comparisons):
             dictionaries["veto"].add(record.get("veto_url")),
             record["id"],
             record.get("organization"),
+            record.get("search_text"),
         ])
     payload = {"dict": {name: dictionaries[name].values for name in names}, "rows": rows}
     (WEB / "records.json").write_text(json.dumps(payload, separators=(",", ":"), ensure_ascii=False), encoding="utf-8")
     for fiscal_year, forms in all_forms.items():
         (WEB / f"forms_{fiscal_year}.json").write_text(json.dumps(forms, separators=(",", ":"), ensure_ascii=False), encoding="utf-8")
     (WEB / "compare.json").write_text(json.dumps(comparisons, separators=(",", ":"), ensure_ascii=False), encoding="utf-8")
+    for session, details in louisiana.LA_DETAILS.items():
+        (WEB / f"forms_LA-{session}.json").write_text(json.dumps(details, separators=(",", ":"), ensure_ascii=False), encoding="utf-8")
 
     meta = {
         "generated": time.strftime("%Y-%m-%d"),

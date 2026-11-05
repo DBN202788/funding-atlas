@@ -25,8 +25,11 @@ New records: 0. Changed: 0. Removed: 0.
 - DE FY2018
 - DE FY2017
 
-## State not loaded
-- LA: Directory returned 86808 bytes; the parser still has to be written against it
+## Louisiana matches to check by hand
+- 2026 Regular Session: 8 possible matches
+
+## Veto lines that aren't standard funding lines
+- LA HB1: [[95, 1, 3]]
 
 ## Forms not yet read
-- FL FY2026-27: 38 of 2808
+- FL FY2026-27: 312 of 2808

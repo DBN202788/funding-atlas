@@ -114,6 +114,14 @@ def review_items(reports, stale, watched_changed, watched_unreachable, diff, pro
             items.append(("Uncertain vetoes to check by hand", f"{state} {fiscal_year}: {report['veto_uncertain']} records"))
         if report.get("stage") == "forms" and report.get("records", 0) < report.get("listed", 0):
             items.append(("Forms not yet read", f"{state} {fiscal_year}: {report['records']} of {report['listed']}"))
+        possible = report.get("outcomes", {}).get("Possible match, check source")
+        if possible:
+            items.append(("Louisiana matches to check by hand", f"{fiscal_year}: {possible} possible matches"))
+        for bill, act in report.get("acts", {}).items():
+            if act.get("vetoes_not_placed"):
+                items.append(("Veto lines that aren't standard funding lines", f"{state} {bill}: {act['vetoes_not_placed']}"))
+        if report.get("refresh_problem"):
+            items.append(("Source failed, so saved data was used", f"{state} {fiscal_year}: {report['refresh_problem']}"))
         if report.get("status") in ("unreachable", "reachable_parser_needed"):
             items.append(("State not loaded", f"{state}: {report.get('reason')}"))
     for url, reason in stale:

@@ -1,0 +1,9 @@
+{
+  "_about": "Decisions made by reading matches by hand. Names are compared in lowercase.",
+  "exclude_requests": {
+    "ghmfgh": "Looks like a test entry in the Legislature's directory"
+  },
+  "downgrade_to_possible": {
+    "xtreme measures, llc": "The act names Smiley Xtreme Measures, Inc., which may be a different organization"
+  }
+}
