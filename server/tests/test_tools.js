@@ -56,6 +56,18 @@ describe("advisor tools", () => {
     assert.equal((await call("search_funding", { outcome: "Vetoed by Governor" })).total_matches, 1);
   });
 
+  it("shares results across states when no state is named", async () => {
+    const store = realStore();
+    const all = await call("search_funding", { query: "youth" }, store);
+    assert.equal(all.records.length, 15);
+    assert.deepEqual([...new Set(all.records.map(r => r.state))].sort(), ["DE", "FL", "LA"]);
+    assert.equal(all.total_matches, all.by_state.FL.matches + all.by_state.DE.matches + all.by_state.LA.matches);
+    assert.ok(all.by_state.DE.budgeted > 0);
+    const florida = await call("search_funding", { query: "youth", state: "FL" }, store);
+    assert.ok(florida.records.every(r => r.state === "FL"));
+    assert.equal(florida.by_state.DE.matches, 0);
+  });
+
   it("summarizes by program area", async () => {
     const [youth] = await call("summarize_funding", { state: "FL" });
     assert.deepEqual(youth, { area: "Youth", records: 2, in_budget: 1, vetoed: 1, requested: 400, budgeted: 50 });

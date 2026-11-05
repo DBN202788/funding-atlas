@@ -32,7 +32,7 @@ const SCHEMAS = {
 };
 
 const DESCRIPTIONS = {
-  search_funding: "Search the funding records by keywords. Returns up to 15 matching records with id, name, state, year, requested, budgeted, vetoed, status, program area and sponsor, plus the total number of matches.",
+  search_funding: "Search the funding records by keywords. Leave out state to search every state. Returns up to 15 matching records with id, name, state, year, requested, budgeted, vetoed, status, program area and sponsor, shared across states when no state is given, plus the total number of matches and by_state counts.",
   summarize_funding: "Return totals for a state and fiscal year, grouped by program area: number of records, number in a budget or act, number vetoed, dollars requested and dollars budgeted.",
   get_application: "Return what an application says, by record id, for Florida FY2026-27 and Louisiana 2026: organization, type, budget, description or summary, goals, and outcome. Louisiana records also list the act lines that name the organization.",
   compare_applications: "Return how often features such as matching funds, a stated number served, and measurable outcomes appear in funded, vetoed and uncited Florida FY2026-27 applications, with sample sizes.",
@@ -73,6 +73,24 @@ const median = values => {
   return sorted.length % 2 ? sorted[middle] : (sorted[middle - 1] + sorted[middle]) / 2;
 };
 
+function stateCounts(rows) {
+  const counts = {};
+  for (const state of STATES) {
+    const here = rows.filter(r => r.state === state), funded = here.filter(r => IN_BUDGET.has(r.status));
+    counts[state] = { matches: here.length, in_budget: funded.length, vetoed: here.filter(r => r.status === "Vetoed by Governor").length, budgeted: funded.reduce((sum, r) => sum + (r.appropriated || 0), 0) };
+  }
+  return counts;
+}
+
+/** Takes rows in turn from each state, so a state with larger awards can't crowd out the others. */
+function shareAcrossStates(rows, limit) {
+  const queues = STATES.map(state => rows.filter(r => r.state === state)), picked = [];
+  while (picked.length < limit && queues.some(queue => queue.length)) {
+    for (const queue of queues) if (queue.length && picked.length < limit) picked.push(queue.shift());
+  }
+  return picked;
+}
+
 const IMPLEMENTATIONS = {
   async search_funding(input, store) {
     const { records } = await store.records();
@@ -82,7 +100,8 @@ const IMPLEMENTATIONS = {
       .sort((a, b) => (b.appropriated || 0) - (a.appropriated || 0));
     return {
       total_matches: rows.length,
-      records: rows.slice(0, 15).map(r => ({ id: r.id, name: r.name, state: r.state, year: r.year, requested: r.requested, budgeted: r.appropriated, vetoed: r.vetoed, status: r.status, area: r.category, sponsor: r.sponsor })),
+      by_state: stateCounts(rows),
+      records: (input.state ? rows.slice(0, 15) : shareAcrossStates(rows, 15)).map(r => ({ id: r.id, name: r.name, state: r.state, year: r.year, requested: r.requested, budgeted: r.appropriated, vetoed: r.vetoed, status: r.status, area: r.category, sponsor: r.sponsor })),
     };
   },
   async summarize_funding(input, store) {
