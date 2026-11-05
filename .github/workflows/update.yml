@@ -52,6 +52,7 @@ jobs:
           git config user.email "funding-atlas-bot@users.noreply.github.com"
           git add data/derived data/out/review.md data/out/funding.csv web/data data/raw
           git diff --cached --quiet || git commit -m "Update funding data"
+          git pull --rebase --autostash
           git push
 
       - name: Build the website
