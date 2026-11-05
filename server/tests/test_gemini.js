@@ -19,7 +19,8 @@ async function setup(replies, overrides = {}) {
     let body = "";
     for await (const data of req) body += data;
     requests.push({ url: req.url, body: JSON.parse(body) });
-    const reply = queue.shift();
+    // A status number stays in the queue when it's last, like a service that stays down.
+    const reply = typeof queue[0] === "number" && queue.length === 1 ? queue[0] : queue.shift();
     if (typeof reply === "number") {
       res.writeHead(reply, { "content-type": "application/json" });
       return res.end(JSON.stringify({ error: { code: reply, message: "stand-in error", status: "ERROR" } }));
@@ -33,7 +34,7 @@ async function setup(replies, overrides = {}) {
   servers.push(server);
   const client = new GoogleGenAI({ apiKey: "test-key", httpOptions: { baseUrl: `http://127.0.0.1:${server.address().port}` } });
   const events = [];
-  const config = testConfig({ model: "gemini-3.8-flash", ...overrides });
+  const config = testConfig({ model: "gemini-3.8-flash", fallbackModels: ["gemini-3.6-flash", "gemini-3.1-flash-lite"], retryDelayMs: 1, ...overrides });
   return { requests, events, ask: (extra = {}) => runGeminiAdvisor({ client, store: fakeStore(), config, question: "Who was funded?", emit: e => events.push(e), ...extra }) };
 }
 after(() => { for (const server of servers) { server.closeAllConnections(); server.close(); } });
@@ -97,11 +98,45 @@ describe("Gemini advisor", () => {
   });
 
   it("classifies errors, charging nothing for a rejected request", async () => {
-    for (const [status, code] of [[400, "server_config"], [403, "server_config"], [429, "provider_busy"], [500, "provider_error"]]) {
+    for (const [status, code] of [[400, "server_config"], [403, "server_config"], [429, "provider_busy"], [503, "provider_busy"], [500, "provider_error"]]) {
       const { ask } = await setup([status]);
       const result = await ask();
       assert.deepEqual([result.status, result.code, result.costMicros], ["failed", code, 0]);
     }
+  });
+
+  it("waits and retries when the service is overloaded, without charging or using up a question", async () => {
+    const { requests, events, ask } = await setup([503, [chunk([{ text: "Recovered." }], { finishReason: "STOP" })]]);
+    const result = await ask();
+    assert.deepEqual([result.status, result.text, result.model], ["answered", "Recovered.", "gemini-3.8-flash"]);
+    assert.equal(requests.length, 2);
+    assert.ok(events.some(e => e.type === "status" && /busy/.test(e.text)));
+  });
+
+  it("falls back to another free model when the first stays overloaded", async () => {
+    const { requests, ask } = await setup([503, 503, [chunk([{ text: "From the backup." }], { finishReason: "STOP" })]]);
+    const result = await ask();
+    assert.deepEqual([result.status, result.model], ["answered", "gemini-3.6-flash"]);
+    assert.deepEqual(requests.map(r => r.url.match(/models\/([^:]+)/)[1]), ["gemini-3.8-flash", "gemini-3.8-flash", "gemini-3.6-flash"]);
+    assert.equal(result.costMicros, Math.ceil(1000 * 0.75 + 150 * 3.75));
+  });
+
+  it("gives up after a limited number of tries, and doesn't retry a bad request", async () => {
+    const down = await setup([503]);
+    const result = await down.ask();
+    assert.deepEqual([result.status, result.code, down.requests.length], ["failed", "provider_busy", 4]);
+    assert.deepEqual([...new Set(down.requests.map(r => r.url.match(/models\/([^:]+)/)[1]))], ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3.1-flash-lite"]);
+    const bad = await setup([400]);
+    await bad.ask();
+    assert.equal(bad.requests.length, 1);
+  });
+
+  it("keeps the same model once tool calls have started", async () => {
+    const call = { functionCall: { name: "get_requirements", args: { state: "FL" } }, thoughtSignature: "sig" };
+    const { requests, ask } = await setup([[chunk([call], { finishReason: "STOP" })], 503, 503, [chunk([{ text: "Done." }], { finishReason: "STOP" })]]);
+    const result = await ask();
+    assert.equal(result.text, "Done.");
+    assert.deepEqual([...new Set(requests.map(r => r.url.match(/models\/([^:]+)/)[1]))], ["gemini-3.8-flash"]);
   });
 
   it("marks a stopped answer, and gives up at the time limit", async () => {

@@ -20,6 +20,7 @@ export function readConfig(env = process.env) {
     anthropicKey,
     geminiKey,
     model: env.ADVISOR_MODEL || (provider === "gemini" ? "gemini-3.8-flash" : "claude-opus-5-5"),
+    fallbackModels: (env.ADVISOR_FALLBACK_MODELS ?? (provider === "gemini" ? "gemini-3.6-flash,gemini-3.1-flash-lite" : "")).split(",").map(s => s.trim()).filter(Boolean),
     effort: env.ADVISOR_EFFORT || "medium",
     maxTokens: number(env.ADVISOR_MAX_TOKENS, 8000),
     maxRounds: number(env.ADVISOR_MAX_ROUNDS, 6),

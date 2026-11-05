@@ -6,14 +6,22 @@ import { RULES } from "./prompt.js";
 import { runTool, TOOLS } from "./tools.js";
 
 const DECLARATIONS = [{ functionDeclarations: TOOLS.map(t => ({ name: t.name, description: t.description, parametersJsonSchema: t.input_schema })) }];
+// Free-tier models are often overloaded, so wait and try again, then try another model.
+const RETRYABLE = new Set([429, 500, 502, 503, 504]);
+const MAX_RETRIES = 3;
 const REFUSALS = new Set(["SAFETY", "RECITATION", "BLOCKLIST", "PROHIBITED_CONTENT", "SPII", "LANGUAGE", "IMAGE_SAFETY", "OTHER"]);
 
 function errorCode(error) {
   if (!(error instanceof ApiError)) return "provider_unreachable";
   if ([400, 401, 403, 404].includes(error.status)) return "server_config";
-  if (error.status === 429) return "provider_busy";
+  if (error.status === 429 || error.status === 503) return "provider_busy";
   return "provider_error";
 }
+
+const pause = (ms, signal) => new Promise(resolve => {
+  const timer = setTimeout(resolve, ms);
+  signal.addEventListener("abort", () => { clearTimeout(timer); resolve(); }, { once: true });
+});
 
 const usageFrom = meta => meta ? { input_tokens: meta.promptTokenCount || 0, output_tokens: (meta.candidatesTokenCount || 0) + (meta.thoughtsTokenCount || 0) } : null;
 
@@ -23,16 +31,19 @@ export async function runGeminiAdvisor({ client, store, config, question, histor
   const timeout = AbortSignal.timeout(config.timeoutMs);
   const combined = signal ? AbortSignal.any([signal, timeout]) : timeout;
   const result = { status: "failed", code: null, text: "", truncated: false, costMicros: 0, toolCalls: 0, model: config.model, tokens: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 } };
-  let sentText = false, round = 0;
+  const models = [...new Set([config.model, ...(config.fallbackModels || [])])];
+  const retryDelay = config.retryDelayMs ?? 1500;
+  let sentText = false, round = 0, retries = 0, modelIndex = 0;
 
   while (round < config.maxRounds) {
+    const model = models[modelIndex];
     // Near a limit, the model must answer with what it already has.
     const lastRound = round === config.maxRounds - 1 || result.costMicros >= config.questionReserveMicros / 2;
     const parts = [];
     let usage = null, finishReason = null, blocked = false;
     try {
       const stream = await client.models.generateContentStream({
-        model: config.model,
+        model,
         contents,
         config: {
           systemInstruction: RULES,
@@ -57,16 +68,26 @@ export async function runGeminiAdvisor({ client, store, config, question, histor
       }
     } catch (error) {
       if (combined.aborted) {
-        result.costMicros += unfinishedCostMicros(usage, config.model, config.maxTokens);
+        result.costMicros += unfinishedCostMicros(usage, model, config.maxTokens);
         if (signal?.aborted) result.status = "stopped";
         else result.code = "timeout";
         return result;
       }
+      console.error("advisor API error", error.status || error.name, model);
+      if (error instanceof ApiError && RETRYABLE.has(error.status) && !parts.length && retries < MAX_RETRIES) {
+        retries += 1;
+        emit({ type: "status", text: "The AI service is busy, so the advisor is trying again…" });
+        await pause(retryDelay, combined);
+        // Thought signatures belong to one model, so a question only changes model before its first tool call.
+        if (round === 0 && retries >= 2 && modelIndex < models.length - 1) modelIndex += 1;
+        continue;
+      }
       result.code = errorCode(error);
-      console.error("advisor API error", error.status || error.name);
       return result;
     }
-    result.costMicros += usageCostMicros(usage, config.model);
+    retries = 0;
+    result.model = model;
+    result.costMicros += usageCostMicros(usage, model);
     result.tokens.input += usage?.input_tokens || 0;
     result.tokens.output += usage?.output_tokens || 0;
     round += 1;
