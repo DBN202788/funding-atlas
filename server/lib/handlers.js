@@ -132,6 +132,13 @@ export async function deleteAccount(request, deps) {
   return json({ deleted: true });
 }
 
+/** The test site on this server's own address always shows member features. The public site stays as set. */
+export async function siteConfig(request, deps) {
+  const response = await (deps.fetchImpl || fetch)(`${deps.config.dataUrl}/site-config.json`);
+  if (!response.ok) throw new HttpError(502, "site_config_unavailable");
+  return json({ ...(await response.json()), previewOnly: false });
+}
+
 /** For checking a setup. Says which parts have settings, and never shows the settings. */
 export async function health(request, deps) {
   return json({

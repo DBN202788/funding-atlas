@@ -6,7 +6,7 @@ import Stripe from "stripe";
 import { runAdvisor } from "../lib/advisor.js";
 import { isActive, membershipFields } from "../lib/billing.js";
 import { readConfig } from "../lib/config.js";
-import { advisor, checkout, deleteAccount, health, me, portal, stripeWebhook } from "../lib/handlers.js";
+import { advisor, checkout, deleteAccount, health, me, portal, siteConfig, stripeWebhook } from "../lib/handlers.js";
 import { endpoint, monthKey } from "../lib/http.js";
 import { addUser, fakeAnthropic, fakeStore, makeDatabase, pgDb, replyWith, streamMessage, testConfig } from "./helpers.js";
 
@@ -102,6 +102,20 @@ describe("web addresses", () => {
       const text = JSON.stringify(await (await call(health, { method: "GET", token: null })).json());
       assert.match(text, /"advisor":true/);
       assert.doesNotMatch(text, /whsec|sk_test/);
+    });
+  });
+
+  describe("test site settings", () => {
+    it("shows member features on this address without changing other settings", async () => {
+      deps.config.dataUrl = "https://data.test";
+      deps.fetchImpl = async url => {
+        assert.equal(url, "https://data.test/site-config.json");
+        return new Response(JSON.stringify({ apiUrl: "https://api.test", supabaseKey: "public", previewOnly: true }));
+      };
+      const body = await (await call(siteConfig, { method: "GET", token: null })).json();
+      assert.deepEqual(body, { apiUrl: "https://api.test", supabaseKey: "public", previewOnly: false });
+      deps.fetchImpl = async () => new Response("", { status: 500 });
+      assert.equal((await call(siteConfig, { method: "GET", token: null })).status, 502);
     });
   });
 

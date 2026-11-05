@@ -1,5 +1,12 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": { "api/advisor.js": { "maxDuration": 300 } },
-  "redirects": [{ "source": "/", "destination": "https://dbn202788.github.io/funding-atlas/", "permanent": false }]
+  "rewrites": [
+    { "source": "/data/site-config.json", "destination": "/api/site-config" },
+    { "source": "/", "destination": "https://dbn202788.github.io/funding-atlas/" },
+    { "source": "/data/:path*", "destination": "https://dbn202788.github.io/funding-atlas/data/:path*" }
+  ],
+  "headers": [
+    { "source": "/(.*)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }] }
+  ]
 }
