@@ -1,0 +1,88 @@
+name: Update funding data
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"  # Mondays at 09:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: funding-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install PDF reader
+        run: pip install pymupdf
+
+      - name: Run logic tests
+        run: python -I tests/test_update.py
+
+      # Up to 500 new request forms per run, at the site's 10-second crawl delay.
+      - name: Download new request forms
+        continue-on-error: true
+        run: python -I pipeline/download_forms.py latest 500
+
+      - name: Refresh, check and publish data
+        id: update
+        continue-on-error: true
+        run: python -I pipeline/update.py
+
+      - name: Save the data
+        run: |
+          git config user.name "funding-atlas-bot"
+          git config user.email "funding-atlas-bot@users.noreply.github.com"
+          git add data/derived data/out/review.md data/out/funding.csv web/data data/raw
+          git diff --cached --quiet || git commit -m "Update funding data"
+          git push
+
+      - name: Build the website
+        run: python -I pipeline/site.py
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Open or update the review issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          number=$(gh issue list --label review --state open --json number --jq '.[0].number // empty')
+          gh label create review --force --description "Atlas items for a person to check" || true
+          if [ -n "$number" ]; then
+            gh issue edit "$number" --body-file data/out/review.md
+          else
+            gh issue create --title "Atlas review list" --label review --body-file data/out/review.md
+          fi
+
+      # A held-back update fails the job, so GitHub emails the repository owner.
+      - name: Report a held-back update
+        if: steps.update.outcome == 'failure'
+        run: |
+          echo "The update was held back. The site still shows the previous data. See data/out/review.md."
+          exit 1
+
+  deploy:
+    needs: update
+    if: always() && needs.update.result != 'skipped'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

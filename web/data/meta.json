@@ -1,0 +1,1119 @@
+{
+ "generated": "2026-11-05",
+ "record_count": 23753,
+ "form_years": [
+  "FY2026-27"
+ ],
+ "reports": [
+  {
+   "state": "FL",
+   "fiscal_year": "FY2017-18",
+   "source": "https://www.flsenate.gov/Session/Appropriations/FY2017-18/LocalFundingRequests",
+   "status": "published",
+   "records": 1192,
+   "table_rows": 1192
+  },
+  {
+   "state": "FL",
+   "fiscal_year": "FY2018-19",
+   "source": "https://www.flsenate.gov/Session/Appropriations/FY2018-19/LocalFundingRequests",
+   "status": "published",
+   "records": 1453,
+   "table_rows": 1453
+  },
+  {
+   "state": "FL",
+   "fiscal_year": "FY2019-20",
+   "source": "https://www.flsenate.gov/Session/Appropriations/FY2019-20/LocalFundingRequests",
+   "status": "published",
+   "records": 1673,
+   "table_rows": 1673
+  },
+  {
+   "state": "FL",
+   "fiscal_year": "FY2020-21",
+   "source": "https://www.flsenate.gov/Session/Appropriations/FY2020-21/LocalFundingRequests",
+   "status": "published",
+   "records": 1579,
+   "table_rows": 1579
+  },
+  {
+   "state": "FL",
+   "fiscal_year": "FY2021-22",
+   "source": "https://www.flsenate.gov/Session/Appropriations/FY2021-22/LocalFundingRequests",
+   "status": "published",
+   "records": 1135,
+   "table_rows": 1135
+  },
+  {
+   "state": "FL",
+   "fiscal_year": "FY2022-23",
+   "source": "https://www.flsenate.gov/Session/Appropriations/FY2022-23/LocalFundingRequests",
+   "status": "published",
+   "records": 1807,
+   "table_rows": 1807
+  },
+  {
+   "state": "FL",
+   "fiscal_year": "FY2023-24",
+   "source": "https://www.flsenate.gov/Session/Appropriations/FY2023-24/LocalFundingRequests",
+   "status": "published",
+   "records": 2253,
+   "table_rows": 2253
+  },
+  {
+   "state": "FL",
+   "fiscal_year": "FY2024-25",
+   "source": "https://www.flsenate.gov/Session/Appropriations/FY2024-25/LocalFundingRequests",
+   "status": "published",
+   "records": 2722,
+   "table_rows": 2722
+  },
+  {
+   "state": "FL",
+   "fiscal_year": "FY2025-26",
+   "source": "https://www.flsenate.gov/Session/Appropriations/FY2025-26/LocalFundingRequests",
+   "status": "published",
+   "records": 2556,
+   "table_rows": 2556
+  },
+  {
+   "state": "FL",
+   "fiscal_year": "FY2026-27",
+   "source": "https://www.flsenate.gov/Session/Appropriations/FY2026-27/LocalFundingRequests",
+   "status": "published",
+   "records": 2808,
+   "table_rows": 2808
+  },
+  {
+   "state": "FL",
+   "fiscal_year": "FY2017-18",
+   "bill": "SB 2500",
+   "source": "https://www.flsenate.gov/Session/Bill/2017/2500/BillText/er/PDF",
+   "status": "published",
+   "forms_cited": 138,
+   "forms_linked": 138,
+   "forms_cited_not_in_listing": [],
+   "citations_without_amount": 76,
+   "median_title_overlap": 0.8,
+   "weak_title_links": 22,
+   "weak_examples": [
+    {
+     "form": "1803",
+     "title": "LECOM",
+     "budget_text": " Specific Appropriation 66B, $1,691,010 in recurring appropriations project funds and $808,990 in nonrecurring appropriations project funds "
+    },
+    {
+     "form": "1065",
+     "title": "Lil Abner Foundation Community Family Center",
+     "budget_text": "ral Florida Zoo/Seminole Schools Education Collaborative (HB 3199)................................... 854,677 Li’l Abner Foundation Mission "
+    },
+    {
+     "form": "1178",
+     "title": "FAU/UCF- Robotics Teams",
+     "budget_text": " University Increasing Online Course Offerings (HB 2137)............. 1,000,000 Florida Atlantic University Secondary Robotics Team Support "
+    },
+    {
+     "form": "2277",
+     "title": "Sober Homes Task Force",
+     "budget_text": "he Fifteenth Judicial Circuit to investigate and prosecute criminal and regulatory violations within the substance abuse treatment industry "
+    },
+    {
+     "form": "2167",
+     "title": "Heiken Children's Vision Program",
+     "budget_text": "OP Formula Grant. From the funds in Specific Appropriation 447, $1,000,000 from the General Revenue Fund, of which $250,000 is nonrecurring "
+    },
+    {
+     "form": "1516",
+     "title": "Service Dogs for Florida-based Veterans",
+     "budget_text": " in Specific Appropriation 575A, the nonrecurring sum of $50,000 from the General Revenue Fund is provided for the K9s for Warriors program "
+    },
+    {
+     "form": "2194",
+     "title": "Prodigy Cultural Arts Program",
+     "budget_text": "ention, intervention, and diversion youth for 12 months after completing the program and submit the results to the department semi-annually "
+    },
+    {
+     "form": "1690",
+     "title": "Youth Directors Program Leadership Development Program &amp; Life After High School Program",
+     "budget_text": "unds is provided to the State of Florida Police Athletic/Activities League to provide leadership training in their Youth Director’s Program "
+    }
+   ],
+   "funded_or_pending": 138,
+   "veto_uncertain": 0,
+   "vetoed": 0,
+   "vetoed_by_title_only": 0,
+   "vetoed_amount": 0,
+   "veto_check": "pending",
+   "stage": "budget_link"
+  },
+  {
+   "state": "FL",
+   "fiscal_year": "FY2018-19",
+   "bill": "HB 5001",
+   "source": "https://www.flsenate.gov/Session/Bill/2018/5001/BillText/er/PDF",
+   "status": "published",
+   "forms_cited": 490,
+   "forms_linked": 490,
+   "forms_cited_not_in_listing": [],
+   "citations_without_amount": 109,
+   "median_title_overlap": 1.0,
+   "weak_title_links": 60,
+   "weak_examples": [
+    {
+     "form": "1611",
+     "title": "FKCC/KWCA Building",
+     "budget_text": ".......... 5,000,000 From the funds in Specific Appropriation 23, the Florida Keys College - Key West Collegiate Academy Classroom Facility "
+    },
+    {
+     "form": "1657",
+     "title": "JSA S.T.E.P. Program ~ Supportive Transition & Employment Placement",
+     "budget_text": "Form 1637)........................ 750,000 Jacksonville School for Autism - Strategies and Techniques for Effective Practice (STEP) Program "
+    },
+    {
+     "form": "1498",
+     "title": "LECOM Health Programs",
+     "budget_text": "n nonrecurring funds are appropriated for a base appropriations project for the Lake Erie College of Osteopathic Medicine (LECOM)/Bradenton "
+    },
+    {
+     "form": "2579",
+     "title": "Home Instruction for Parents of Preschool Youngsters (HIPPY)",
+     "budget_text": "018 LEGISLATURE ______________________________________________________________________________ SECTION 2 - EDUCATION (ALL OTHER FUNDS) Fund "
+    },
+    {
+     "form": "1695",
+     "title": "Help Me Grow Florida",
+     "budget_text": "From the funds in Specific Appropriation 84, $1,808,957 in recurring funds and $425,000 in nonrecurring funds from the General Revenue Fund "
+    },
+    {
+     "form": "1869",
+     "title": "Project Sea HORSE (Healing Opportunities and Resources in Secondary)",
+     "budget_text": "............. 200,000 Florida Children’s Initiative (HB 2729) (Senate Form 1662).. 600,000 Hernando County School District Project SeaHORSE "
+    },
+    {
+     "form": "1318",
+     "title": "Lake Technical College Center for Advanced Manufacturing Equipment",
+     "budget_text": "LATURE ______________________________________________________________________________ SECTION 2 - EDUCATION (ALL OTHER FUNDS) Manufacturing "
+    },
+    {
+     "form": "2565",
+     "title": "Hospital Inpatient & Outpatient Services Cancer Center Prospective Payment System Exemption",
+     "budget_text": " not available in the Grants and Donations Trust Fund, the State of Florida is not obligated to make payments under this section of proviso "
+    }
+   ],
+   "funded_or_pending": 490,
+   "veto_uncertain": 0,
+   "vetoed": 0,
+   "vetoed_by_title_only": 0,
+   "vetoed_amount": 0,
+   "veto_check": "pending",
+   "stage": "budget_link"
+  },
+  {
+   "state": "FL",
+   "fiscal_year": "FY2019-20",
+   "bill": "SB 2500",
+   "source": "https://www.flsenate.gov/Session/Bill/2019/2500/BillText/er/PDF",
+   "status": "published",
+   "forms_cited": 589,
+   "forms_linked": 589,
+   "forms_cited_not_in_listing": [],
+   "citations_without_amount": 113,
+   "median_title_overlap": 1.0,
+   "weak_title_links": 33,
+   "weak_examples": [
+    {
+     "form": "1359",
+     "title": "LECOM Health Programs",
+     "budget_text": "unds and $425,897 in nonrecurring appropriations funds are appropriated for the Lake Erie College of Osteopathic Medicine (LECOM)/Bradenton "
+    },
+    {
+     "form": "2596",
+     "title": "LiFT Academy/Fast Forward and Reading Assist",
+     "budget_text": "r the LiFT Academy, $25,000 is for the School Safety Program (Senate Form 2597) (HB 9121), $15,000 is for Assistive Technology for Students "
+    },
+    {
+     "form": "1969",
+     "title": "Edward W. Bok Academy Hurricane Relief Initiative",
+     "budget_text": "........ 500,000 Clay County Coppergate School of the Arts (Senate Form 2459) 625,000 Lake Wales Charter Schools - Hurricane Relief Funding "
+    },
+    {
+     "form": "1051",
+     "title": "Central FL Health GME Program Phase I",
+     "budget_text": "g funds from the General Revenue Fund is provided to the Leesburg Regional Medical Center to establish a Graduate Medical Education program "
+    },
+    {
+     "form": "2137",
+     "title": "Graduate Medical Education - Psychiatry",
+     "budget_text": " not available in the Grants and Donations Trust Fund, the State of Florida is not obligated to make payments under this section of proviso "
+    },
+    {
+     "form": "1076",
+     "title": "ASC's Inclusion Theatre Project (ITP)",
+     "budget_text": "_____________________________________________ SECTION 3 - HUMAN SERVICES Area Stage Company Developmental Disabilities Theater for Children "
+    },
+    {
+     "form": "1818",
+     "title": "ADE Culinary/Senior Services, persons wt dev. dis.",
+     "budget_text": "Club Challenge (Senate Form 2441)(HB 4205).................. 295,143 Association for the Development of the Exceptional - Culinary Training "
+    },
+    {
+     "form": "1798",
+     "title": "Easterseals Florida Life Skills & Employment-Readi",
+     "budget_text": "or Adult Learning & Support (Senate Form 2195)(HB 2597).............................. 1,000,000 Easterseals of Brevard and Collier Counties "
+    }
+   ],
+   "funded_or_pending": 589,
+   "veto_uncertain": 0,
+   "vetoed": 0,
+   "vetoed_by_title_only": 0,
+   "vetoed_amount": 0,
+   "veto_check": "pending",
+   "stage": "budget_link"
+  },
+  {
+   "state": "FL",
+   "fiscal_year": "FY2020-21",
+   "bill": "HB 5001",
+   "source": "https://www.flsenate.gov/Session/Bill/2020/5001/BillText/er/PDF",
+   "status": "published",
+   "forms_cited": 755,
+   "forms_linked": 754,
+   "forms_cited_not_in_listing": [
+    "2641"
+   ],
+   "citations_without_amount": 95,
+   "median_title_overlap": 1.0,
+   "weak_title_links": 41,
+   "weak_examples": [
+    {
+     "form": "1415",
+     "title": "M-DCPS Section 16 Land Sale",
+     "budget_text": "vided and approved in Item 6 of the agenda of the February 8, 2018, meeting of the Board of Trustees of the Internal Improvement Trust Fund "
+    },
+    {
+     "form": "1565",
+     "title": "The First Tee CHAMP (Comprehensive Health and Mentoring Program) for at-risk and Dev Disabled",
+     "budget_text": "ica, Inc. (HB 4885) (Senate Form 2511)...... 250,000 Tech Sassy Girlz (HB 9073) (Senate Form 1377)............. 250,000 The First Tee Champ "
+    },
+    {
+     "form": "1362",
+     "title": "Special Olympics Florida Unified Champion Schools",
+     "budget_text": "ion 115, $250,000 in recurring funds and $250,000 in nonrecurring funds from the General Revenue Fund are provided for the Special Olympics "
+    },
+    {
+     "form": "1874",
+     "title": "The Lotus House Women’s Shelter Education and Employment Program",
+     "budget_text": "D 1 2020 LEGISLATURE ______________________________________________________________________________ SECTION 2 - EDUCATION (ALL OTHER FUNDS) "
+    },
+    {
+     "form": "1465",
+     "title": "FAMU - Agriculture Research, Education and Training",
+     "budget_text": "llowing appropriations projects: Florida Agricultural and Mechanical University Brooksville Agricultural and Environmental Research Station "
+    },
+    {
+     "form": "1616",
+     "title": "UF Health Center for Translational Research in Neurodegenerative Disease",
+     "budget_text": "rring funds from the General Revenue Fund are provided for the following appropriations projects: Alzheimer’s Disease and Dementia Research "
+    },
+    {
+     "form": "2099",
+     "title": "Graduate Medical Education - Psychiatry",
+     "budget_text": " not available in the Grants and Donations Trust Fund, the State of Florida is not obligated to make payments under this section of proviso "
+    },
+    {
+     "form": "2356",
+     "title": "Graduate Medical Education - Tallahassee Memorial Healthcare",
+     "budget_text": " not available in the Grants and Donations Trust Fund, the State of Florida is not obligated to make payments under this section of proviso "
+    }
+   ],
+   "funded_or_pending": 754,
+   "veto_uncertain": 0,
+   "vetoed": 0,
+   "vetoed_by_title_only": 0,
+   "vetoed_amount": 0,
+   "veto_check": "pending",
+   "stage": "budget_link"
+  },
+  {
+   "state": "FL",
+   "fiscal_year": "FY2021-22",
+   "bill": "SB 2500",
+   "source": "https://www.flsenate.gov/Session/Bill/2021/2500/BillText/er/PDF",
+   "status": "published",
+   "forms_cited": 664,
+   "forms_linked": 664,
+   "forms_cited_not_in_listing": [],
+   "citations_without_amount": 93,
+   "median_title_overlap": 1.0,
+   "weak_title_links": 30,
+   "weak_examples": [
+    {
+     "form": "1022",
+     "title": "The WOW Center - Education, Internships and Trainings for Future Workforce Success",
+     "budget_text": "ansition & Employment Placement (Senate Form 1285) (HB 2209)............................................... 250,000 The WOW Center of Miami "
+    },
+    {
+     "form": "1888",
+     "title": "BLUE Missions CauseClass Program",
+     "budget_text": " . . 12,964,983 From the funds in Specific Appropriation 106, nonrecurring funds are provided for the following: Blue Mission Reach Program "
+    },
+    {
+     "form": "1680",
+     "title": "Special Olympics Florida - Unified Champion Schools Program",
+     "budget_text": "ion 111, $250,000 in recurring funds and $250,000 in nonrecurring funds from the General Revenue Fund are provided for the Special Olympics "
+    },
+    {
+     "form": "2002",
+     "title": "Centro Mater Immersive After School/School Recess Program",
+     "budget_text": "tina - Foster Care to Independent Living (Senate Form 1870)(HB 3567)............................. 175,000 Centro Mater - Child Care Program "
+    },
+    {
+     "form": "2007",
+     "title": "Faith Community Based Innovation Grant for Grace Landing",
+     "budget_text": "round Support and Jail Diversion Services (HB 3895)...................................... 300,500 Grace Landing - Caregiver Support Program "
+    },
+    {
+     "form": "1704",
+     "title": "GFNF4kids Okeechobee and Treasure Coast Child Advocacy Center",
+     "budget_text": "$1,351,230 in nonrecurring funds from the General Revenue Fund is provided for the Guardians for New Futures 4Kids Advocacy Center Facility "
+    },
+    {
+     "form": "2019",
+     "title": "Equifax Workforce Solutions - Automated Employment and Income Verification Services",
+     "budget_text": "the eligibility determination process to detect and deter fraud, waste, and abuse in public benefit programs administered by the department "
+    },
+    {
+     "form": "1556",
+     "title": "Department of Children and Families Extended-Release Injectable Naltrexone Program",
+     "budget_text": "unds from the General Revenue Fund (recurring base appropriations project) and $500,000 in nonrecurring funds from the General Revenue Fund "
+    }
+   ],
+   "funded_or_pending": 664,
+   "veto_uncertain": 0,
+   "vetoed": 0,
+   "vetoed_by_title_only": 0,
+   "vetoed_amount": 0,
+   "veto_check": "pending",
+   "stage": "budget_link"
+  },
+  {
+   "state": "FL",
+   "fiscal_year": "FY2022-23",
+   "bill": "HB 5001",
+   "source": "https://www.flsenate.gov/Session/Bill/2022/5001/BillText/er/PDF",
+   "status": "published",
+   "forms_cited": 1144,
+   "forms_linked": 1144,
+   "forms_cited_not_in_listing": [],
+   "citations_without_amount": 132,
+   "median_title_overlap": 1.0,
+   "weak_title_links": 56,
+   "weak_examples": [
+    {
+     "form": "1098",
+     "title": "Maintaining Independence for the Blind",
+     "budget_text": "ation of Agencies Serving the Blind (HB 3491) (Senate Form 2631)................................ 500,000 Lighthouse for the Blind - Collier "
+    },
+    {
+     "form": "2690",
+     "title": "Circle of Love Empowers Women And Girls DBA Youth of Valor Empowerment (YOVE)",
+     "budget_text": "Reads (HB 2065) (Senate Form 1129)................................................... 500,000 Youth Of Valor Empowerment (Y.O.V.E.) Program "
+    },
+    {
+     "form": "1686",
+     "title": "Special Olympics Florida Unified Champions School",
+     "budget_text": " (Senate Form 1188)............................ 300,000 Learning Through Listening (HB 4863) (Senate Form 2259)... 593,044 Special Olympics "
+    },
+    {
+     "form": "2681",
+     "title": "UF Health Shands Indigent Care Expansion",
+     "budget_text": " Revenue Fund and $1,000,000 from the Grants and Donations Trust Fund, and the nonrecurring sum of $6,000,000 from the General Revenue Fund "
+    },
+    {
+     "form": "1670",
+     "title": "Graduate Medical Education-Psychiatry",
+     "budget_text": " not available in the Grants and Donations Trust Fund, the State of Florida is not obligated to make payments under this section of proviso "
+    },
+    {
+     "form": "1314",
+     "title": "Easterseals Better Together - improving autism statewide by sharing affiliate innovations and",
+     "budget_text": "ic Appropriation 243, nonrecurring funds from the General Revenue Fund are provided for the following projects: Easterseals Better Together "
+    },
+    {
+     "form": "1021",
+     "title": "Adults with Disabilities",
+     "budget_text": "D 1 2022 LEGISLATURE ______________________________________________________________________________ SECTION 3 - HUMAN SERVICES Disabilities "
+    },
+    {
+     "form": "2702",
+     "title": "Louise Graham Training and Employment for Adults with Developmental Disabilities",
+     "budget_text": "__________________________________________________________ SECTION 3 - HUMAN SERVICES Louise Graham Regeneration Center - Adult Day Program "
+    }
+   ],
+   "funded_or_pending": 1144,
+   "veto_uncertain": 0,
+   "vetoed": 0,
+   "vetoed_by_title_only": 0,
+   "vetoed_amount": 0,
+   "veto_check": "pending",
+   "stage": "budget_link"
+  },
+  {
+   "state": "FL",
+   "fiscal_year": "FY2023-24",
+   "bill": "SB 2500",
+   "source": "https://www.flsenate.gov/Session/Bill/2023/2500/BillText/er/PDF",
+   "status": "published",
+   "forms_cited": 1504,
+   "forms_linked": 1504,
+   "forms_cited_not_in_listing": [],
+   "citations_without_amount": 128,
+   "median_title_overlap": 1.0,
+   "weak_title_links": 39,
+   "weak_examples": [
+    {
+     "form": "1507",
+     "title": "Daytona State College Law Enforcement & Emergency Services Training Center",
+     "budget_text": " 1506) (HF 0883)............................................... 3,346,721 Tactical Training Pavilion & P.T. Training Course - DeLand Campus "
+    },
+    {
+     "form": "3207",
+     "title": "South Florida State College Renovation Swimming Pool",
+     "budget_text": "ROSSED ______________________________________________________________________________ SECTION 2 - EDUCATION (ALL OTHER FUNDS) Swimming Pool "
+    },
+    {
+     "form": "1036",
+     "title": "University of South Florida Sarasota-Manatee Campus Academic STEM Nursing Facility",
+     "budget_text": "00, SECOND ENGROSSED ______________________________________________________________________________ SECTION 2 - EDUCATION (ALL OTHER FUNDS) "
+    },
+    {
+     "form": "2952",
+     "title": "Help Me Grow Florida (HMGF)",
+     "budget_text": "ecific Appropriation 76, $1,808,957 in recurring funds from the General Revenue Fund (recurring base appropriations project) and $2,691,043 "
+    },
+    {
+     "form": "2435",
+     "title": "Enrich Cultural Experience",
+     "budget_text": "ring & Public Works (SF 2940) (HF 2029)............................... 150,000 ARI/Big Bend Historical and Archaeological Education Project "
+    },
+    {
+     "form": "1362",
+     "title": "Graduate Medical Education-Psychiatry",
+     "budget_text": " not available in the Grants and Donations Trust Fund, the State of Florida is not obligated to make payments under this section of proviso "
+    },
+    {
+     "form": "1731",
+     "title": "Family First - All Pro Dad - Adoption & Foster Care Promotion",
+     "budget_text": " 2500, SECOND ENGROSSED ______________________________________________________________________________ SECTION 3 - HUMAN SERVICES Promotion "
+    },
+    {
+     "form": "1283",
+     "title": "Department of Children and Families Extended-release Injectable Naltrexone (Vivitrol) Program",
+     "budget_text": "the General Revenue Fund (recurring base appropriations project) and $2,000,000 in nonrecurring funds from the Opioid Settlement Trust Fund "
+    }
+   ],
+   "funded_or_pending": 1504,
+   "veto_uncertain": 0,
+   "vetoed": 0,
+   "vetoed_by_title_only": 0,
+   "vetoed_amount": 0,
+   "veto_check": "pending",
+   "stage": "budget_link"
+  },
+  {
+   "state": "FL",
+   "fiscal_year": "FY2024-25",
+   "bill": "HB 5001",
+   "source": "https://www.flsenate.gov/Session/Bill/2024/5001/BillText/er/PDF",
+   "status": "published",
+   "forms_cited": 1490,
+   "forms_linked": 1490,
+   "forms_cited_not_in_listing": [],
+   "citations_without_amount": 110,
+   "median_title_overlap": 1.0,
+   "weak_title_links": 34,
+   "weak_examples": [
+    {
+     "form": "1423",
+     "title": "The Last Ones: Documenting the Legacy of the Last Holocaust Survivors",
+     "budget_text": "00,000 Temple Beth-El St. Petersburg Security Initiative (HF 1723) (SF 1946)......................................... 200,000 The Last Ones "
+    },
+    {
+     "form": "1083",
+     "title": "Graduate Medical Education-Psychiatry",
+     "budget_text": " not available in the Grants and Donations Trust Fund, the State of Florida is not obligated to make payments under this section of proviso "
+    },
+    {
+     "form": "1972",
+     "title": "ADE - Culinary Academy and Senior Program for Adults with Autism and Developmental Disabilities",
+     "budget_text": "m (HF 2890) (SF 1707)..................... 175,000 Association for the Development of the Exceptional - Culinary Academy and Senior Program "
+    },
+    {
+     "form": "1098",
+     "title": "BARC-SAFE Haven Project (Suitable, Accessible, Friendly Environment) for Dev Disabled",
+     "budget_text": " Coast - Therapeutic Intervention Program Center (HF 1387) (SF 1481)...................... 1,000,000 Barc Housing - BARC SAFE Haven Project "
+    },
+    {
+     "form": "2348",
+     "title": "Nancy Detert Residential Community Phase II",
+     "budget_text": "ties - Commercial Kitchen Renovation (HF 1738) (SF 2636).......................... 375,000 Senator Nancy C. Detert Home of Your Own Project "
+    },
+    {
+     "form": "3137",
+     "title": "Shelter for Homeless - The Rahab Project",
+     "budget_text": " of Central Florida - Food Cost Mitigation Project (HF 1379) (SF 2628).................. 561,776 The House of Israel - Homelessness Support "
+    },
+    {
+     "form": "3219",
+     "title": "Furnishing Basic Stability for Children",
+     "budget_text": "137)................................................... 150,000 The Mustard Seed of Central Florida - Housing Needs for Low Income Families "
+    },
+    {
+     "form": "1297",
+     "title": "Mental Health Crisis Response through Peer Navigation",
+     "budget_text": "............. 175,000 NAMI Family and Peer Support (HF 3531) (SF 2425).......... 500,000 NAMI Sarasota and Manatee - Family Peer Navigation "
+    }
+   ],
+   "funded_or_pending": 1490,
+   "veto_uncertain": 0,
+   "vetoed": 0,
+   "vetoed_by_title_only": 0,
+   "vetoed_amount": 0,
+   "veto_check": "pending",
+   "stage": "budget_link"
+  },
+  {
+   "state": "FL",
+   "fiscal_year": "FY2025-26",
+   "bill": "SB 2500",
+   "source": "https://www.flsenate.gov/Session/Bill/2025/2500/BillText/er/PDF",
+   "status": "published",
+   "forms_cited": 1636,
+   "forms_linked": 1635,
+   "forms_cited_not_in_listing": [
+    "3624"
+   ],
+   "citations_without_amount": 118,
+   "median_title_overlap": 1.0,
+   "weak_title_links": 24,
+   "weak_examples": [
+    {
+     "form": "2929",
+     "title": "Gadsden New K-8 School Construction Additional Funding Request",
+     "budget_text": " School (Year 1 of 3)......................... 250,000 DeSoto High School (Year 1 of 3) (HF 1705)................ 36,307,690 Gadsden PreK-8 "
+    },
+    {
+     "form": "1270",
+     "title": "CodeBoxx Technology Academy: A Pathway to a Better Future",
+     "budget_text": "n and Workforce Training Program (SF 3306)....................................... 350,000 CodeBoxx: Building Florida’s Technology Workforce "
+    },
+    {
+     "form": "1559",
+     "title": "Amigos CRADLE (Caring Resources to Aid Development, Learning & Empowerment) Program",
+     "budget_text": "ldren’s Foundation - Campus of Hope and Healing (SF 1119) (HF 1085)............................. 1,500,000 Amigos For Kids - CRADLE Program "
+    },
+    {
+     "form": "3099",
+     "title": "Baker Senior Center Naples Geriatric Mental Health Services",
+     "budget_text": "SB 2500, FIRST ENGROSSED ______________________________________________________________________________ SECTION 3 - HUMAN SERVICES Services "
+    },
+    {
+     "form": "3075",
+     "title": "Florida Lions Eye Clinic, Inc. - Free Eye Care for Florida Residence",
+     "budget_text": "FIRST ENGROSSED ______________________________________________________________________________ SECTION 3 - HUMAN SERVICES Florida Residence "
+    },
+    {
+     "form": "2496",
+     "title": "Continuum of Care for Enhanced Offender Rehabilitation",
+     "budget_text": " these recidivism reduction programs in place, the above referenced facilities shall be known as Correctional and Rehabilitation Facilities "
+    },
+    {
+     "form": "1129",
+     "title": "Retention Plan for DJJ Contracted Direct-Care Staff",
+     "budget_text": "tial programs, prevention programs, and juvenile assessment center screening programs in order to help reduce turnover and retain employees "
+    },
+    {
+     "form": "1498",
+     "title": "UF/IFAS Fertilizer Application Rate Study",
+     "budget_text": "tions Committee. The reports must include progress made to date, planned and actual completion dates, and planned and actual costs incurred "
+    }
+   ],
+   "funded_or_pending": 1635,
+   "veto_uncertain": 0,
+   "vetoed": 0,
+   "vetoed_by_title_only": 0,
+   "vetoed_amount": 0,
+   "veto_check": "pending",
+   "stage": "budget_link"
+  },
+  {
+   "state": "FL",
+   "fiscal_year": "FY2026-27",
+   "bill": "HB 5001-E",
+   "source": "https://www.flsenate.gov/Session/Bill/2026E/5001E/BillText/er/PDF",
+   "status": "published",
+   "forms_cited": 1854,
+   "forms_linked": 1854,
+   "forms_cited_not_in_listing": [],
+   "citations_without_amount": 83,
+   "median_title_overlap": 1.0,
+   "weak_title_links": 37,
+   "weak_examples": [
+    {
+     "form": "1528",
+     "title": "FAMU: College of Pharmacy and Pharmaceutical Sciences",
+     "budget_text": "e of Engineering Building C (HF 3779) (SF 1542)..... 91,975,000 FLORIDA A & M UNIVERSITY Chemical and Biological Research Laboratory Center "
+    },
+    {
+     "form": "2399",
+     "title": "University of Florida - Hamilton School Building Additional Space Renovation",
+     "budget_text": "SF 3716) 20,000,000 Dental Sciences Building (HF 3706)........................ 20,000,000 Hamilton Center for Classical and Civic Education "
+    },
+    {
+     "form": "1426",
+     "title": "Gadsden New K-8 School Construction Additional Funding Request",
+     "budget_text": "................... 1,818,742 DeSoto County - DeSoto High School (Year 2) (HF 1912)..... 36,307,690 Gadsden County - PreK-8 School (Year 4) "
+    },
+    {
+     "form": "1279",
+     "title": "Firefighting Program at Cocoa High School",
+     "budget_text": "026 LEGISLATURE ______________________________________________________________________________ SECTION 2 - EDUCATION (ALL OTHER FUNDS) High "
+    },
+    {
+     "form": "1062",
+     "title": "Arc Broward Skills Training - Adults with Disabilities (AWD)",
+     "budget_text": "00 in recurring funds and $225,000 in nonrecurring funds are provided for the Inclusive Transition and Employment Management Program (ITEM) "
+    },
+    {
+     "form": "2146",
+     "title": "Greater Miami Jewish Federation - Miami Alliance Against Antisemitism",
+     "budget_text": "GISLATURE ______________________________________________________________________________ SECTION 2 - EDUCATION (ALL OTHER FUNDS) Initiative "
+    },
+    {
+     "form": "2000",
+     "title": "University of Central Florida - RESTORES PTSD Clinic for Florida's Veterans & First Responders",
+     "budget_text": "GISLATURE ______________________________________________________________________________ SECTION 2 - EDUCATION (ALL OTHER FUNDS) Responders "
+    },
+    {
+     "form": "1004",
+     "title": "ADE INC - CULINARY ACADEMY AND SENIOR PROGRAM FOR ADULTS WITH AUTISM and DEVELOPMENTAL DISABILITIES",
+     "budget_text": "............................................... 49,500 Association for Development of the Exceptional - Culinary Academy and Senior Program "
+    }
+   ],
+   "funded_or_pending": 1362,
+   "veto_uncertain": 14,
+   "vetoed": 478,
+   "vetoed_by_title_only": 4,
+   "vetoed_amount": 289285677,
+   "veto_check": "applied",
+   "stage": "budget_link"
+  },
+  {
+   "state": "DE",
+   "fiscal_year": "FY2027",
+   "source": "https://legis.delaware.gov/BillDetail?LegislationId=143661",
+   "bill": "SB 337",
+   "status": "published",
+   "reconcile": {
+    "sections": {
+     "1": {
+      "printed": 40534269,
+      "parsed": 40534269,
+      "difference": 0
+     },
+     "2": {
+      "printed": 42346157,
+      "parsed": 42346157,
+      "difference": 0
+     },
+     "3": {
+      "printed": 15541500,
+      "parsed": 15541500,
+      "difference": 0
+     },
+     "4": {
+      "printed": 985125,
+      "parsed": 985125,
+      "difference": 0
+     }
+    },
+    "grand_printed": 99407051,
+    "ok": true,
+    "grand_parsed": 99407051
+   },
+   "records": 815,
+   "document": "Signed session law",
+   "pdf": "https://legis.delaware.gov/SessionLaws/Chapter/GetPdfDocument?fileAttachmentId=657875"
+  },
+  {
+   "state": "DE",
+   "fiscal_year": "FY2026",
+   "source": "https://legis.delaware.gov/BillDetail?LegislationId=142646",
+   "bill": "HB 230",
+   "status": "published",
+   "reconcile": {
+    "sections": {
+     "1": {
+      "printed": 37093119,
+      "parsed": 37093119,
+      "difference": 0
+     },
+     "2": {
+      "printed": 47093493,
+      "parsed": 47093493,
+      "difference": 0
+     },
+     "3": {
+      "printed": 13258013,
+      "parsed": 13258013,
+      "difference": 0
+     },
+     "4": {
+      "printed": 839000,
+      "parsed": 839000,
+      "difference": 0
+     }
+    },
+    "grand_printed": 98283625,
+    "ok": true,
+    "grand_parsed": 98283625
+   },
+   "records": 791,
+   "document": "Signed session law",
+   "pdf": "https://legis.delaware.gov/SessionLaws/Chapter/GetPdfDocument?fileAttachmentId=650671"
+  },
+  {
+   "state": "DE",
+   "fiscal_year": "FY2025",
+   "source": "https://legis.delaware.gov/BillDetail/141695",
+   "bill": "SB 327",
+   "status": "published",
+   "reconcile": {
+    "sections": {
+     "1": {
+      "printed": 34521948,
+      "parsed": 34521948,
+      "difference": 0
+     },
+     "2": {
+      "printed": 51643425,
+      "parsed": 51643425,
+      "difference": 0
+     },
+     "3": {
+      "printed": 11634433,
+      "parsed": 11634433,
+      "difference": 0
+     },
+     "4": {
+      "printed": 698220,
+      "parsed": 698220,
+      "difference": 0
+     }
+    },
+    "grand_printed": 98498026,
+    "ok": true,
+    "grand_parsed": 98498026
+   },
+   "records": 802,
+   "document": "Signed session law",
+   "pdf": "https://legis.delaware.gov/SessionLaws/Chapter/GetPdfDocument?fileAttachmentId=644845"
+  },
+  {
+   "state": "DE",
+   "fiscal_year": "FY2024",
+   "source": "https://legis.delaware.gov/BillDetail?LegislationId=140762",
+   "bill": "HB 197",
+   "status": "held_back",
+   "reconcile": {
+    "sections": {
+     "1": {
+      "printed": 29361705,
+      "parsed": 29361705,
+      "difference": 0
+     },
+     "2": {
+      "printed": 31912877,
+      "parsed": 31912877,
+      "difference": 0
+     },
+     "3": {
+      "printed": 9451,
+      "parsed": 6318351,
+      "difference": 6308900
+     }
+    },
+    "grand_printed": 71992624,
+    "ok": false,
+    "grand_parsed": 139585980
+   },
+   "records": 748,
+   "document": "Signed session law",
+   "pdf": "https://legis.delaware.gov/SessionLaws/Chapter/GetPdfDocument?fileAttachmentId=628742"
+  },
+  {
+   "state": "DE",
+   "fiscal_year": "FY2023",
+   "source": "https://legis.delaware.gov/BillDetail?LegislationId=129856",
+   "bill": "SB 252",
+   "status": "held_back",
+   "reconcile": {
+    "sections": {},
+    "grand_printed": 69393906,
+    "ok": false,
+    "grand_parsed": 0
+   },
+   "records": 0,
+   "document": "Signed session law",
+   "pdf": "https://legis.delaware.gov/SessionLaws/Chapter/GetPdfDocument?fileAttachmentId=573029"
+  },
+  {
+   "state": "DE",
+   "fiscal_year": "FY2022",
+   "source": "https://legis.delaware.gov/BillDetail?LegislationId=79013",
+   "bill": "HB 265",
+   "status": "published",
+   "reconcile": {
+    "sections": {
+     "1": {
+      "printed": 27599217,
+      "parsed": 27599217,
+      "difference": 0
+     },
+     "2": {
+      "printed": 28158601,
+      "parsed": 28158601,
+      "difference": 0
+     },
+     "3": {
+      "printed": 7059096,
+      "parsed": 7059096,
+      "difference": 0
+     },
+     "4": {
+      "printed": 431348,
+      "parsed": 431348,
+      "difference": 0
+     }
+    },
+    "grand_printed": 63248262,
+    "ok": true,
+    "grand_parsed": 63248262
+   },
+   "records": 744,
+   "document": "Signed session law",
+   "pdf": "https://legis.delaware.gov/SessionLaws/Chapter/GetPdfDocument?fileAttachmentId=402295"
+  },
+  {
+   "state": "DE",
+   "fiscal_year": "FY2021",
+   "source": "https://legis.delaware.gov/BillDetail?LegislationId=48180",
+   "bill": "SB 260",
+   "status": "published",
+   "reconcile": {
+    "sections": {
+     "1": {
+      "printed": 26692375,
+      "parsed": 26692375,
+      "difference": 0
+     },
+     "2": {
+      "printed": 20467399,
+      "parsed": 20467399,
+      "difference": 0
+     },
+     "3": {
+      "printed": 6940706,
+      "parsed": 6940706,
+      "difference": 0
+     },
+     "4": {
+      "printed": 354318,
+      "parsed": 354318,
+      "difference": 0
+     }
+    },
+    "grand_printed": 54454798,
+    "ok": true,
+    "grand_parsed": 54454798
+   },
+   "records": 693,
+   "document": "Signed session law",
+   "pdf": "https://legis.delaware.gov/SessionLaws/Chapter/GetPdfDocument?fileAttachmentId=353524"
+  },
+  {
+   "state": "DE",
+   "fiscal_year": "FY2020",
+   "source": "https://legis.delaware.gov/BillDetail?legislationId=47901",
+   "bill": "HB 260",
+   "status": "held_back",
+   "reconcile": {
+    "sections": {
+     "1": {
+      "printed": 25814321,
+      "parsed": 25814321,
+      "difference": 0
+     },
+     "2": {
+      "printed": 21951119,
+      "parsed": 21951119,
+      "difference": 0
+     },
+     "3": {
+      "printed": 6929686,
+      "parsed": 6929698,
+      "difference": 12
+     },
+     "4": {
+      "printed": 358646,
+      "parsed": 358646,
+      "difference": 0
+     }
+    },
+    "grand_printed": 55053772,
+    "ok": false,
+    "grand_parsed": 55053784
+   },
+   "records": 734,
+   "document": "Signed session law",
+   "pdf": "https://legis.delaware.gov/SessionLaws/Chapter/GetPdfDocument?fileAttachmentId=353724"
+  },
+  {
+   "state": "DE",
+   "fiscal_year": "FY2019",
+   "source": "https://legis.delaware.gov/BillDetail?LegislationId=27026",
+   "bill": "SB 237",
+   "status": "published",
+   "reconcile": {
+    "sections": {
+     "1": {
+      "printed": 24685721,
+      "parsed": 24685721,
+      "difference": 0
+     },
+     "2": {
+      "printed": 20386744,
+      "parsed": 20386744,
+      "difference": 0
+     },
+     "3": {
+      "printed": 6760542,
+      "parsed": 6760542,
+      "difference": 0
+     },
+     "4": {
+      "printed": 312631,
+      "parsed": 312631,
+      "difference": 0
+     }
+    },
+    "grand_printed": 52145638,
+    "ok": true,
+    "grand_parsed": 52145638
+   },
+   "records": 730,
+   "document": "Signed session law",
+   "pdf": "https://legis.delaware.gov/SessionLaws/Chapter/GetPdfDocument?fileAttachmentId=354158"
+  },
+  {
+   "state": "DE",
+   "fiscal_year": "FY2018",
+   "source": "https://legis.delaware.gov/BillDetail?legislationId=26140",
+   "bill": "HB 281",
+   "status": "held_back",
+   "reconcile": {
+    "sections": {
+     "1": {
+      "printed": 18608587,
+      "parsed": 31493237,
+      "difference": 12884650
+     },
+     "2": {
+      "printed": 13684001,
+      "parsed": 13714001,
+      "difference": 30000
+     },
+     "3": {
+      "printed": 4712084,
+      "parsed": 4712084,
+      "difference": 0
+     },
+     "4": {
+      "printed": 244233,
+      "parsed": 244233,
+      "difference": 0
+     }
+    },
+    "grand_printed": 37248905,
+    "ok": false,
+    "grand_parsed": 50163555
+   },
+   "records": 689,
+   "document": "Signed session law",
+   "pdf": "https://legis.delaware.gov/SessionLaws/Chapter/GetPdfDocument?fileAttachmentId=353933"
+  },
+  {
+   "state": "DE",
+   "fiscal_year": "FY2017",
+   "source": "https://legis.delaware.gov/BillDetail?LegislationId=24174",
+   "bill": "SB 295",
+   "status": "held_back",
+   "reconcile": {
+    "sections": {
+     "1": {
+      "printed": 23228686,
+      "parsed": 39270402,
+      "difference": 16041716
+     },
+     "2": {
+      "printed": 16470687,
+      "parsed": 16900687,
+      "difference": 430000
+     },
+     "3": {
+      "printed": 5889906,
+      "parsed": 5889906,
+      "difference": 0
+     },
+     "4": {
+      "printed": 305287,
+      "parsed": 305287,
+      "difference": 0
+     }
+    },
+    "grand_printed": null,
+    "ok": false,
+    "grand_parsed": 62366282
+   },
+   "records": 703,
+   "document": "Signed session law",
+   "pdf": "https://legis.delaware.gov/SessionLaws/Chapter/GetPdfDocument?fileAttachmentId=354566"
+  },
+  {
+   "state": "LA",
+   "fiscal_year": "2026 Regular Session",
+   "source": "https://www.legis.la.gov/legis/NGO/NgoSearch.aspx?s=26RS",
+   "status": "unreachable",
+   "reason": "<urlopen error [Errno 11001] getaddrinfo failed>"
+  },
+  {
+   "state": "FL",
+   "fiscal_year": "FY2026-27",
+   "stage": "forms",
+   "status": "published",
+   "records": 38,
+   "listed": 2808,
+   "parse_errors": 0,
+   "errors": []
+  }
+ ],
+ "stale_sources": [],
+ "checked": "2026-11-05",
+ "changes": {
+  "new": [],
+  "new_count": 0,
+  "changed_count": 0,
+  "removed_count": 0
+ }
+}

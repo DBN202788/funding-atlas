@@ -1,0 +1,971 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><meta charset="UTF-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="author" content="Delaware&#32;Legislature" /><link href="/Content/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" /><link href="/Content/css/Kendo-2024.4.1112/font-icons/index.css" rel="stylesheet" /><link href="/Content/css/Kendo-2024.4.1112/bootstrap-main.css" rel="stylesheet" /><link rel="stylesheet" href="/Content/css/styles.css" /><link rel="stylesheet" href="/Content/css/yammcessible.css" /><link rel="stylesheet" href="/Content/css/selectbox.css" /><link rel="stylesheet" href="https://cdn.botframework.com/botframework-webchat/latest/botchat.css" /><link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet" type="text/css" />
+
+    
+    <script type="text/javascript" src="/Content/scripts/jquery-3.7.1-min.js"></script>
+    <script type="text/javascript" src="/Content/scripts/jquery-3.4.1-min-migrate.js"></script>
+    <script type="text/javascript" src="/Content/scripts/jquery-ui-custom.min.js"></script>
+
+    
+    <script type="text/javascript" src="/Content/scripts/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript" src="/Content/scripts/jquery-yammcessible.js"></script>
+    <script type="text/javascript" src="/Content/scripts/jquery.customselect.js"></script>
+
+    <script type="text/javascript" src="https://cdn.botframework.com/botframework-webchat/latest/botchat-es5.js"></script>
+
+    
+    
+
+    <script type="text/javascript" src="/content/scripts/kendo-2024.4.1112/kendo.all.min.js"></script>
+    <script type="text/javascript" src="/content/scripts/kendo-2024.4.1112/kendo.aspnetmvc.min.js"></script>
+    <script type="text/javascript" src="/content/scripts/kendo-2024.4.1112/telerik-License.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-85909261-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    <!-- End Google Analytics -->
+
+    <!-- AppDynamics -->
+    
+    <!-- End AppDynamics -->
+<meta name="Generator" content="Sitefinity&#32;15.4.8637.0&#32;DX" /><link rel="canonical" href="https://legis.delaware.gov/Offices/ControllerGeneral/AppropriationBills" /><title>
+	Budget / Appropriation Bills - Delaware General Assembly
+</title></head>
+<body>
+    <div id="debug_test"></div>
+    <a href="#content" class="skip">Skip to Content</a>
+    <form method="post" action="./AppropriationBills" id="form1">
+<input type="hidden" name="ctl13_TSM" id="ctl13_TSM" value="" />
+<input type="hidden" name="ctl14_TSSM" id="ctl14_TSSM" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="FKJECud2qfFwwk8vVa8gaEgpzWikQbLr+RhG7tQkUY6WkQL2er7GQmZ0e8gLTzC3NR0AzpDwlarPA2zCBlKsIG7O3rK3iridQCq21I+NA7U=" />
+
+
+<script type="text/javascript">
+//<![CDATA[
+var __cultureInfo = {"name":"en","numberFormat":{"CurrencyDecimalDigits":2,"CurrencyDecimalSeparator":".","IsReadOnly":true,"CurrencyGroupSizes":[3],"NumberGroupSizes":[3],"PercentGroupSizes":[3],"CurrencyGroupSeparator":",","CurrencySymbol":"$","NaNSymbol":"NaN","CurrencyNegativePattern":0,"NumberNegativePattern":1,"PercentPositivePattern":1,"PercentNegativePattern":1,"NegativeInfinitySymbol":"-∞","NegativeSign":"-","NumberDecimalDigits":2,"NumberDecimalSeparator":".","NumberGroupSeparator":",","CurrencyPositivePattern":0,"PositiveInfinitySymbol":"∞","PositiveSign":"+","PercentDecimalDigits":2,"PercentDecimalSeparator":".","PercentGroupSeparator":",","PercentSymbol":"%","PerMilleSymbol":"‰","NativeDigits":["0","1","2","3","4","5","6","7","8","9"],"DigitSubstitution":1},"dateTimeFormat":{"AMDesignator":"AM","Calendar":{"MinSupportedDateTime":"\/Date(-62135578800000)\/","MaxSupportedDateTime":"\/Date(253402300799999)\/","AlgorithmType":1,"CalendarType":1,"Eras":[1],"TwoDigitYearMax":2049,"IsReadOnly":true},"DateSeparator":"/","FirstDayOfWeek":0,"CalendarWeekRule":0,"FullDateTimePattern":"dddd, MMMM d, yyyy h:mm:ss tt","LongDatePattern":"dddd, MMMM d, yyyy","LongTimePattern":"h:mm:ss tt","MonthDayPattern":"MMMM d","PMDesignator":"PM","RFC1123Pattern":"ddd, dd MMM yyyy HH\u0027:\u0027mm\u0027:\u0027ss \u0027GMT\u0027","ShortDatePattern":"M/d/yyyy","ShortTimePattern":"h:mm tt","SortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd\u0027T\u0027HH\u0027:\u0027mm\u0027:\u0027ss","TimeSeparator":":","UniversalSortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd HH\u0027:\u0027mm\u0027:\u0027ss\u0027Z\u0027","YearMonthPattern":"MMMM yyyy","AbbreviatedDayNames":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"ShortestDayNames":["Su","Mo","Tu","We","Th","Fr","Sa"],"DayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"AbbreviatedMonthNames":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",""],"MonthNames":["January","February","March","April","May","June","July","August","September","October","November","December",""],"IsReadOnly":true,"NativeCalendarName":"Gregorian Calendar","AbbreviatedMonthGenitiveNames":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",""],"MonthGenitiveNames":["January","February","March","April","May","June","July","August","September","October","November","December",""]},"eras":[1,"A.D.",null,0]};//]]>
+</script>
+
+<script src="/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl13_TSM&amp;compress=0&amp;_TSM_CombinedScripts_=%3B%3BSystem.Web.Extensions%2C%20Version%3D4.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3D31bf3856ad364e35%3Aen%3A39dc0f0b-b5e9-4901-bc67-ede7f0e4b1cd%3Aea597d4b" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="281029ED" /><input type="hidden" name="ctl00$ctl13" id="ctl13" />
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.setServerId("ctl13", "ctl00$ctl13");
+Sys.Application._enableHistoryInScriptManager();
+//]]>
+</script>
+
+        <div class="page-container">
+            <div>
+                
+<div class="container container-header">
+    <div class="row">
+        <header class="clearfix">
+            <div class="col-12 col-sm-15 col-lg-16">
+                <noindex><h1><a href="/" title="Return to Delaware General Assembly home page">Delaware General Assembly</a></h1></noindex>
+                <div class="mobile-toggles d-lg-none">
+                    <button type="button" class="search-toggle" data-toggle="collapse" data-target="#header-search-collapse">
+                        <noindex><span class="sr-only">Toggle search</span></noindex>
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#de-navbar-collapse-1">
+                        <noindex><span class="sr-only">Toggle navigation</span></noindex>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+            </div>
+            <div id="header-search-collapse" class="col-12 col-sm-9 col-lg-8 search-collapse collapse">
+                <noindex>
+    <div class="input-group">
+        <label class="sr-only" for="srch-term">Enter search terms</label>
+        <input type="text" class="form-control" placeholder="Enter Bill Number, Legislator, or Keyword" name="srch-term" id="srch-term">
+        <a href="/HowToSearch" class="btn btn--help" aria-label="HowToSearch">
+            <span class="bi bi-question-circle-fill" title="How do I search the Delaware General Assembly?"></span>
+        </a>
+        <button class="btn" type="button" onclick="submitSearch(event)"><i class="bi bi-search"></i><span class="sr-only">Search site</span></button>
+    </div>
+    <div id="globalInvalidSearchMessage" class="globalSearchWrap validGlobalSearch" style="display: none;"><div class="globalSearchText">Invalid character in search term. Please revise and try again.</div></div>
+</noindex>
+
+<script type="text/javascript">
+    $("document").ready(function () {
+        $("#srch-term").keyup(function (event) {
+            if (event.which == 13) {
+                submitSearch(event);
+            }
+			});
+
+			$(function () {
+				$('[data-toggle="tooltip"]').tooltip();
+			});
+    });
+
+    function submitSearch(event) {
+        event.preventDefault();
+        var searchTerm = document.getElementById('srch-term').value;
+        // RegEx of all valid URL characters
+        var regEx = new RegExp("^[\\sABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/\\-\\._~:?#\\[\\]@!\\$&\\(\\)\\*\\+,=;\\.`\"]*$")
+        var isValid = regEx.test(searchTerm);
+        if (isValid) {
+            $('#globalInvalidSearchMessage').hide();
+            if (!window.location.origin) {
+                window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+            }
+            window.location = window.location.origin + "/Search/Global?searchTerm=" + searchTerm;
+        }
+        else {
+            $('#globalInvalidSearchMessage').show();
+        }
+    }
+</script>
+
+            </div>
+        </header>
+    </div>
+    <noindex>
+    <nav id="myNavbar" class="navbar navbar-expand-lg navbar-light bg-light yamm megamenu" role="navigation">
+        <div class="container-fluid">
+            
+            <div class="collapse navbar-collapse" id="de-navbar-collapse-1">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown yamm-fw">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                            
+                            Bills &amp;<br class="d-md-none" /> Resolutions
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6">
+                                            
+
+            <h3><a href="/Legislation">All Legislation</a></h3>
+            <h3><a href="/Legislation/RecentLegislation">Recent Legislation</a></h3>
+            <h3><a href="/Legislation/House">House Bills</a></h3>
+            <h3><a href="/Legislation/Senate">Senate Bills</a></h3>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+        <h3 class="nav-sub-header">Archives</h3>
+        <ul class="list-unstyled list-section">
+            <li>
+                <a href="/Events/Agenda/Reports">Agenda and Activity Reports</a>
+            </li>
+                <li>
+                        <h3><a href="/Offices/ControllerGeneral/AppropriationBills">Budget / Appropriations Bills</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Resources/general-notices">General Notices</a></h3>
+                </li>
+        </ul>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+        <h3 class="nav-sub-header">Process</h3>
+        <ul class="list-unstyled list-section">
+            <li>
+                <a href="/LawsOfDE/BillDraftingManual">Legislative Drafting Manual</a>
+            </li>
+                <li>
+                        <h3><a href="/LawsOfDE/LegislativeProcess">How a Bill Becomes Law</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Chambers/Senate/senate-rules">Rules of the Senate</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Chambers/House/house-rules">Rules of the House</a></h3>
+                </li>
+        </ul>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown yamm-fw">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                            
+                            Delaware <br class="d-md-none" /> Laws
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6">
+                                            
+
+        <h3><a href="/LawsOfDE/DelawareConstitution" target="_blank">Delaware Constitution<span class="bi bi-box-arrow-up-right" aria-hidden="true"></span></a></h3>
+        <h3><a href="/LawsOfDE/Regulations" target="_blank">Regulations<span class="bi bi-box-arrow-up-right" aria-hidden="true"></span></a></h3>
+        <h3><a href="/LawsOfDE/Charters" target="_blank">City/Town Charters<span class="bi bi-box-arrow-up-right" aria-hidden="true"></span></a></h3>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+        <h3 class="nav-sub-header">The Delaware Code</h3>
+        <ul class="list-unstyled list-section">
+            <li>
+                <a href="/LawsOfDE/LawsofDelaware" target="_blank">View Delaware Code<span class="bi bi-box-arrow-up-right" aria-hidden="true"></span></a>
+            </li>
+        </ul>
+
+                                            
+                                            <ul class="list-unstyled list-section">
+                                                    <li class="form-group">
+                                                        <label for="codeSearch" class="sr-only">Text to search for in Delaware Code</label>
+                                                        <div class="input-group">
+                                                            <input name="codeSearch" id="codeSearch" class="form-control" placeholder="Text to search for in Delaware Code" />
+                                                            <span class="input-group-btn">
+                                                                <button type="button" class="btn" id="btnSearchDelCode" title="Search Delaware Code"><span class="bi bi-search"></span></button>
+                                                            </span>
+                                                        </div>
+                                                    </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+        <h3 class="nav-sub-header">Laws of Delaware</h3>
+        <ul class="list-unstyled list-section">
+            <li>
+                <a href="/SessionLaws">View Laws of Delaware</a>
+            </li>
+                <li>
+                    <h3><a href="/LawsOfDE/AdministrativeCode" target="_blank">Administrative Code<span class="bi bi-box-arrow-up-right" aria-hidden="true"></span></a></h3>
+                </li>
+                <li>
+                    <h3><a href="/LawsOfDE/LandlordTenantCode" target="_blank">Landlord Tenant Code<span class="bi bi-box-arrow-up-right" aria-hidden="true"></span></a></h3>
+                </li>
+        </ul>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown  yamm-fw">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle mm-single-line">Committees</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6">
+                                            
+
+            <h3><a href="/Meetings">Meetings/Hearings Schedule</a></h3>
+            <h3><a href="/Committee">All Committees</a></h3>
+            <h3><a href="/Committee/SenateCommittees">Senate Committees</a></h3>
+            <h3><a href="/Committee/HouseCommittees">House Committees</a></h3>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+        <h3 class="nav-sub-header">Joint Committees</h3>
+        <ul class="list-unstyled list-section">
+            <li>
+                <a href="/Committee/JointFinance">Finance Committee</a>
+            </li>
+                <li>
+                        <h3><a href="/Committee/CapitalImprovement">Capital Improvement Committee</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Committee/Sunset">Legislative Oversight Committee</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Committee/LegislativeCouncil">Legislative Council</a></h3>
+                </li>
+        </ul>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+        <h3 class="nav-sub-header">Task Forces &amp; Commissions</h3>
+        <ul class="list-unstyled list-section">
+            <li>
+                <a href="/Task-Forces">All Task Forces</a>
+            </li>
+                <li>
+                        <h3><a href="/Task-Force-Meetings">Task Force Meetings Schedule</a></h3>
+                </li>
+        </ul>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+            <h3><a href="/EventsSummary">Events</a></h3>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown yamm-fw">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle mm-single-line">Senate</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6">
+                                            
+
+        <h3 class="nav-sub-header">Members &amp; Districts</h3>
+        <ul class="list-unstyled list-section">
+            <li>
+                <a href="/Chambers/Senate/SenateLeadership">Senate Leadership</a>
+            </li>
+                <li>
+                        <h3><a href="/Chambers/Senate/AssemblyMembers">All Senators</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Chambers/Senate/SenateDemocraticCaucus">Democratic Caucus</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Chambers/Senate/SenateRepublicanCaucus">Republican Caucus</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Chambers/Senate/SenateDistrict">District</a></h3>
+                </li>
+        </ul>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+        <h3 class="nav-sub-header">Senate Committees &amp; Meetings</h3>
+        <ul class="list-unstyled list-section">
+            <li>
+                <a href="/Committee/SenateCommittees">Senate Committees</a>
+            </li>
+                <li>
+                        <h3><a href="/Meetings/Senate">Committee Meetings</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Events/Agenda/Senate">Agenda</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Meetings/Minutes/Senate">Meeting Minutes</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Chambers/Senate/Journal">Journal</a></h3>
+                </li>
+        </ul>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+        <h3 class="nav-sub-header">Other Resources</h3>
+        <ul class="list-unstyled list-section">
+            <li>
+                <a href="/Chambers/Senate/ReadyList">Senate Ready List</a>
+            </li>
+                <li>
+                        <h3><a href="/Chambers/Senate/senate-rules">Senate Rules</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Chambers/Senate/RollCall">Voting Record (Roll Calls)</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Chambers/Senate/Nominations">Governor&#39;s Nominations</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Chambers/Senate/OfficeOfTheSecretaryOfTheSenate">Office of the Secretary of the Senate</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Senate-Majority-Staff">Senate Majority Staff Listing</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/SenateMinorityStaff">Senate Minority Staff Listing</a></h3>
+                </li>
+        </ul>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown yamm-fw">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle mm-single-line">House</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6">
+                                            
+
+        <h3 class="nav-sub-header">Members &amp; Districts</h3>
+        <ul class="list-unstyled list-section">
+            <li>
+                <a href="/Chambers/House/Leadership">House Leadership</a>
+            </li>
+                <li>
+                        <h3><a href="/Chambers/House/AssemblyMembers">All Representatives</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Chambers/House/HouseDemocraticCaucus">Democratic Caucus</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Chambers/House/HouseRepublicanCaucus">Republican Caucus</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Chambers/House/District">District</a></h3>
+                </li>
+        </ul>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+        <h3 class="nav-sub-header">House Committees &amp; Meetings</h3>
+        <ul class="list-unstyled list-section">
+            <li>
+                <a href="/Committee/HouseCommittees">House Committees</a>
+            </li>
+                <li>
+                        <h3><a href="/Meetings/House">Committee Meetings</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Events/Agenda/House">Agenda</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Meetings/Minutes/House">Meeting Minutes</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Chambers/House/Journal">Journal</a></h3>
+                </li>
+        </ul>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+        <h3 class="nav-sub-header">Other Resources</h3>
+        <ul class="list-unstyled list-section">
+            <li>
+                <a href="/Chambers/House/ReadyList">House Ready List</a>
+            </li>
+                <li>
+                        <h3><a href="/Chambers/House/house-rules">House Rules</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Chambers/House/OfficeOfTheChiefClerkOfTheHouse">Office of the Chief Clerk of the House</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Chambers/House/RollCall">Voting Record (Roll Calls)</a></h3>
+                </li>
+                <li>
+                    <h3><a href="/Chambers/House/HouseBoardsandCommissionsApplication" target="_blank">Boards and Commissions Application<span class="bi bi-box-arrow-up-right" aria-hidden="true"></span></a></h3>
+                </li>
+        </ul>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown yamm-fw">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                            
+                            Offices &amp;<br class="d-md-none" /> Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6">
+                                            
+
+        <h3 class="nav-sub-header">Division of Legislative Services</h3>
+        <ul class="list-unstyled list-section">
+            <li>
+                <a href="/Offices/DivisionOfResearch">Division of Legislative Services Home</a>
+            </li>
+                <li>
+                        <h3><a href="/Offices/DivisionOfResearch/DivisionCareerOpportunities">Division Career Opportunities</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Offices/DivisionOfResearch/DivisionStaff">Division Staff</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Offices/DivisionOfResearch/LegislativeLibrary">Legislative Library</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Offices/DivisionOfResearch/PrintShop">Legislative Print Shop</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Offices/DivisionOfResearch/Publications">Publications</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Offices/DivisionOfResearch/RegistrarOfRegulations">Registrar of Regulations</a></h3>
+                </li>
+        </ul>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+        <h3 class="nav-sub-header">Office of the Controller General</h3>
+        <ul class="list-unstyled list-section">
+            <li>
+                <a href="/Offices/ControllerGeneral">Office of the Controller General Home</a>
+            </li>
+                <li>
+                        <h3><a href="/Offices/ControllerGeneral/Responsibilities">Responsibilities and Functions</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Offices/ControllerGeneral/Analysts">Analyst Assignments and Staff</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Offices/ControllerGeneral/AppropriationBills">Budget / Appropriations</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/GrantInAid/Information">Grant in Aid Process</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Offices/ControllerGeneral/LIS">Legislative Information Systems</a></h3>
+                </li>
+        </ul>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+        <h3 class="nav-sub-header">Resources</h3>
+        <ul class="list-unstyled list-section">
+            <li>
+                <a href="/Resources/FAQ">Frequently Asked Questions</a>
+            </li>
+                <li>
+                        <h3><a href="/Resources/GlossaryOfTerms">Glossary Of Terms</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Resources/PreparingToTestify">Public Participation in the Legislative Process</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Media-Credentialing-Policy">Legislative Hall Media Credentialing Policy</a></h3>
+                </li>
+                <li>
+                        <h3><a href="/Resources/Accessibility">Accessibility Statement</a></h3>
+                </li>
+        </ul>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown yamm-fw">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                            
+                            Events &amp;<br class="d-md-none" /> Facilities
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6">
+                                            
+
+            <h3><a href="/LegislativeSessionSchedule">Legislative Session Schedule</a></h3>
+            <h3><a href="/Session/Calendar">Legislative Calendar</a></h3>
+            <h3><a href="/Meetings">Committee Meetings/Hearings</a></h3>
+            <h3><a href="/EventsSummary">Events</a></h3>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+            <h3><a href="/Resources/AboutLegislativeHall">About Legislative Hall</a></h3>
+            <h3><a href="/Resources/HoursAndDirections">Hours and Directions</a></h3>
+            <h3><a href="/LegislativeHallCafe">Legislative Hall Cafeteria</a></h3>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+            <h3><a href="/Resources/PlanningAVisit">Planning a Visit?</a></h3>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+            <h3><a href="/Resources/LegislativeHallFacilityUsePolicy">Legislative Hall Facility Use Policy</a></h3>
+            <h3><a href="/Events/LegislativeFunction">Legislative Function Calendar</a></h3>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown yamm-fw">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                            
+                            Meetings &amp;<br class="d-md-none" /> Archives
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6">
+                                            
+
+            <h3><a href="/WatchAndListen/SenateChamber">Senate Chamber</a></h3>
+            <h3><a href="/WatchAndListen/HouseChamber">House Chamber</a></h3>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+            <h3><a href="/WatchAndListen/SenateCommittees">Senate Committees</a></h3>
+            <h3><a href="/WatchAndListen/HouseCommittees">House Committees</a></h3>
+            <h3><a href="/WatchAndListen/JointCommittees">Joint Committees</a></h3>
+            <h3><a href="/WatchAndListen/TaskForces">Task Forces</a></h3>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            
+
+            <h3><a href="/WatchAndListen/all-meeting-recording-archives">All Meeting Recording Archives</a></h3>
+        <h3><a href="/WatchAndListen/SenateChamber-YouTube" target="_blank">Senate Chamber - YouTube<span class="bi bi-box-arrow-up-right" aria-hidden="true"></span></a></h3>
+        <h3><a href="/WatchAndListen/HouseChamber-YouTube" target="_blank">House Chamber - YouTube<span class="bi bi-box-arrow-up-right" aria-hidden="true"></span></a></h3>
+        <h3><a href="/WatchAndListen/JointFinanceMeetingRoom-YouTube" target="_blank">Joint Finance Hearing Room - YouTube<span class="bi bi-box-arrow-up-right" aria-hidden="true"></span></a></h3>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</noindex>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnSearchDelCode").click(function (e) {
+            e.preventDefault();
+            submitDelCodeSearch();
+        });
+
+        $("#codeSearch").keyup(function (event) {
+            if (event.which == 13) {
+                submitDelCodeSearch();
+            }
+        });
+
+        // Close megamenu when focus/click moves outside the navbar, or when Escape is pressed
+        $(document).on('focusin click', function (e) {
+            if ($(e.target).closest('#myNavbar').length === 0) {
+                $('.navbar .dropdown.open').each(function () {
+                    $(this).removeClass('open');
+                    $(this).find('.dropdown-toggle').attr('aria-expanded', 'false');
+                });
+            }
+        });
+
+        $(document).on('keydown', function (e) {
+            if (e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27) {
+                $('.navbar .dropdown.open').removeClass('open').find('.dropdown-toggle').attr('aria-expanded', 'false');
+            }
+        });
+    });
+
+    function submitDelCodeSearch() {
+        var query = $('#codeSearch').val();
+        window.location.href = window.location.origin + "/DelCode/Search?query=" + query;
+    }
+</script>
+</div>
+
+            </div>
+            <div class="container container-main" role="main">
+                <div class="row">
+                    <div class="row-same-height">
+                        <!-- sidebar -->
+                        <div class="col-12 col-sm-6 order-sm-2 col-sm-height col-top sidebar" role="navigation">
+                            
+<div class='sfContentBlock'><div>
+<ul class="nav list-unstyled">
+    <li class="nav-section-title">
+    Display
+    </li>
+    <li><a href="/Legislation">All Legislation</a></li>
+    <li><a href="/Legislation/Senate">Senate Bills</a></li>
+    <li><a href="/Legislation/House">House Bills</a></li>
+</ul>
+</div>
+
+</div>
+                        </div>
+                        <!-- main area -->
+                        <div class="content col-12 col-sm-18 order-sm-1 col-sm-height col-top">
+                            
+<div class='sfContentBlock'><h2>Appropriations Bills</h2>
+
+</div><div class='sfContentBlock'><h3>Fiscal Year 2027</h3>
+<p><a href="https://legis.delaware.gov/BillDetail/143511" title="SB 335 - FY27 Budget Bill" target="_blank">SB 335 - FY27 Budget Bill</a>
+<br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=143658" title="HB 500 - FY27 Bond Bill" target="_blank">HB 500 - FY27 Bond Bill</a>&nbsp;<br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=143661" title="SB 337 - FY27 Grants-In-Aid Bill" target="_blank">SB 337 - FY27 Grants-In-Aid Bill</a>&nbsp;<br />
+<br />
+<a href="https://legis.delaware.gov/BillDetail/143512" title="SB 336 - FY27 One-Time Supplemental Bill" target="_blank">SB 336 - FY27 One-Time Supplemental Bill</a>
+</p>
+<p><a href="https://legis.delaware.gov/BillDetail?LegislationId=142843" title="SB 225 - FY27 Governor’s Recommended Budget Bill" target="_blank">SB 225 - FY27 Governor&rsquo;s Recommended Budget Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=142844" title="HB 275 - FY27 Governor’s Recommended Bond Bill" target="_blank">HB 275 - FY27 Governor&rsquo;s Recommended Bond Bill</a></p>
+
+</div><div class='sfContentBlock'><h3>Fiscal Year 2026</h3>
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=142565" title="HB 225 - FY26 Budget Bill" target="_blank">HB 225 - FY26 Budget Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=142633" title="SB 200 - FY 26 Bond Bill" target="_blank">SB 200 - FY 26 Bond Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=142646" title="HB 230 - FY26 Grants-in-Aid Bill" target="_blank">HB 230 - FY26 Grants-in-Aid Bill</a><br />
+<br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=142566" title="HB 226 - FY26 One-Time Supplement Bill" target="_blank">HB 226 - FY26 One-Time Supplement Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=142808" title="HB 270 - Mini Bond Bill" target="_blank">HB 270 - Mini Bond Bill</a><br />
+<br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=141786" title="HB 100 - FY26 Governor's Recommended Budget Bill" target="_blank">HB 100 - FY26 Governor's Recommended Budget Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=141785" title="HB 101 - FY26 Governor's Recommended One-Time Supplemental Bill" target="_blank">HB 101 - FY26 Governor's Recommended One-Time Supplemental Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=141769" title="SB 30 - FY26 Governor's Recommended Bond Bill" target="_blank">SB 30&nbsp;- FY26 Governor's Recommended Bond Bill</a><br />
+<br />
+
+</div><div class='sfContentBlock'><h3>Fiscal Year 2025</h3>
+<p><a href="https://legis.delaware.gov/BillDetail/141569" title="SB 325 - FY25 Budget Bill" target="_blank">SB 325 - FY25 Budget Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail/141649" title="HB 475 - FY25 Bond Bill" target="_blank">HB 475 - FY25 Bond Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail/141695" title="SB 327 - FY25 Grants-In-Aid  Bill" target="_blank">SB 327 - FY25 Grants-In-Aid  Bill</a><br />
+<br />
+<a href="https://legis.delaware.gov/BillDetail/141568" title="SB 326 - FY25 One-Time Supplemental Bill" targe="blank">SB 326 - FY25 One-Time Supplemental Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=141819" title="SB 50 - FY25 Mini Bond Bill" target="_blank">SB 50 - FY25 Mini Bond Bill</a></p>
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=140895" title="SB 225 - FY25 Governor's Recommended Budget Bill" target="_blank">SB 225 - FY25 Governor's Recommended Budget Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=140896" title="SB 226 - FY25 Governor's Recommended One-Time Supplemental Bill" target="_blank">SB 226 - FY25 Governor's Recommended One-Time Supplemental Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=140897" title="HB 325 - FY25 Governor's Recommended Bond Bill" target="_blank">HB 325 - FY25 Governor's Recommended Bond Bill</a><br />
+
+</div><div class='sfContentBlock'><h3>Fiscal Year 2024</h3>
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=140610" title="HB 195 - FY24 Budget Bill" target="_blank">HB 195 - FY24 Budget Bill</a><br />
+<p><a href="https://legis.delaware.gov/BillDetail?LegislationId=140718" title="SB 160 - FY24 Bond Bill" target="_blank">SB 160 - FY24 Bond Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=140762" title="HB 197 - FY24 Grants-In-Aid Bill" target="_blank">HB 197 - FY24 Grants-In-Aid Bill</a><br />
+<br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=140611" title="HB 196 - FY24 One-Time Supplement Bill " target="_blank">HB 196 - FY24 One-Time Supplement Bill&nbsp;</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=140872" title="HB 305 - FY24 Mini Bond Bill" target="_blank">HB 305 - FY24 Mini Bond Bill</a></p>
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=129986" title="HB 75 - FY24 Governor's Recommended Budget Bill" target="_blank">HB 75 - FY24 Governor's Recommended Budget Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=129987" title="HB 76 - FY24 Governor's Recommended One-Time Supplemental Bill" target="_blank">HB 76 - FY24 Governor's Recommended One-Time Supplemental Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=129988" title="SB 40 - FY24 Governor's Recommended Bond Bill" target="_blank">SB 40 - FY24 Governor's Recommended Bond Bill</a><br />
+
+</div><div class='sfContentBlock'><h3>Fiscal Year 2023</h3>
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=119629" title="SB 250 – FY23 Budget Bill " target="_blank">SB 250 - FY23 Budget Bill</a><br />
+<p><a href="https://legis.delaware.gov/BillDetail?LegislationId=129838" title="HB 475 - FY23 Bond Bill" target="_blank">HB 475 - FY23 Bond Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=129856" title="SB 252 – FY23 Grants-In-Aid Bill" target="_blank">SB 252 - FY23 Grants-In-Aid Bill</a><br />
+<br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=119631" title="SB 251 – FY23 One-Time Supplement Bill" target="_blank">SB 251 - FY23 One-Time Supplement Bill</a>&nbsp;<br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=129964" title="SB 35w/SA 2 - FY23 Mini Bond Bill" target="_blank">SB 35w/SA 2 - FY23 Mini Bond Bill</a></p>
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=79125" title="SB 225 - FY 23 Governor's Recommended Budget Bill" target="_blank">SB 225&nbsp;- FY 23 Governor's Recommended Budget Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=79126" title="SB 226 - FY 23 Governor's Recommended One-Time Supplement Bill" target="_blank">SB 226&nbsp;- FY 23 Governor's Recommended One-Time Supplement Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=79127" title="HB 325 - FY 23 Governor's Recommended Bond Bill" target="_blank">HB 325&nbsp;- FY 23 Governor's Recommended Bond Bill</a>
+
+</div><div class='sfContentBlock'><h3>Fiscal Year 2022</h3>
+<p><a href="https://legis.delaware.gov/BillDetail?LegislationId=78941" title="HB 250 - FY22 Budget Bill" target="_blank">HB 250 - FY22 Budget Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=79011" title="SB 200 - FY 22 Bond Bill" target="_blank">SB 200 - FY 22 Bond Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=79013" title="HB 265 - FY22 Grant-in-Aid Bill" target="_blank">HB 265 - FY22 Grant-in-Aid Bill</a><br />
+<br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=78942" title="HB 251 - FY22 One-Time Supplement Bill" target="_blank">HB 251 - FY22 One-Time Supplement Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=79090" title="HB 310 - FY22 Mini Bond Bill" target="_blank">HB 310 - FY22 Mini Bond Bill</a></p>
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=48359" target="_blank" title="HB 105 - FY 22 Governor's Recommended Budget Bill">HB 105&nbsp;- FY 22 Governor's Recommended Budget Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=48364" target="_blank" title="HB 106 - FY 22 Governor's Recommended One-Time Supplement Bill">HB 106&nbsp;- FY 22 Governor's Recommended One-Time Supplement Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?legislationId=48358" target="_blank" title="SB 50 - FY 22 Governor's Recommended Bond Bill">SB 50&nbsp;- FY 22 Governor's Recommended Bond Bill</a><br />
+
+</div><div class='sfContentBlock'><h3>Fiscal Year 2021</h3>
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=48159" title="SB 240 - FY 21 Budget Bill" target="_blank">SB 240 - FY 21 Budget Bill</a>&nbsp;<br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=48170" title="SB 242 - FY 21 Bond Bill" target="_blank">SB 242 - FY 21 Bond Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=48180" title="SB 260 - FY 21 GIA Bill" target="_blank">SB 260 - FY 21 GIA Bill</a><br />
+<br />
+<a href="https://legis.delaware.gov/BillDetail?legislationId=48309" target="_blank" title="SB 30 - FY 21 Mini Bond Bill">SB 30 - FY 21 Mini Bond Bill</a><br />
+<br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=48002" title="SB 225 - FY 21 Governor's Recommended Budget Bill" target="_blank">SB 225 - FY 21 Governor's Recommended Budget Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=48003" title="SB 226 - FY 21 Governor's Recommended One-Time Supplement Bill" target="_blank">SB 226 - FY 21&nbsp;Governor's Recommended One-Time Supplement Bill</a><br />
+<a href="http://legis.delaware.gov/BillDetail?LegislationId=48004" title="HB 300 - FY 21 Governor's Recommended Bond Bill">HB 300 - FY 21&nbsp;Governor's Recommended Bond Bill</a><br />
+<br />
+
+</div><div class='sfContentBlock'><h3>Fiscal Year 2020 </h3>
+<p><a href="https://legis.delaware.gov/BillDetail?LegislationId=47647">HB 225 - FY 20 Budget Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=47865">SB 180 - FY 20 Bond Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?legislationId=47901">HB 260 - FY 20 GIA Bill</a><br />
+<br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=47648">HB 226 - FY 20 One-Time Supplement</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=47956" title="HB 290 - FY 20 Mini Bond Bill">HB 290 - FY 20 Mini Bond Bill</a></p>
+<p><a href="https://legis.delaware.gov/BillDetail?LegislationId=37134">HB 50 - FY 20 Governor's Recommended Budget Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=37135">HB 51 - FY 20 Governor's Recommended Budget Supplement Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=37136">SB 20 - FY 20 Governor's Recommended Bond Bill</a><br />
+<br />
+</p>
+
+</div><div class='sfContentBlock'><h3>Fiscal Year 2019</h3>
+<p><a href="https://legis.delaware.gov/BillDetail?LegislationId=26797" title="SB 235 - FY19 Budget Bill" target="_blank">SB 235 - FY19 Budget Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?legislationId=26979" title="HB 475 - FY19 Bond Bill" target="_blank">HB 475 - FY19 Bond Bill</a><br />
+<a href="http://legis.delaware.gov/BillDetail?LegislationId=27026" title="SB 237 - FY19 GIA Bill" target="_blank">SB 237 - FY19 GIA Bill</a><br />
+<br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=26796" title="SB 236 - FY19 One Time Supplement" target="_blank">SB 236 - FY19 One Time Supplement</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=37100" title="SS 1 for SB 9 - FY19 Mini Bond Bill" target="_blank">SS 1 for SB 9 - FY19 Mini Bond Bill</a><br />
+<br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=26298" title="SB 145 - FY19 Governor's Recommended Budget Bill" target="_blank">SB 145 - FY19 Governor's Recommended Budget Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=26299" title="HB 325 - FY19 Governor's Recommended Bond Bill" target="_blank">HB 325 - FY19 Governor's Recommended Bond Bill</a></p>
+
+</div><div class='sfContentBlock'><h3>Fiscal Year 2018</h3>
+<p><a href="http://legis.delaware.gov/BillDetail/26205" title="HS 1 for HB 275 - FY18 Budget Bill" target="_blank">HS 1 for HB 275 - FY18 Budget Bill</a><br />
+<a href="http://legis.delaware.gov/BillDetail?legislationId=26195" title="SB 125 - FY18 Bond Bill" target="_blank">SB 125 - FY18 Bond Bill</a><br />
+<a href="http://legis.delaware.gov/BillDetail?legislationId=26140" title="HB 281 - Grants-In-Aid Bill" target="_blank">HB 281 - Grants-In-Aid Bill</a><br />
+<br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=26242" title="HB 295 - FY18 Mini Bond Bill" target="_blank">HB 295 - FY18 Mini Bond Bill</a></p>
+<p><a href="https://legis.delaware.gov/BillDetail?LegislationId=25384" title="HB 25 - FY18 Governor's Recommended Budget Bill" target="_blank">HB 25 - FY18 Governor's Recommended Budget Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=25385" title="SB 15 - FY18 Governor's Recommended Bond Bill" target="_blank">SB 15 - FY18 Governor's Recommended Bond Bill</a><br />
+<br />
+</p>
+
+</div><div class='sfContentBlock'><div>
+<h3>Fiscal Year 2017</h3>
+</div>
+<p><a href="https://legis.delaware.gov/BillDetail?LegislationId=24410" style="cursor: text;" title="SB 285 - FY17 Budget Bill" target="_blank">SB 285 - FY17 Budget Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=24044" style="cursor: text;" title="HB 450 - FY17 Bond Bill" target="_blank">HB 450 - FY17 Bond Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=24174" style="cursor: text;" title="SB 295 - FY17 Grants-In-Aid Bill" target="_blank">SB 295 - FY17 Grants-In-Aid Bill</a><br />
+<br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=25403" title="SB 16 - FY 17 Mini Bond Bill">SB 16 - FY 17 Mini Bond Bill</a></p>
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=24004" style="cursor: text;" title="SB 175 - Governor's Recommended Budget Bill" target="_blank">SB 175 - Governor's Recommended Budget Bill</a><br />
+<a href="https://legis.delaware.gov/BillDetail?LegislationId=23913" style="cursor: text;" title="HB 275 - Governor's Recommended Bond Bill" target="_blank">HB 275 - Governor's Recommended Bond Bill</a>
+
+</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div>
+                
+<div>
+    
+
+<noindex>
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="row">
+                <div class="col-sm-10 footer-block footer-contact">
+                    <h3>Contact Legislative Hall</h3><div class="vcard"><ul class="list-unstyled"><li><em class="glyphicon glyphicon-map-marker"></em><span class="street-address">411 Legislative Avenue</span><br /><span class="region">Dover, DE</span> <span class="postal-code">19901</span></li><li class="tel"><em class="glyphicon glyphicon-earphone"></em>(302) 744-4114</li><li><em class="glyphicon glyphicon-envelope"></em><a title="Send an email to Legislative Hall" href="mailto:DGA_reception@delaware.gov">Legislative Hall</a></li></ul></div>
+                </div>
+                <div class="col-sm-7 footer-block">
+                    <h3>Useful links</h3>
+<ul class="list-unstyled">
+    <li><a href="/Footer/FOIARequests">FOIA Requests</a></li>
+    <li><a href="/Media-Credentialing-Policy">Legislative Hall Media Credential Policy</a></li>
+    <li><a href="/Footer/CSG" target="_tab">CSG</a></li>
+    <li><a href="/Footer/ULC" target="_tab">ULC</a></li>
+    <li><a href="/Footer/NCSL" target="_tab">NCSL</a></li>
+    <li><a href="/RssFeed">RSS Feeds</a></li>
+    <li><a href="/Resources/DE_NotificationService">Legislative Notifications</a></li>
+</ul>
+                </div>
+                <div class="col-sm-7 footer-block">
+                    <h3>Other Resources</h3><ul class="list-unstyled"><li><a href="/Resources/Accessibility">Accessibility</a></li><li><a target="_tab" href="/Footer/DelawareGov">Delaware.gov</a></li><li><a target="_tab" href="/Footer/Judicial">Judicial</a></li><li><a target="_tab" href="/Footer/AgencyList">Agency Contact Info</a></li><li><a href="/Footer/Copyright">Copyright</a></li><li><a href="/Footer/Disclaimer">Disclaimer</a></li></ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</noindex>
+
+</div>
+                
+
+            </div>
+        </div>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+window.__TsmHiddenField = $get('ctl13_TSM');//]]>
+</script>
+</form>
+    <script type="text/javascript">
+        $("document").ready(function () {
+            $('.megamenu').accessibleMegaMenu();
+            $(".skip").click(function (event) {
+                var skipTo = "#" + this.href.split('#')[1];
+                $(skipTo).attr('tabindex', -1).on('blur focusout', function () {
+                    $(this).removeAttr('tabindex');
+                }).focus();
+            });
+            // Exclude selects already initialized by Kendo (they get wrapped in
+            // .k-dropdown/.k-picker and/or hidden via inline style by Kendo itself).
+            $('select')
+                .not('.k-input, [data-role]')
+                .not(function () {
+                    return $(this).closest('.k-dropdown, .k-picker, .k-widget').length > 0;
+                })
+                .customSelect();
+        });
+    </script>
+</body>
+</html>

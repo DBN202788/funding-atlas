@@ -1,0 +1,12 @@
+# Filed forms contain contact details. Only the extracted data in data/derived is shared.
+data/raw/florida_forms/
+data/raw/florida_veto/
+
+# Rebuilt on every run
+data/staging/
+data/out/funding.sqlite
+dist/
+
+__pycache__/
+*.pyc
+.claude/
