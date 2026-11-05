@@ -5,7 +5,7 @@ on:
     inputs:
       script:
         description: "Script in pipeline/ to run"
-        default: "la_probe.py"
+        default: "la_fetch.py"
 
 permissions:
   contents: write
