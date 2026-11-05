@@ -10,7 +10,7 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 export const SERVER_ROOT = path.resolve(HERE, "..");
 export const PROJECT_ROOT = path.resolve(SERVER_ROOT, "..");
 
-export async function makeDatabase() {
+export async function makeDatabase({ autoExpose = true } = {}) {
   const pg = new PGlite();
   await pg.exec(`
     create schema auth;
@@ -19,8 +19,9 @@ export async function makeDatabase() {
     create function auth.uid() returns uuid language sql stable as $$ select nullif(current_setting('request.jwt.sub', true), '')::uuid $$;
     grant usage on schema auth, public to anon, authenticated, service_role;
     grant execute on function auth.uid() to anon, authenticated, service_role;
-    alter default privileges in schema public grant all on tables to anon, authenticated, service_role;
   `);
+  // Supabase's new-project form can turn this on or off, and the schema must work either way.
+  if (autoExpose) await pg.exec("alter default privileges in schema public grant all on tables to anon, authenticated, service_role;");
   await pg.exec(fs.readFileSync(path.join(SERVER_ROOT, "supabase", "schema.sql"), "utf8"));
   return pg;
 }

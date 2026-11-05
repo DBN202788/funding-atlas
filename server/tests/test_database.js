@@ -7,7 +7,7 @@ const ALICE = "00000000-0000-0000-0000-00000000000a", BOB = "00000000-0000-0000-
 const usage = { input: 10, output: 5, cacheRead: 0, cacheWrite: 0 };
 const finish = (db, runId, status, cost) => db.advisorFinish(runId, { status, costMicros: cost, tokens: usage, toolCalls: 1, model: "m" });
 
-describe("member database", () => {
+for (const autoExpose of [true, false]) describe(`member database (new tables exposed automatically: ${autoExpose})`, () => {
   let pg, db;
   const as = async (user, sql, params) => {
     await pg.query(`set request.jwt.sub = '${user || ""}'`);
@@ -19,7 +19,7 @@ describe("member database", () => {
     }
   };
   before(async () => {
-    pg = await makeDatabase();
+    pg = await makeDatabase({ autoExpose });
     db = pgDb(pg);
     await addUser(pg, ALICE, "a@example.test");
     await addUser(pg, BOB, "b@example.test");
@@ -29,14 +29,14 @@ describe("member database", () => {
   it("lets people read only their own membership", async () => {
     assert.equal((await as(ALICE, "select * from memberships")).rows.length, 1);
     assert.equal((await as(BOB, "select * from memberships")).rows.length, 0);
-    assert.equal((await as(null, "select * from memberships")).rows.length, 0);
+    await assert.rejects(as(null, "select * from memberships"));
   });
 
   it("doesn't let anyone make themselves a paid member from the browser", async () => {
     await assert.rejects(as(ALICE, "insert into memberships (user_id, status) values ($1, 'active')", [BOB]));
     await assert.rejects(as(BOB, "insert into memberships (user_id, status) values ($1, 'active')", [BOB]));
-    await as(BOB, "update memberships set status = 'active'");
-    await as(ALICE, "delete from memberships");
+    await assert.rejects(as(BOB, "update memberships set status = 'active'"));
+    await assert.rejects(as(ALICE, "delete from memberships"));
     assert.equal((await db.membership(ALICE)).status, "active");
     assert.equal(await db.membership(BOB), null);
   });
@@ -48,7 +48,6 @@ describe("member database", () => {
     await assert.rejects(as(BOB, "insert into saved_items (user_id, title) values ($1, 'Forged')", [ALICE]));
     assert.equal((await as(BOB, "update saved_items set title = 'Taken' returning id")).rows.length, 0);
     assert.equal((await as(BOB, "delete from saved_items returning id")).rows.length, 0);
-    assert.equal((await as(null, "select * from saved_items")).rows.length, 0);
   });
 
   it("rejects an oversized draft", async () => {
@@ -62,8 +61,10 @@ describe("member database", () => {
     await finish(db, begun.runId, "answered", 50);
     assert.equal((await as(ALICE, "select * from advisor_runs where month = '2020-01'")).rows.length, 0);
     assert.equal((await as(BOB, "select * from advisor_runs where month = '2020-01'")).rows.length, 1);
-    assert.equal((await as(BOB, "update advisor_runs set cost_micros = 0 returning id")).rows.length, 0);
-    assert.equal((await as(BOB, "delete from advisor_runs returning id")).rows.length, 0);
+    await assert.rejects(as(BOB, "update advisor_runs set cost_micros = 0"));
+    await assert.rejects(as(BOB, "delete from advisor_runs"));
+    await assert.rejects(as(BOB, "select * from advisor_cost_by_month"));
+    await assert.rejects(as(null, "select * from saved_items"));
   });
 
   it("stops at the person's monthly limit, and gives a question back after a server failure", async () => {

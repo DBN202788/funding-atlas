@@ -50,6 +50,12 @@ alter table public.memberships enable row level security;
 alter table public.advisor_runs enable row level security;
 alter table public.saved_items enable row level security;
 
+-- Exact access for each role, whether or not Supabase exposes new tables automatically.
+revoke all on public.memberships, public.advisor_runs, public.saved_items from anon, authenticated;
+grant select on public.memberships, public.advisor_runs to authenticated;
+grant select, insert, update, delete on public.saved_items to authenticated;
+grant all on public.memberships, public.advisor_runs, public.saved_items to service_role;
+
 create policy "read own membership" on public.memberships for select to authenticated using (user_id = auth.uid());
 create policy "read own usage" on public.advisor_runs for select to authenticated using (user_id = auth.uid());
 create policy "read own saved" on public.saved_items for select to authenticated using (user_id = auth.uid());
@@ -116,6 +122,9 @@ create view public.advisor_cost_by_month with (security_invoker = true) as
     round(avg(cost_micros) / 1000000.0, 4) as average_dollars,
     round((percentile_cont(0.9) within group (order by cost_micros) / 1000000.0)::numeric, 4) as p90_dollars
   from advisor_runs group by month, status order by month desc, status;
+
+revoke all on public.advisor_cost_by_month from anon, authenticated;
+grant select on public.advisor_cost_by_month to service_role;
 
 revoke all on function public.advisor_begin(uuid, text, integer, bigint, bigint, integer) from public, anon, authenticated;
 revoke all on function public.advisor_finish(uuid, text, bigint, bigint, bigint, bigint, bigint, integer, text) from public, anon, authenticated;
