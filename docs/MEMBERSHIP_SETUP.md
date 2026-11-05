@@ -43,7 +43,7 @@ Use Vercel's free plan only while testing. Move to Pro before charging anyone.
 
 Tell me the Vercel address, the Supabase project URL and the Supabase **public** key, and I'll put them in `web/data/site-config.json`. The public key is meant to be visible, because the database's access rules protect the data. Never share the secret key.
 
-The **Sign in** and **Ask the advisor** tabs then appear on the public site.
+While `previewOnly` is `true` in that file, the public site looks the same as before. The **Sign in** and **Ask the advisor** tabs appear only in a browser that has opened the site with `?preview=1` at the end of the address. Set `previewOnly` to `false` when you're ready for everyone to see them.
 
 ## Step 5: Measure the real cost
 
