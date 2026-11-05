@@ -89,7 +89,7 @@
                     <div id="searchbox">
                         <!--Go to Bill-->
                         <form action="/Session/Bill" method="post" class="form-inline">
-                            <input name="__RequestVerificationToken" type="hidden" value="vETfDrnVTtaLkJxbCfZHfFSxmCSnYrh16JgGOaJvV5iis6aZlQRuBBvmkMzEOuz1PqsvHsiqMTQPV0cHH9B5caTxwZ8bewNdGm8spyN15og1" />
+                            <input name="__RequestVerificationToken" type="hidden" value="TY4mfJFeuK2gMHm4rKy3o0Y3GtOd-Zx1UNMqLpXORSiuwTvpKGcLSNgkWHyiNajX6VKMVW44jchwRChjw6-tf-QGtQtpsNIAWzKV0KJi-yc1" />
                             <span>
                                 <label for="BillNumber" id="bill-number-label">Go to Bill:</label>
                             </span>
@@ -190,7 +190,7 @@
                         <input type="hidden" id="DefaultSessionYear" value="" /> 
                         <!-- Search Statutes -->
                         <form action="/Laws/Statutes" method="post" class="form-inline statuebox">
-                            <input name="__RequestVerificationToken" type="hidden" value="gGiVGLfuSrhcwHDT9VTR2V8fBLiDPBfAe4msNhAvtFRN2BLk6eYWn1ozSHrjgK14i2-erlxzcEGVThBXQ-rpT-If1wnCV_puTXaTuDAjK-k1" />
+                            <input name="__RequestVerificationToken" type="hidden" value="Wl8_uObNYYmCiNmbBkkk6osgaDl_37y8tzmCLmo5ru8qDN1eMyk6TdTa_mG2YAf7MR_X81kVmfBjdguztLf_gAhCBlWBpXqCXOE7QjYBp2o1" />
                             <span id="find-statutes-label">Find Statutes:</span>
                                 <select name="StatuteYear" id="statuteYear" class="aytdropdown" title="Statue Year" aria-labelledby="find-statutes-label">
             <option value="2026">2026</option>
@@ -429,7 +429,7 @@
         <div id="filterBox" class="filter rounded">
             <!-- Select Fiscal Year Dropdown-->
             <form action="/Session/Appropriations/FY2026-27/LocalFundingRequests" method="post" class="form-inline">
-                <input name="__RequestVerificationToken" type="hidden" value="vbUD7pwE7KkdE0p3Ixy6aWJPKwoChDMR8Tq0xF7oTHPW_jI_FCt_q2Y8n8HQl7HxxWUbJfWXyqGsgFIAPQ1WMGGoI3HxaeCemXDstg4zr7g1" />
+                <input name="__RequestVerificationToken" type="hidden" value="8QcQ9CXJ469lGg9eug3olLTXEtE-FSotoiQsquXL3LEt8DaJ95OEg3pBZYsDCbeaeapQn4SSi6V6IEiIXAEdQG_zZy0n0GhixewWpcF0abA1" />
                 <label for="fiscalYear">Fiscal Year:</label>
                 <select name="fiscalYear" id="fiscalYear">
                             <option value="FY2026-27" selected>2026-27</option>
@@ -40067,5 +40067,5 @@
     <script src="/Areas/Session/js/LocalFundingRequests.js"></script>
 
 
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a558f72abcf2ad14',t:'MTc5Mzg1MTM3Mw=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a558f72abcf2ad14',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a55950035fec6ac8',t:'MTc5Mzg1NTAxMg=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a55950035fec6ac8',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

@@ -1094,6 +1094,7 @@
    "state": "LA",
    "fiscal_year": "2026 Regular Session",
    "source": "https://www.legis.la.gov/legis/NGO/NgoSearch.aspx?s=26RS",
+   "failures": [],
    "status": "published",
    "records": 227,
    "listed": 228,
@@ -1133,6 +1134,15 @@
      "vetoes_not_placed": []
     }
    }
+  },
+  {
+   "state": "LA",
+   "fiscal_year": "27RS",
+   "source": "https://www.legis.la.gov/legis/NGO/NgoSearch.aspx?s=27RS",
+   "failures": [],
+   "status": "reachable_parser_needed",
+   "records": 140,
+   "reason": "27RS needs its budget bills added to SESSION_BILLS"
   },
   {
    "state": "FL",

@@ -89,7 +89,7 @@
                     <div id="searchbox">
                         <!--Go to Bill-->
                         <form action="/Session/Bill" method="post" class="form-inline">
-                            <input name="__RequestVerificationToken" type="hidden" value="WrpevHm3_xZsolAUmmWkRa19Wn3p95Uw8KyszgEJG6Dw4PUoRGK6Ke1Cji5QTpNpZpeD7DBlMC7DGyMCW3tIgocvn_ByoYz0OBMNJXBJ60Y1" />
+                            <input name="__RequestVerificationToken" type="hidden" value="J9kGkyjAejhOcZ5bMCo7WO0-gIvLiNwPEb-GM8oiyVq3wZdZdoii0Gp1StX-OgrLcS_EmSRXkmAK1L8cExVzO0TRp15nCtTGLracSLUPCsk1" />
                             <span>
                                 <label for="BillNumber" id="bill-number-label">Go to Bill:</label>
                             </span>
@@ -190,7 +190,7 @@
                         <input type="hidden" id="DefaultSessionYear" value="" /> 
                         <!-- Search Statutes -->
                         <form action="/Laws/Statutes" method="post" class="form-inline statuebox">
-                            <input name="__RequestVerificationToken" type="hidden" value="HqJi8WYzxqPXZqO9Ei6GoLBqh-um_PviLhbkDIJSCG9ni91gaCU4Ymisw4HvJrlqG4ibMg2StAWAhTlH9ndsv6p4m0ehh6nNXUS4H9GlLYU1" />
+                            <input name="__RequestVerificationToken" type="hidden" value="YwSuUgfYBBt6927tnGuiUcB_f_GL0IqQoj_5qvenW3oJry8Qj0vsbjYAlmVHl3a_DfyXsPZYPix4OxG75PMRl3qeXEUfChXMN07acSCjreg1" />
                             <span id="find-statutes-label">Find Statutes:</span>
                                 <select name="StatuteYear" id="statuteYear" class="aytdropdown" title="Statue Year" aria-labelledby="find-statutes-label">
             <option value="2026">2026</option>
@@ -632,5 +632,5 @@
     <script src="/Areas/Session/js/LocalFundingRequests.js"></script>
 
 
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a558f77a0fc1ad14',t:'MTc5Mzg1MTM4NQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a558f77a0fc1ad14',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a55950466da06ac8',t:'MTc5Mzg1NTAyMw=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a55950466da06ac8',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
