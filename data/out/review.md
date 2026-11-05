@@ -2,7 +2,7 @@
 
 **Result:** published
 
-New records: 4619. Changed: 0. Removed: 0.
+New records: 0. Changed: 0. Removed: 0.
 
 ## Veto message not processed
 - FL FY2017-18
@@ -33,6 +33,3 @@ New records: 4619. Changed: 0. Removed: 0.
 
 ## State not loaded
 - LA: 27RS needs its budget bills added to SESSION_BILLS
-
-## Forms not yet read
-- FL FY2026-27: 1685 of 2808
