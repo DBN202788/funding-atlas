@@ -1,6 +1,8 @@
 # Filed forms contain contact details. Only the extracted data in data/derived is shared.
 data/raw/florida_forms/
 data/raw/florida_veto/
+# Louisiana request pages list board members' and officers' names and addresses.
+data/raw/louisiana_requests/
 
 # Rebuilt on every run
 data/staging/
