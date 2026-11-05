@@ -1,0 +1,867 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<!-- Use IE 9 Standards mode because IE 10 does not play well with imagebuttons -->
+<meta http-equiv="x-ua-compatible" content="IE=9" />
+
+<head><link href="App_Themes/Legis/jplayer_skin.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Legis/Legis.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Legis/nav.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Legis/vertnav.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Legis/video-js.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Legis/Legis.css?v=260311" rel="stylesheet" type="text/css" /><link href="App_Themes/Legis/nav.css?v=260311" rel="stylesheet" type="text/css" /><link href="App_Themes/Legis/vertnav.css" rel="stylesheet" type="text/css" /><link rel="shortcut icon" href="App_Themes/Legis/Images/State.ico" /><title>
+	HB1
+</title>
+    <style type="text/css">
+	.ctl00_MainMenu_0 { background-color:white;visibility:hidden;display:none;position:absolute;left:0px;top:0px; }
+	.ctl00_MainMenu_1 { text-decoration:none; }
+	.ctl00_MainMenu_2 {  }
+	.ctl00_MainMenu_3 {  }
+	.ctl00_MainMenu_4 {  }
+	.ctl00_MainMenu_5 {  }
+	.ctl00_MainMenu_6 {  }
+	.ctl00_PageBody_MenuDocuments_0 { background-color:white;visibility:hidden;display:none;position:absolute;left:0px;top:0px; }
+	.ctl00_PageBody_MenuDocuments_1 { text-decoration:none; }
+	.ctl00_PageBody_MenuDocuments_2 {  }
+	.ctl00_PageBody_MenuDocuments_3 { color:Black; }
+	.ctl00_PageBody_MenuDocuments_4 { background-color:#EDECE2;padding:2px 5px 2px 5px; }
+	.ctl00_PageBody_MenuDocuments_5 {  }
+	.ctl00_PageBody_MenuDocuments_6 { padding:5px 0px 5px 0px; }
+	.ctl00_PageBody_MenuDocuments_7 { border-width:1px;border-style:solid;padding:5px 2px 5px 2px; }
+	.ctl00_PageBody_MenuDocuments_8 {  }
+	.ctl00_PageBody_MenuDocuments_9 {  }
+
+</style></head>
+
+<body id="body">
+    <form name="aspnetForm" method="post" action="./BillInfo.aspx?s=26RS&amp;b=HB1&amp;sbi=y" id="aspnetForm">
+<div>
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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KwACBQMwOjAUKwACFgYfAAUYSmFjayBNY0ZhcmxhbmQgKHByaW1hcnkpHwIFNWh0dHBzOi8vaG91c2UubG91aXNpYW5hLmdvdi9IX1JlcHMvbWVtYmVycy5hc3B4P0lEPTEzHwUFBl9ibGFua2RkAhcPFCsAAg8WBB4LXyFEYXRhQm91bmRnHgtfIUl0ZW1Db3VudAIYZGQWAmYPZBYwAgUPZBYCZg8VBQUwNi8xOAFIABtFZmZlY3RpdmUgZGF0ZTogMDcvMDEvMjAyNi4AZAIGD2QWAmYPFQUFMDYvMTgBSABMU2lnbmVkIGJ5IHRoZSBHb3Zlcm5vciB3aXRoIG9uZSBvciBtb3JlIGxpbmUtaXRlbSB2ZXRvZXMuIEJlY29tZXMgQWN0IE5vLiAzLgBkAgcPZBYCZg8VBQUwNi8wMQFIACxTZW50IHRvIHRoZSBHb3Zlcm5vciBmb3IgZXhlY3V0aXZlIGFwcHJvdmFsLocBPGEgaHJlZj0iaHR0cHM6Ly9ob3VzZS5sb3Vpc2lhbmEuZ292L0hfVmlkZW8vVmlkZW9BcmNoaXZlUGxheWVyLmFzcHg/dj1ob3VzZS8yMDI2L2p1bi8wNjAxXzI2XzI2cnMiIHRhcmdldD0iX2JsYW5rIj5Ib3VzZSA2LzEgVmlkZW88L2E+ZAIID2QWAmYPFQUFMDYvMDEBU1w8YSBocmVmPSIvbWVldGluZ19maWxlcy8yNlJTL3Nqb3VybmFscy8yNlJTIC0gU0ogMDYwMSA0Mi5QREYjcGFnZT03OSIgdGFyZ2V0PSJfYmxhbmsiPjc5PC9hPiZTaWduZWQgYnkgdGhlIFByZXNpZGVudCBvZiB0aGUgU2VuYXRlLp4DPGEgaHJlZj0iaHR0cHM6Ly9zZW5hdGUubGEuZ292L3NfdmlkZW8vVmlkZW9BcmNoaXZlUGxheWVyLmFzcHg/dj1zZW5hdGUvMjAyNi8wNi8wNjAxXzI2XzI2cnMiIHRhcmdldD0iX2JsYW5rIj5TZW5hdGUgNi8xIFZpZGVvPC9hPjxicj48YSBocmVmPSJodHRwczovL3NlbmF0ZS5sYS5nb3Yvc192aWRlby9WaWRlb0FyY2hpdmVQbGF5ZXIuYXNweD92PXNlbmF0ZS8yMDI2LzA2LzA2MDFfMjZfMjZyczIiIHRhcmdldD0iX2JsYW5rIj5TZW5hdGUgNi8xIFZpZGVvIHBhcnQgMjwvYT48YnI+PGEgaHJlZj0iaHR0cHM6Ly9zZW5hdGUubGEuZ292L3NfdmlkZW8vVmlkZW9BcmNoaXZlUGxheWVyLmFzcHg/dj1zZW5hdGUvMjAyNi8wNi8wNjAxXzI2XzI2cnMzIiB0YXJnZXQ9Il9ibGFuayI+U2VuYXRlIDYvMSBWaWRlbyBwYXJ0IDM8L2E+ZAIJD2QWAmYPFQUFMDUvMzEBSFo8YSBocmVmPSIvbWVldGluZ19maWxlcy8yNlJTL2hqb3VybmFscy8yNlJTIC0gSEogMDUzMSA0NS5QREYjcGFnZT0xIiB0YXJnZXQ9Il9ibGFuayI+MTwvYT4wRW5yb2xsZWQgYW5kIHNpZ25lZCBieSB0aGUgU3BlYWtlciBvZiB0aGUgSG91c2UuiAE8YSBocmVmPSJodHRwczovL2hvdXNlLmxvdWlzaWFuYS5nb3YvSF9WaWRlby9WaWRlb0FyY2hpdmVQbGF5ZXIuYXNweD92PWhvdXNlLzIwMjYvbWF5LzA1MzFfMjZfMjZycyIgdGFyZ2V0PSJfYmxhbmsiPkhvdXNlIDUvMzEgVmlkZW88L2E+ZAIKD2QWAmYPFQUFMDUvMjkBSF48YSBocmVmPSIvbWVldGluZ19maWxlcy8yNlJTL2hqb3VybmFscy8yNlJTIC0gSEogMDUyOSA0NC5QREYjcGFnZT0xNDEiIHRhcmdldD0iX2JsYW5rIj4xNDE8L2E+TVJlYWQgYnkgdGl0bGUsIHJvbGwgY2FsbGVkLCB5ZWFzIDEwMSwgbmF5cyAwLCBTZW5hdGUgYW1lbmRtZW50cyBjb25jdXJyZWQgaW4utAM8YSBocmVmPSJodHRwczovL2hvdXNlLmxvdWlzaWFuYS5nb3YvSF9WaWRlby9WaWRlb0FyY2hpdmVQbGF5ZXIuYXNweD92PWhvdXNlLzIwMjYvbWF5LzA1MjlfMjZfMjZycyIgdGFyZ2V0PSJfYmxhbmsiPkhvdXNlIDUvMjkgVmlkZW88L2E+PGJyPjxhIGhyZWY9Imh0dHBzOi8vaG91c2UubG91aXNpYW5hLmdvdi9IX1ZpZGVvL1ZpZGVvQXJjaGl2ZVBsYXllci5hc3B4P3Y9aG91c2UvMjAyNi9tYXkvMDUyOV8yNl8yNnJzMiIgdGFyZ2V0PSJfYmxhbmsiPkhvdXNlIDUvMjkgVmlkZW8gcGFydCAyPC9hPjxicj48YSBocmVmPSJodHRwczovL2hvdXNlLmxvdWlzaWFuYS5nb3YvSF9WaWRlby9WaWRlb0FyY2hpdmVQbGF5ZXIuYXNweD92PWhvdXNlLzIwMjYvbWF5LzA1MjlfMjZfMjZyczJvd2VuIiB0YXJnZXQ9Il9ibGFuayI+SG91c2UgNS8yOSBWaWRlbyBwYXJ0IDM8L2E+ZAILD2QWAmYPFQUFMDUvMjkBSFw8YSBocmVmPSIvbWVldGluZ19maWxlcy8yNlJTL2hqb3VybmFscy8yNlJTIC0gSEogMDUyOSA0NC5QREYjcGFnZT0xOSIgdGFyZ2V0PSJfYmxhbmsiPjE5PC9hPihSZWFkIGJ5IHRpdGxlLCByZXR1cm5lZCB0byB0aGUgY2FsZW5kYXIutAM8YSBocmVmPSJodHRwczovL2hvdXNlLmxvdWlzaWFuYS5nb3YvSF9WaWRlby9WaWRlb0FyY2hpdmVQbGF5ZXIuYXNweD92PWhvdXNlLzIwMjYvbWF5LzA1MjlfMjZfMjZycyIgdGFyZ2V0PSJfYmxhbmsiPkhvdXNlIDUvMjkgVmlkZW88L2E+PGJyPjxhIGhyZWY9Imh0dHBzOi8vaG91c2UubG91aXNpYW5hLmdvdi9IX1ZpZGVvL1ZpZGVvQXJjaGl2ZVBsYXllci5hc3B4P3Y9aG91c2UvMjAyNi9tYXkvMDUyOV8yNl8yNnJzMiIgdGFyZ2V0PSJfYmxhbmsiPkhvdXNlIDUvMjkgVmlkZW8gcGFydCAyPC9hPjxicj48YSBocmVmPSJodHRwczovL2hvdXNlLmxvdWlzaWFuYS5nb3YvSF9WaWRlby9WaWRlb0FyY2hpdmVQbGF5ZXIuYXNweD92PWhvdXNlLzIwMjYvbWF5LzA1MjlfMjZfMjZyczJvd2VuIiB0YXJnZXQ9Il9ibGFuayI+SG91c2UgNS8yOSBWaWRlbyBwYXJ0IDM8L2E+ZAIMD2QWAmYPFQUFMDUvMjkBSF48YSBocmVmPSIvbWVldGluZ19maWxlcy8yNlJTL2hqb3VybmFscy8yNlJTIC0gSEogMDUyOSA0NC5QREYjcGFnZT0xNDEiIHRhcmdldD0iX2JsYW5rIj4xNDE8L2E+GUNhbGxlZCBmcm9tIHRoZSBjYWxlbmRhci60AzxhIGhyZWY9Imh0dHBzOi8vaG91c2UubG91aXNpYW5hLmdvdi9IX1ZpZGVvL1ZpZGVvQXJjaGl2ZVBsYXllci5hc3B4P3Y9aG91c2UvMjAyNi9tYXkvMDUyOV8yNl8yNnJzIiB0YXJnZXQ9Il9ibGFuayI+SG91c2UgNS8yOSBWaWRlbzwvYT48YnI+PGEgaHJlZj0iaHR0cHM6Ly9ob3VzZS5sb3Vpc2lhbmEuZ292L0hfVmlkZW8vVmlkZW9BcmNoaXZlUGxheWVyLmFzcHg/dj1ob3VzZS8yMDI2L21heS8wNTI5XzI2XzI2cnMyIiB0YXJnZXQ9Il9ibGFuayI+SG91c2UgNS8yOSBWaWRlbyBwYXJ0IDI8L2E+PGJyPjxhIGhyZWY9Imh0dHBzOi8vaG91c2UubG91aXNpYW5hLmdvdi9IX1ZpZGVvL1ZpZGVvQXJjaGl2ZVBsYXllci5hc3B4P3Y9aG91c2UvMjAyNi9tYXkvMDUyOV8yNl8yNnJzMm93ZW4iIHRhcmdldD0iX2JsYW5rIj5Ib3VzZSA1LzI5IFZpZGVvIHBhcnQgMzwvYT5kAg0PZBYCZg8VBQUwNS8yNwFIAChTY2hlZHVsZWQgZm9yIGNvbmN1cnJlbmNlIG9uIDA1LzI5LzIwMjYuAGQCDg9kFgJmDxUFBTA1LzI2AUhcPGEgaHJlZj0iL21lZXRpbmdfZmlsZXMvMjZSUy9oam91cm5hbHMvMjZSUyAtIEhKIDA1MjYgNDEuUERGI3BhZ2U9NzciIHRhcmdldD0iX2JsYW5rIj43NzwvYT4pUmVjZWl2ZWQgZnJvbSB0aGUgU2VuYXRlIHdpdGggYW1lbmRtZW50cy6IATxhIGhyZWY9Imh0dHBzOi8vaG91c2UubG91aXNpYW5hLmdvdi9IX1ZpZGVvL1ZpZGVvQXJjaGl2ZVBsYXllci5hc3B4P3Y9aG91c2UvMjAyNi9tYXkvMDUyNl8yNl8yNnJzIiB0YXJnZXQ9Il9ibGFuayI+SG91c2UgNS8yNiBWaWRlbzwvYT5kAg8PZBYCZg8VBQUwNS8yNgFTXDxhIGhyZWY9Ii9tZWV0aW5nX2ZpbGVzLzI2UlMvc2pvdXJuYWxzLzI2UlMgLSBTSiAwNTI2IDM3LlBERiNwYWdlPTY3IiB0YXJnZXQ9Il9ibGFuayI+Njc8L2E+tAFSdWxlcyBzdXNwZW5kZWQuICBTZW5hdGUgZmxvb3IgYW1lbmRtZW50cyByZWFkIGFuZCBhZG9wdGVkLiAgUmVhZCBieSB0aXRsZSwgcGFzc2VkIGJ5IGEgdm90ZSBvZiAzOCB5ZWFzIGFuZCAwIG5heXMsIGFuZCBvcmRlcmVkIHJldHVybmVkIHRvIHRoZSBIb3VzZS4gIE1vdGlvbiB0byByZWNvbnNpZGVyIHRhYmxlZC6wBDxhIGhyZWY9Imh0dHBzOi8vc2VuYXRlLmxhLmdvdi9zX3ZpZGVvL1ZpZGVvQXJjaGl2ZVBsYXllci5hc3B4P3Y9c2VuYXRlLzIwMjYvMDUvMDUyNl8yNl8yNnJzIiB0YXJnZXQ9Il9ibGFuayI+U2VuYXRlIDUvMjYgVmlkZW88L2E+PGJyPjxhIGhyZWY9Imh0dHBzOi8vc2VuYXRlLmxhLmdvdi9zX3ZpZGVvL1ZpZGVvQXJjaGl2ZVBsYXllci5hc3B4P3Y9c2VuYXRlLzIwMjYvMDUvMDUyNl8yNl8yNnJzMiIgdGFyZ2V0PSJfYmxhbmsiPlNlbmF0ZSA1LzI2IFZpZGVvIHBhcnQgMjwvYT48YnI+PGEgaHJlZj0iaHR0cHM6Ly9zZW5hdGUubGEuZ292L3NfdmlkZW8vVmlkZW9BcmNoaXZlUGxheWVyLmFzcHg/dj1zZW5hdGUvMjAyNi8wNS8wNTI2XzI2XzI2cnMzIiB0YXJnZXQ9Il9ibGFuayI+U2VuYXRlIDUvMjYgVmlkZW8gcGFydCAzPC9hPjxicj48YSBocmVmPSJodHRwczovL3NlbmF0ZS5sYS5nb3Yvc192aWRlby9WaWRlb0FyY2hpdmVQbGF5ZXIuYXNweD92PXNlbmF0ZS8yMDI2LzA1LzA1MjZfMjZfMjZyczQiIHRhcmdldD0iX2JsYW5rIj5TZW5hdGUgNS8yNiBWaWRlbyBwYXJ0IDQ8L2E+ZAIQD2QWAmYPFQUFMDUvMjUBU1w8YSBocmVmPSIvbWVldGluZ19maWxlcy8yNlJTL3Nqb3VybmFscy8yNlJTIC0gU0ogMDUyNSAzNi5QREYjcGFnZT0zNyIgdGFyZ2V0PSJfYmxhbmsiPjM3PC9hPjxSZWFkIGJ5IHRpdGxlOyBtYWRlIFNwZWNpYWwgT3JkZXIgb2YgdGhlIERheSBOby4gMSBmb3IgNS8yNi6DATxhIGhyZWY9Imh0dHBzOi8vc2VuYXRlLmxhLmdvdi9zX3ZpZGVvL1ZpZGVvQXJjaGl2ZVBsYXllci5hc3B4P3Y9c2VuYXRlLzIwMjYvMDUvMDUyNV8yNl8yNnJzIiB0YXJnZXQ9Il9ibGFuayI+U2VuYXRlIDUvMjUgVmlkZW88L2E+ZAIRD2QWAmYPFQUFMDUvMjEBU148YSBocmVmPSIvbWVldGluZ19maWxlcy8yNlJTL3Nqb3VybmFscy8yNlJTIC0gU0ogMDUyMSAzNS5QREYjcGFnZT0xMDQiIHRhcmdldD0iX2JsYW5rIj4xMDQ8L2E+bVJlcG9ydGVkIHdpdGhvdXQgTGVnaXNsYXRpdmUgQnVyZWF1IGFtZW5kbWVudHMuICBSZWFkIGJ5IHRpdGxlIGFuZCBwYXNzZWQgdG8gdGhpcmQgcmVhZGluZyBhbmQgZmluYWwgcGFzc2FnZS6DATxhIGhyZWY9Imh0dHBzOi8vc2VuYXRlLmxhLmdvdi9zX3ZpZGVvL1ZpZGVvQXJjaGl2ZVBsYXllci5hc3B4P3Y9c2VuYXRlLzIwMjYvMDUvMDUyMV8yNl8yNnJzIiB0YXJnZXQ9Il9ibGFuayI+U2VuYXRlIDUvMjEgVmlkZW88L2E+ZAISD2QWAmYPFQUFMDUvMjEBU1w8YSBocmVmPSIvbWVldGluZ19maWxlcy8yNlJTL3Nqb3VybmFscy8yNlJTIC0gU0ogMDUyMSAzNS5QREYjcGFnZT00OSIgdGFyZ2V0PSJfYmxhbmsiPjQ5PC9hPpwBUnVsZXMgc3VzcGVuZGVkLiAgUmVwb3J0ZWQgd2l0aCBhbWVuZG1lbnRzLiAgUnVsZXMgc3VzcGVuZGVkLiAgQ29tbWl0dGVlIGFtZW5kbWVudHMgcmVhZCBhbmQgYWRvcHRlZC4gIFJlYWQgYnkgdGl0bGUgYW5kIHJlZmVycmVkIHRvIHRoZSBMZWdpc2xhdGl2ZSBCdXJlYXUugwE8YSBocmVmPSJodHRwczovL3NlbmF0ZS5sYS5nb3Yvc192aWRlby9WaWRlb0FyY2hpdmVQbGF5ZXIuYXNweD92PXNlbmF0ZS8yMDI2LzA1LzA1MjFfMjZfMjZycyIgdGFyZ2V0PSJfYmxhbmsiPlNlbmF0ZSA1LzIxIFZpZGVvPC9hPmQCEw9kFgJmDxUFBTA0LzIxAVNaPGEgaHJlZj0iL21lZXRpbmdfZmlsZXMvMjZSUy9zam91cm5hbHMvMjZSUyAtIFNKIDA0MjEgMTkuUERGI3BhZ2U9NyIgdGFyZ2V0PSJfYmxhbmsiPjc8L2E+Q1JlYWQgc2Vjb25kIHRpbWUgYnkgdGl0bGUgYW5kIHJlZmVycmVkIHRvIHRoZSBDb21taXR0ZWUgb24gRmluYW5jZS6OAjxhIGhyZWY9Imh0dHBzOi8vc2VuYXRlLmxhLmdvdi9zX3ZpZGVvL1ZpZGVvQXJjaGl2ZVBsYXllci5hc3B4P3Y9c2VuYXRlLzIwMjYvMDUvMDUyMV8yNl9mbmNlIiB0YXJnZXQ9Il9ibGFuayI+Rk5DRSA1LzIxIFZpZGVvPC9hPjxicj48YSBocmVmPSJodHRwczovL3NlbmF0ZS5sYS5nb3Yvc192aWRlby9WaWRlb0FyY2hpdmVQbGF5ZXIuYXNweD92PXNlbmF0ZS8yMDI2LzA0LzA0MjFfMjZfMjZyc19kYXkxOCIgdGFyZ2V0PSJfYmxhbmsiPlNlbmF0ZSA0LzIxIFZpZGVvPC9hPmQCFA9kFgJmDxUFBTA0LzIwAVNaPGEgaHJlZj0iL21lZXRpbmdfZmlsZXMvMjZSUy9zam91cm5hbHMvMjZSUyAtIFNKIDA0MjAgMTguUERGI3BhZ2U9NCIgdGFyZ2V0PSJfYmxhbmsiPjQ8L2E+YlJlY2VpdmVkIGluIHRoZSBTZW5hdGUuICBSZWFkIGZpcnN0IHRpbWUgYnkgdGl0bGUgYW5kIHBsYWNlZCBvbiB0aGUgQ2FsZW5kYXIgZm9yIGEgc2Vjb25kIHJlYWRpbmcuiQE8YSBocmVmPSJodHRwczovL3NlbmF0ZS5sYS5nb3Yvc192aWRlby9WaWRlb0FyY2hpdmVQbGF5ZXIuYXNweD92PXNlbmF0ZS8yMDI2LzA0LzA0MjBfMjZfMjZyc19kYXkxNyIgdGFyZ2V0PSJfYmxhbmsiPlNlbmF0ZSA0LzIwIFZpZGVvPC9hPmQCFQ9kFgJmDxUFBTA0LzE2AUgAf1JlYWQgdGhpcmQgdGltZSBieSB0aXRsZSwgcm9sbCBjYWxsZWQgb24gZmluYWwgcGFzc2FnZSwgeWVhcyAxMDQsIG5heXMgMC4gRmluYWxseSBwYXNzZWQsIHRpdGxlIGFkb3B0ZWQsIG9yZGVyZWQgdG8gdGhlIFNlbmF0ZS6OATxhIGhyZWY9Imh0dHBzOi8vaG91c2UubG91aXNpYW5hLmdvdi9IX1ZpZGVvL1ZpZGVvQXJjaGl2ZVBsYXllci5hc3B4P3Y9aG91c2UvMjAyNi9hcHIvMDQxNl8yNl8yNnJzX2RheTIwIiB0YXJnZXQ9Il9ibGFuayI+SG91c2UgNC8xNiBWaWRlbzwvYT5kAhYPZBYCZg8VBQUwNC8xNAFIXDxhIGhyZWY9Ii9tZWV0aW5nX2ZpbGVzLzI2UlMvaGpvdXJuYWxzLzI2UlMgLSBISiAwNDE0IDE4LlBERiNwYWdlPTI4IiB0YXJnZXQ9Il9ibGFuayI+Mjg8L2E+M01hZGUgU3BlY2lhbCBPcmRlciBvZiB0aGUgZGF5IE5vLiAxIGZvciAwNC8xNi8yMDI2Lo4BPGEgaHJlZj0iaHR0cHM6Ly9ob3VzZS5sb3Vpc2lhbmEuZ292L0hfVmlkZW8vVmlkZW9BcmNoaXZlUGxheWVyLmFzcHg/dj1ob3VzZS8yMDI2L2Fwci8wNDE0XzI2XzI2cnNfZGF5MTgiIHRhcmdldD0iX2JsYW5rIj5Ib3VzZSA0LzE0IFZpZGVvPC9hPmQCFw9kFgJmDxUFBTA0LzE0AUhcPGEgaHJlZj0iL21lZXRpbmdfZmlsZXMvMjZSUy9oam91cm5hbHMvMjZSUyAtIEhKIDA0MTQgMTguUERGI3BhZ2U9MTMiIHRhcmdldD0iX2JsYW5rIj4xMzwvYT5BUmVhZCBieSB0aXRsZSwgYW1lbmRlZCwgb3JkZXJlZCBlbmdyb3NzZWQsIHBhc3NlZCB0byAzcmQgcmVhZGluZy6OATxhIGhyZWY9Imh0dHBzOi8vaG91c2UubG91aXNpYW5hLmdvdi9IX1ZpZGVvL1ZpZGVvQXJjaGl2ZVBsYXllci5hc3B4P3Y9aG91c2UvMjAyNi9hcHIvMDQxNF8yNl8yNnJzX2RheTE4IiB0YXJnZXQ9Il9ibGFuayI+SG91c2UgNC8xNCBWaWRlbzwvYT5kAhgPZBYCZg8VBQUwNC8xMwFIXDxhIGhyZWY9Ii9tZWV0aW5nX2ZpbGVzLzI2UlMvaGpvdXJuYWxzLzI2UlMgLSBISiAwNDEzIDE3LlBERiNwYWdlPTUzIiB0YXJnZXQ9Il9ibGFuayI+NTM8L2E+IFJlcG9ydGVkIHdpdGggYW1lbmRtZW50cyAoMTgtMCkujgE8YSBocmVmPSJodHRwczovL2hvdXNlLmxvdWlzaWFuYS5nb3YvSF9WaWRlby9WaWRlb0FyY2hpdmVQbGF5ZXIuYXNweD92PWhvdXNlLzIwMjYvYXByLzA0MTNfMjZfMjZyc19kYXkxNyIgdGFyZ2V0PSJfYmxhbmsiPkhvdXNlIDQvMTMgVmlkZW88L2E+ZAIZD2QWAmYPFQUFMDMvMDkBSFs8YSBocmVmPSIvbWVldGluZ19maWxlcy8yNlJTL2hqb3VybmFscy8yNlJTIC0gSEogMDMwOSAxLlBERiNwYWdlPTEwIiB0YXJnZXQ9Il9ibGFuayI+MTA8L2E+TFJlYWQgYnkgdGl0bGUsIHVuZGVyIHRoZSBydWxlcywgcmVmZXJyZWQgdG8gdGhlIENvbW1pdHRlZSBvbiBBcHByb3ByaWF0aW9ucy6VAjxhIGhyZWY9Imh0dHBzOi8vaG91c2UubG91aXNpYW5hLmdvdi9IX1ZpZGVvL1ZpZGVvQXJjaGl2ZVBsYXllci5hc3B4P3Y9aG91c2UvMjAyNi9hcHIvMDQxM18yNl9hcCIgdGFyZ2V0PSJfYmxhbmsiPkFQUCA0LzEzIFZpZGVvPC9hPjxicj48YSBocmVmPSJodHRwczovL2hvdXNlLmxvdWlzaWFuYS5nb3YvSF9WaWRlby9WaWRlb0FyY2hpdmVQbGF5ZXIuYXNweD92PWhvdXNlLzIwMjYvbWFyLzAzMDlfMjZfMjZyc19kYXkwMSIgdGFyZ2V0PSJfYmxhbmsiPkhvdXNlIDMvOSBWaWRlbzwvYT5kAhoPZBYCZg8VBQUwMi8yMAFIADRGaXJzdCBhcHBlYXJlZCBpbiB0aGUgSW50ZXJpbSBDYWxlbmRhciBvbiAyLzIwLzIwMjYuAGQCGw9kFgJmDxUFBTAyLzIwAUgAS1VuZGVyIHRoZSBydWxlcywgcHJvdmlzaW9uYWxseSByZWZlcnJlZCB0byB0aGUgQ29tbWl0dGVlIG9uIEFwcHJvcHJpYXRpb25zLgBkAhwPZBYCZg8VBQUwMi8yMAFIAAlQcmVmaWxlZC4AZAILD2QWBAIDDxBkZBYAZAIFDxBkZBYBAgFkAg8PZBYCAgEPPCsACQBkGAIFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYBBR9jdGwwMCRQYWdlQm9keSRJbWFnZUJ1dHRvblByaW50BR5jdGwwMCRQYWdlQm9keSRMaXN0Vmlld0hpc3RvcnkPFCsADmRkZGRkZGQ8KwAYAAIYZGRkZgL/////D2QovHNFpnf2rHVBc75GvL2XWnCw/LsEEN8O++Rs5Lf1IQ==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/Legis/WebResource.axd?d=5jDUB5FcgRu9gm4gBt1u1KsFLqzVpd0jMIO5iA68CJBuA_vcd-39cRr8vbawEAdmi5popG5R3ZBpCjX6-vmt2udWlEvp-Tm-y6Kw6RtbHZo1&amp;t=639190664600000000" type="text/javascript"></script>
+
+
+<script src="/Legis/ScriptResource.axd?d=SlCipsbTae1WCWiVjwMDiiAYpppFY4kto1oYBBVLn0Y1AkoLPsyY0T_tzzSPT_y4JUJp2A4Sq0bTCH_-TbF203_cIUYJNaQ_nghyyxt5b_HBHwbPtvXbqhrDCphxn3JXj2Crb1KEaNJKClCt9NO4bg2&amp;t=ffffffff9fe38677" type="text/javascript"></script>
+<script src="/Legis/ScriptResource.axd?d=diSgN70uE7PSlGIF-M7i9qiTH7Hn8WERt3qVXrpsChyhwSmuCy3EWh-YFo7L_cBuAJ4YcawKHSP-2pg2Kqh6WY2nOgnCNMJSxH3TREZxenLGzm7En73sqv0D_Q1S4z3wu1PKZ6PeIDSorVFZNOT0FsnVAyciY0uWz0iuvKDViUQkpXyAUPNiQ1YiucARyLuZ0&amp;t=ffffffffbec1863d" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="/Legis/ScriptResource.axd?d=aD-qBI-kRxqsdNU3xdB71n0pQQIe-BUCPRu-BOosiVY6rFHnCVhDb3R1W3ZHBv-NvpDQgfLzxPNUVAkEGUS1AM5RQE-pAco2Lkuwwrd0zW4fQxStpUhAKKKz8bohmqxcehxNzBIGQdOu2JpxtxMlrxqIIQaqhGP3rbwOPnzvxlqq1PTVN3tKZqLVL_irQfCz0&amp;t=ffffffffbec1863d" type="text/javascript"></script>
+<script src="/Legis/WebResource.axd?d=ldl8T4tUYAiaEMUJC38vfFUY2CTNW0B4XPbye4Thi9T0QGDytwRLDyvOfP5GA67lCUlU6JhIWBi1nNSlAfi0WXm0ymct97GojM1nRV0UIxs1&amp;t=639190664600000000" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="47179645" />
+	<input type="hidden" name="__PREVIOUSPAGE" id="__PREVIOUSPAGE" value="GlNgRAfKdAMBCE6K9eUQfEbB344QhFAXRu6VzK_XC-JOz9beoWXeHQaH74e7HoiEW2768pjs_uQFX9O_iLKuv2b4ks1kKm4gJ5K46Z85BJs1" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAdtS3Z2KmytOeoZ5FNBim5hYXJkOI8VUNRJGIDSh8aWfYqAW3xu4/gyrrnr7w7P4UQ0PgMFg6emO+N6VWrjkhiakWzsPoK1DeOZgyTy0CGH9vtJ46BfGQP7+rvZJv7YCF1q8oCQVPTGOvdGrVWZRX9m8lVqvZfTlt9/bRFNps9vw2xK4B7f6e3Kk/22d1u0rF4=" />
+</div>
+        <div id="bg"></div>
+        <nav id="LegisMasterDiv" style="margin-left:0%; margin-right:0%">
+            <div id="ctl00_PanelUnknownUser" class="LoginLink" style="height:160px;text-align:right;">
+	
+                <br />
+                <a id="ctl00_LinkBtnLogin" class="LoginLink" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$LinkBtnLogin&quot;, &quot;&quot;, false, &quot;&quot;, &quot;Login.aspx&quot;, false, true))">Login</a> &nbsp;&nbsp;&nbsp;&nbsp;       
+                <a id="ctl00_LinkBtnSignUp" class="LoginLink" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$LinkBtnSignUp&quot;, &quot;&quot;, false, &quot;&quot;, &quot;NewUser.aspx&quot;, false, true))">Sign-Up</a>&nbsp;&nbsp;                                          
+            
+</div>
+            
+
+            <a href="#ctl00_MainMenu_SkipLink"><img alt="Skip Navigation Links" src="/Legis/WebResource.axd?d=9dRXm_2hH9Tre_DnPjqfcn65FFHj8DUuXqVRtz_zag39ullvw0q6guAM4ZFsnXHFEq6mGtXywrbQHS8tDVVVxjHIwF9HCr7852nH8bqvaiI1&amp;t=639190664600000000" width="0" height="0" style="border-width:0px;" /></a><table id="ctl00_MainMenu" class="MainMenuStatic ctl00_MainMenu_5 ctl00_MainMenu_2" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" title="back to the home page" id="ctl00_MainMenun0"><table class="ctl00_MainMenu_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td><a class="ctl00_MainMenu_1 ctl00_MainMenu_3" href="Home.aspx">Home</a></td>
+			</tr>
+		</table></td><td style="width:0px;"></td><td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" title="View / search LA laws" id="ctl00_MainMenun1"><table class="ctl00_MainMenu_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td><a class="ctl00_MainMenu_1 ctl00_MainMenu_3" href="LawSearch.aspx">Laws</a></td>
+			</tr>
+		</table></td><td style="width:0px;"></td><td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_MainMenun2"><table class="ctl00_MainMenu_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td><a class="ctl00_MainMenu_1 ctl00_MainMenu_3" href="BillSearch.aspx?sid=last">Bills</a></td>
+			</tr>
+		</table></td><td style="width:0px;"></td><td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_MainMenun3"><table class="ctl00_MainMenu_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td><a class="ctl00_MainMenu_1 ctl00_MainMenu_3" href="SessionInfo/SessionInfo.aspx?sid=last">Sessions</a></td>
+			</tr>
+		</table></td><td style="width:0px;"></td><td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" title="House home page" id="ctl00_MainMenun4"><table class="ctl00_MainMenu_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td><a class="ctl00_MainMenu_1 ctl00_MainMenu_3" href="https://house.louisiana.gov" target="_blank">House</a></td>
+			</tr>
+		</table></td><td style="width:0px;"></td><td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" title="Senate home page" id="ctl00_MainMenun5"><table class="ctl00_MainMenu_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td><a class="ctl00_MainMenu_1 ctl00_MainMenu_3" href="https://senate.la.gov" target="_blank">Senate</a></td>
+			</tr>
+		</table></td><td style="width:0px;"></td><td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_MainMenun6"><table class="ctl00_MainMenu_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td><a class="ctl00_MainMenu_1 ctl00_MainMenu_3" href="Committees.aspx?c=H">Committees</a></td>
+			</tr>
+		</table></td><td style="width:0px;"></td><td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_MainMenun7"><table class="ctl00_MainMenu_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td><a class="ctl00_MainMenu_1 ctl00_MainMenu_3" href="Bios.aspx?cid=H">Legislators</a></td>
+			</tr>
+		</table></td><td style="width:0px;"></td><td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" title="Manage your own &quot;tracking list&quot; of bills" id="ctl00_MainMenun8"><table class="ctl00_MainMenu_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td><a class="ctl00_MainMenu_1 ctl00_MainMenu_3" href="MyLegis.aspx"><noBR>My Legis</noBR></a></td>
+			</tr>
+		</table></td><td style="width:0px;"></td>
+	</tr>
+</table><div id="ctl00_MainMenun2Items" class="ctl00_MainMenu_0 MainMenuDynamic ctl00_MainMenu_6">
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" title="view bills from the 2026 Regular Session" id="ctl00_MainMenun9">
+			<td><table cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="ctl00_MainMenu_1" href="BillSearch.aspx?sid=current">2026 Regular Session</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" title="view bills from other sessions" id="ctl00_MainMenun10">
+			<td><table cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="ctl00_MainMenu_1" href="BillSearch.aspx">Other Sessions</a></td>
+				</tr>
+			</table></td>
+		</tr>
+	</table><div class="ctl00_MainMenu_0" id="ctl00_MainMenun2ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/Legis/WebResource.axd?d=ipjuTCqW9PLszAb4R023pfK-fxiRaVaxIm_qOvWhTbdyQ6jpjljh_7EOUjyKS80gMCr4hnLRisFrzkORm0mYpzIikuCtpmxgJA8MwtktdjU1&amp;t=639190664600000000" alt="Scroll up" />
+	</div><div class="ctl00_MainMenu_0" id="ctl00_MainMenun2ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/Legis/WebResource.axd?d=zY31a2t2Ehewqi_SuWrMmHzmJ6NGTWXsuYqKKC1JSvgabSu4aroPE9KKWHs9jAm_z0vIwjGlfHRigpXHw7bFSbALLWiG7DibaJi3S1ZdhT41&amp;t=639190664600000000" alt="Scroll down" />
+	</div>
+</div><div id="ctl00_MainMenun3Items" class="ctl00_MainMenu_0 MainMenuDynamic ctl00_MainMenu_6">
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" title="view session info from the 2026 Regular Session" id="ctl00_MainMenun11">
+			<td><table cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="ctl00_MainMenu_1" href="SessionInfo/SessionInfo.aspx?sid=current">2026 Regular Session</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" title="view info from other sessions" id="ctl00_MainMenun12">
+			<td><table cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="ctl00_MainMenu_1" href="SessionInfo/SessionInfo.aspx">Other Sessions</a></td>
+				</tr>
+			</table></td>
+		</tr>
+	</table><div class="ctl00_MainMenu_0" id="ctl00_MainMenun3ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/Legis/WebResource.axd?d=ipjuTCqW9PLszAb4R023pfK-fxiRaVaxIm_qOvWhTbdyQ6jpjljh_7EOUjyKS80gMCr4hnLRisFrzkORm0mYpzIikuCtpmxgJA8MwtktdjU1&amp;t=639190664600000000" alt="Scroll up" />
+	</div><div class="ctl00_MainMenu_0" id="ctl00_MainMenun3ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/Legis/WebResource.axd?d=zY31a2t2Ehewqi_SuWrMmHzmJ6NGTWXsuYqKKC1JSvgabSu4aroPE9KKWHs9jAm_z0vIwjGlfHRigpXHw7bFSbALLWiG7DibaJi3S1ZdhT41&amp;t=639190664600000000" alt="Scroll down" />
+	</div>
+</div><div id="ctl00_MainMenun6Items" class="ctl00_MainMenu_0 MainMenuDynamic ctl00_MainMenu_6">
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" title="Info. about House committees" id="ctl00_MainMenun13">
+			<td><table cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="ctl00_MainMenu_1" href="Committees.aspx?c=H">House Committees</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" title="Info. about Senate committees" id="ctl00_MainMenun14">
+			<td><table cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="ctl00_MainMenu_1" href="Committees.aspx?c=S">Senate Committees</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" title="Info. about miscellaneous legislative committees" id="ctl00_MainMenun15">
+			<td><table cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="ctl00_MainMenu_1" href="Committees.aspx?c=M">Miscellaneous Committees</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" title="Scheduled committee meetings" id="ctl00_MainMenun16">
+			<td><table cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="ctl00_MainMenu_1" href="ByCmte.aspx">Scheduled Meetings</a></td>
+				</tr>
+			</table></td>
+		</tr>
+	</table><div class="ctl00_MainMenu_0" id="ctl00_MainMenun6ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/Legis/WebResource.axd?d=ipjuTCqW9PLszAb4R023pfK-fxiRaVaxIm_qOvWhTbdyQ6jpjljh_7EOUjyKS80gMCr4hnLRisFrzkORm0mYpzIikuCtpmxgJA8MwtktdjU1&amp;t=639190664600000000" alt="Scroll up" />
+	</div><div class="ctl00_MainMenu_0" id="ctl00_MainMenun6ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/Legis/WebResource.axd?d=zY31a2t2Ehewqi_SuWrMmHzmJ6NGTWXsuYqKKC1JSvgabSu4aroPE9KKWHs9jAm_z0vIwjGlfHRigpXHw7bFSbALLWiG7DibaJi3S1ZdhT41&amp;t=639190664600000000" alt="Scroll down" />
+	</div>
+</div><div id="ctl00_MainMenun7Items" class="ctl00_MainMenu_0 MainMenuDynamic ctl00_MainMenu_6">
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" title="Info about the LA State Representatives" id="ctl00_MainMenun17">
+			<td><table cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="ctl00_MainMenu_1" href="Bios.aspx?cid=H">Representatives</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" title="Info about LA State Senators" id="ctl00_MainMenun18">
+			<td><table cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="ctl00_MainMenu_1" href="Bios.aspx?cid=S">Senators</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_MainMenun19">
+			<td><table cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="ctl00_MainMenu_1" href="Caucuses.aspx">Caucuses and Delegations</a></td>
+				</tr>
+			</table></td>
+		</tr>
+	</table><div class="ctl00_MainMenu_0" id="ctl00_MainMenun7ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/Legis/WebResource.axd?d=ipjuTCqW9PLszAb4R023pfK-fxiRaVaxIm_qOvWhTbdyQ6jpjljh_7EOUjyKS80gMCr4hnLRisFrzkORm0mYpzIikuCtpmxgJA8MwtktdjU1&amp;t=639190664600000000" alt="Scroll up" />
+	</div><div class="ctl00_MainMenu_0" id="ctl00_MainMenun7ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/Legis/WebResource.axd?d=zY31a2t2Ehewqi_SuWrMmHzmJ6NGTWXsuYqKKC1JSvgabSu4aroPE9KKWHs9jAm_z0vIwjGlfHRigpXHw7bFSbALLWiG7DibaJi3S1ZdhT41&amp;t=639190664600000000" alt="Scroll down" />
+	</div>
+</div><a id="ctl00_MainMenu_SkipLink"></a>
+            
+         
+        </nav>
+        <!-- 
+        <br /><br /> 
+        -->
+
+        <main>
+        
+
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$PageBody$ScriptManager1', 'aspnetForm', ['tctl00$PageBody$UpdatePanelBillInfo',''], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+    
+        <script type="text/javascript" >
+        // The following script is used to "hijack" the browser's back button, so that we can fully reload our calling page.
+        // This may be necessary, in situations where this page is called from BillSearch.aspx, because some browsers (Safari, for sure) 
+        //can leave BillSearch.aspx in a "frozen" state, to where its buttons will be inoperable.
+        
+        function getQuerystring(key){
+          
+          key = key.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+          var regex = new RegExp("[\\?&]"+key+"=([^&#]*)");
+          var qs = regex.exec(window.location.href);
+          
+          if(qs == null){
+            return "";
+          }
+          else{
+            return qs[1];
+          }
+        }
+   
+        var IsNotLoading = false;
+    
+        window.onload = function () {
+            // Determine if this page was a "Search By Instrument" search that was passed-thru
+            // from our BillSearch.aspx page.  If so, we'll need to hijack the back button so we
+            // can force a complete reload of the BillSearch.aspx page.
+            var isSearch = getQuerystring('sbi');
+
+            if (isSearch != 'y'){
+               return;
+            }
+
+            if (typeof history.pushState == "function") {
+           
+                history.pushState("jibberish", null, null);
+                
+                window.onpopstate = function () {
+                    history.pushState('newjibberish', null, null);
+     
+                    // Handle the back (or forward) buttons here
+                    // Will NOT handle refresh, use onbeforeunload for that.             
+                    if (IsNotLoading) { 
+                        window.open('BillSearch.aspx?sid=LAST','_self');
+                    }
+                    
+                    IsNotLoading = true;
+                }; // end of window.onpopstate function definition.
+            
+            }
+            else{
+                var ignoreHashChange = true;
+                
+                window.onhashchange = function () {
+
+                    if (!ignoreHashChange) {
+                        ignoreHashChange = true;
+                        window.location.hash = Math.random();
+                        // Detect and redirect change here
+                        // Works in older FF and IE9
+                        // * it does mess with your hash symbol (anchor?) pound sign
+                        // delimiter on the end of the URL
+                        window.open('BillSearch.aspx?sid=LAST','_self');
+                    }
+                    else {
+                        ignoreHashChange = false;   
+                    }
+                }; // end of window.onhashchange function definition.
+            }
+            
+        }; //end of window.onload() function definition.
+    </script>
+    
+    <!-- NOTE: The following update panel encapsulates the entire content page:  -->
+    <div id="ctl00_PageBody_UpdatePanelBillInfo">
+	
+            <script type="text/javascript">
+                
+                window.focus();
+                              
+                function PrintableVersion(url){
+                     window.open(url,'_blank');
+                }      
+                        
+            </script>
+            
+            <div style="text-align:center" >    
+                <br />      
+                <span id="ctl00_PageBody_LabelSession" class="HeaderTitle">2026 Regular Session</span>
+            </div>
+
+            <div id="ctl00_PageBody_PanelBillInfo" style="padding-top:5px; padding-left:20px; margin-top:15px; margin-left:235px; margin-right:10px;">
+		           
+
+                <table width="100%">
+                    <tr>
+                        <td align="left">
+                            <span id="ctl00_PageBody_LabelBillID" style="font-size:X-Large;font-weight:bold;">HB1</span>
+                            <span id="ctl00_PageBody_LabelAuthor" style="font-size:Large;font-weight:bold;">&nbsp;&nbsp;by Representative </span>
+                            <a id="ctl00_PageBody_LinkAuthor" href="https://house.louisiana.gov/H_Reps/members.aspx?ID=13" target="_blank" style="font-size:Large;font-weight:bold;">Jack McFarland</a>
+                            <span id="ctl00_PageBody_LabelWatchFlags" style="font-size:Small;"></span>
+                        </td>
+                        <td align="right">
+                            <span style="white-space:nowrap">
+                                &nbsp;&nbsp;
+                                &nbsp;&nbsp;
+                                <input type="image" name="ctl00$PageBody$ImageButtonPrint" id="ctl00_PageBody_ImageButtonPrint" title="Printable Version" src="App_Themes/Legis/Images/print.gif" onclick="javascript:PrintableVersion(&#39;https://www.legis.la.gov/legis/Bill.aspx?i=249908&amp;p=true&#39;);" style="border-width:0px;" />
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                <hr />
+            
+                <span id="ctl00_PageBody_LabelShortTitle" style="font-weight:bold;">APPROPRIATIONS:&nbsp;&nbsp;Provides for the ordinary operating expenses of state government for Fiscal Year 2026-2027</span>
+                <br /><br />
+                <span id="ctl00_PageBody_LabelCurrentStatus" style="font-weight:bold;">Current Status:&nbsp;&nbsp;<noBR>Signed by the Governor - Act 3</noBR></span>     
+                <br /><br />
+                <br />
+                
+                <table>
+                    <tr>
+                        <td align="left" >
+                            <a href="#ctl00_PageBody_MenuDocuments_SkipLink"><img alt="Skip Navigation Links" src="/Legis/WebResource.axd?d=9dRXm_2hH9Tre_DnPjqfcn65FFHj8DUuXqVRtz_zag39ullvw0q6guAM4ZFsnXHFEq6mGtXywrbQHS8tDVVVxjHIwF9HCr7852nH8bqvaiI1&amp;t=639190664600000000" width="0" height="0" style="border-width:0px;" /></a><table id="ctl00_PageBody_MenuDocuments" class="ctl00_PageBody_MenuDocuments_2" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn0"><table class="ctl00_PageBody_MenuDocuments_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+					<tr>
+						<td style="white-space:nowrap;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_3" href="BillDocs.aspx?i=249908&amp;t=text" target="_blank">Text</a></td><td style="width:0;"><img src="/Legis/WebResource.axd?d=qIp4eiAYj5jWBkf_5wsOQh2a4CMtf_CxPf4QEn5S6xujEauyg99qB9iQynXs4CKZRsji1pEp5DgXuNHBpiH4YrH-Ewe6m5ofF_gqwcINnDg1&amp;t=639190664600000000" alt="Expand Text" style="border-style:none;vertical-align:middle;" /></td>
+					</tr>
+				</table></td><td style="width:4px;"></td><td style="width:4px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn1"><table class="ctl00_PageBody_MenuDocuments_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+					<tr>
+						<td style="white-space:nowrap;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_3" href="BillDocs.aspx?i=249908&amp;t=amendments" target="_blank">Amendments</a></td><td style="width:0;"><img src="/Legis/WebResource.axd?d=qIp4eiAYj5jWBkf_5wsOQh2a4CMtf_CxPf4QEn5S6xujEauyg99qB9iQynXs4CKZRsji1pEp5DgXuNHBpiH4YrH-Ewe6m5ofF_gqwcINnDg1&amp;t=639190664600000000" alt="Expand Amendments" style="border-style:none;vertical-align:middle;" /></td>
+					</tr>
+				</table></td><td style="width:4px;"></td><td style="width:4px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn2"><table class="ctl00_PageBody_MenuDocuments_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+					<tr>
+						<td style="white-space:nowrap;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_3" href="BillDocs.aspx?i=249908&amp;t=digests" target="_blank">Digests</a></td><td style="width:0;"><img src="/Legis/WebResource.axd?d=qIp4eiAYj5jWBkf_5wsOQh2a4CMtf_CxPf4QEn5S6xujEauyg99qB9iQynXs4CKZRsji1pEp5DgXuNHBpiH4YrH-Ewe6m5ofF_gqwcINnDg1&amp;t=639190664600000000" alt="Expand Digests" style="border-style:none;vertical-align:middle;" /></td>
+					</tr>
+				</table></td><td style="width:4px;"></td><td style="width:4px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn3"><table class="ctl00_PageBody_MenuDocuments_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+					<tr>
+						<td style="white-space:nowrap;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_3" href="BillDocs.aspx?i=249908&amp;t=votes" target="_blank">Votes</a></td><td style="width:0;"><img src="/Legis/WebResource.axd?d=qIp4eiAYj5jWBkf_5wsOQh2a4CMtf_CxPf4QEn5S6xujEauyg99qB9iQynXs4CKZRsji1pEp5DgXuNHBpiH4YrH-Ewe6m5ofF_gqwcINnDg1&amp;t=639190664600000000" alt="Expand Votes" style="border-style:none;vertical-align:middle;" /></td>
+					</tr>
+				</table></td><td style="width:4px;"></td><td style="width:4px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn4"><table class="ctl00_PageBody_MenuDocuments_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+					<tr>
+						<td style="white-space:nowrap;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_3" href="BillDocs.aspx?i=249908&amp;t=other" target="_blank">Other</a></td><td style="width:0;"><img src="/Legis/WebResource.axd?d=qIp4eiAYj5jWBkf_5wsOQh2a4CMtf_CxPf4QEn5S6xujEauyg99qB9iQynXs4CKZRsji1pEp5DgXuNHBpiH4YrH-Ewe6m5ofF_gqwcINnDg1&amp;t=639190664600000000" alt="Expand Other" style="border-style:none;vertical-align:middle;" /></td>
+					</tr>
+				</table></td><td style="width:4px;"></td><td style="width:4px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn5"><table class="ctl00_PageBody_MenuDocuments_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+					<tr>
+						<td style="white-space:nowrap;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_3" href="BillDocs.aspx?i=249908&amp;t=authors" target="_blank">Authors</a></td><td style="width:0;"><img src="/Legis/WebResource.axd?d=qIp4eiAYj5jWBkf_5wsOQh2a4CMtf_CxPf4QEn5S6xujEauyg99qB9iQynXs4CKZRsji1pEp5DgXuNHBpiH4YrH-Ewe6m5ofF_gqwcINnDg1&amp;t=639190664600000000" alt="Expand Authors" style="border-style:none;vertical-align:middle;" /></td>
+					</tr>
+				</table></td><td style="width:4px;"></td>
+			</tr>
+		</table><div id="ctl00_PageBody_MenuDocumentsn0Items" class="ctl00_PageBody_MenuDocuments_0 ctl00_PageBody_MenuDocuments_7">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn6">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="ViewDocument.aspx?d=1481824" target="_blank">HB1 Act 3</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn7">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="ViewDocument.aspx?d=1478641" target="_blank">HB1 Enrolled</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn8">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="ViewDocument.aspx?d=1461390" target="_blank">HB1 Engrossed</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn9">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="ViewDocument.aspx?d=1440614" target="_blank">HB1 Original</a></td>
+						</tr>
+					</table></td>
+				</tr>
+			</table><div class="ctl00_PageBody_MenuDocuments_6 ctl00_PageBody_MenuDocuments_0" id="ctl00_PageBody_MenuDocumentsn0ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+				<img src="/Legis/WebResource.axd?d=ipjuTCqW9PLszAb4R023pfK-fxiRaVaxIm_qOvWhTbdyQ6jpjljh_7EOUjyKS80gMCr4hnLRisFrzkORm0mYpzIikuCtpmxgJA8MwtktdjU1&amp;t=639190664600000000" alt="Scroll up" />
+			</div><div class="ctl00_PageBody_MenuDocuments_6 ctl00_PageBody_MenuDocuments_0" id="ctl00_PageBody_MenuDocumentsn0ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+				<img src="/Legis/WebResource.axd?d=zY31a2t2Ehewqi_SuWrMmHzmJ6NGTWXsuYqKKC1JSvgabSu4aroPE9KKWHs9jAm_z0vIwjGlfHRigpXHw7bFSbALLWiG7DibaJi3S1ZdhT41&amp;t=639190664600000000" alt="Scroll down" />
+			</div>
+		</div><div id="ctl00_PageBody_MenuDocumentsn1Items" class="ctl00_PageBody_MenuDocuments_0 ctl00_PageBody_MenuDocuments_7">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn10">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="ViewDocument.aspx?d=1476368" target="_blank">Senate Floor Amendment #4370 Womack Adopted</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn11">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="ViewDocument.aspx?d=1475534" target="_blank">Senate Committee Amendment #4260 FNCE Adopted</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn12">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="ViewDocument.aspx?d=1475387" target="_blank">Senate Committee Amendment #4238 FNCE Draft</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn13">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="ViewDocument.aspx?d=1461481" target="_blank">House Committee Amendment #3625 APP Adopted</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn14">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="ViewDocument.aspx?d=1461126" target="_blank">House Committee Amendment #3574 APP Draft</a></td>
+						</tr>
+					</table></td>
+				</tr>
+			</table><div class="ctl00_PageBody_MenuDocuments_6 ctl00_PageBody_MenuDocuments_0" id="ctl00_PageBody_MenuDocumentsn1ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+				<img src="/Legis/WebResource.axd?d=ipjuTCqW9PLszAb4R023pfK-fxiRaVaxIm_qOvWhTbdyQ6jpjljh_7EOUjyKS80gMCr4hnLRisFrzkORm0mYpzIikuCtpmxgJA8MwtktdjU1&amp;t=639190664600000000" alt="Scroll up" />
+			</div><div class="ctl00_PageBody_MenuDocuments_6 ctl00_PageBody_MenuDocuments_0" id="ctl00_PageBody_MenuDocumentsn1ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+				<img src="/Legis/WebResource.axd?d=zY31a2t2Ehewqi_SuWrMmHzmJ6NGTWXsuYqKKC1JSvgabSu4aroPE9KKWHs9jAm_z0vIwjGlfHRigpXHw7bFSbALLWiG7DibaJi3S1ZdhT41&amp;t=639190664600000000" alt="Scroll down" />
+			</div>
+		</div><div id="ctl00_PageBody_MenuDocumentsn2Items" class="ctl00_PageBody_MenuDocuments_0 ctl00_PageBody_MenuDocuments_7">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn15">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="ViewDocument.aspx?d=1486411" target="_blank">Resume Digest for HB1</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn16">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="ViewDocument.aspx?d=1477460" target="_blank">Summary of Senate Amendments to HB1</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn17">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="ViewDocument.aspx?d=1461670" target="_blank">Digest of HB1 Engrossed</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn18">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="ViewDocument.aspx?d=1440619" target="_blank">Digest of HB1 Original</a></td>
+						</tr>
+					</table></td>
+				</tr>
+			</table><div class="ctl00_PageBody_MenuDocuments_6 ctl00_PageBody_MenuDocuments_0" id="ctl00_PageBody_MenuDocumentsn2ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+				<img src="/Legis/WebResource.axd?d=ipjuTCqW9PLszAb4R023pfK-fxiRaVaxIm_qOvWhTbdyQ6jpjljh_7EOUjyKS80gMCr4hnLRisFrzkORm0mYpzIikuCtpmxgJA8MwtktdjU1&amp;t=639190664600000000" alt="Scroll up" />
+			</div><div class="ctl00_PageBody_MenuDocuments_6 ctl00_PageBody_MenuDocuments_0" id="ctl00_PageBody_MenuDocumentsn2ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+				<img src="/Legis/WebResource.axd?d=zY31a2t2Ehewqi_SuWrMmHzmJ6NGTWXsuYqKKC1JSvgabSu4aroPE9KKWHs9jAm_z0vIwjGlfHRigpXHw7bFSbALLWiG7DibaJi3S1ZdhT41&amp;t=639190664600000000" alt="Scroll down" />
+			</div>
+		</div><div id="ctl00_PageBody_MenuDocumentsn3Items" class="ctl00_PageBody_MenuDocuments_0 ctl00_PageBody_MenuDocuments_7">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn19">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="ViewDocument.aspx?d=1478997" target="_blank">House Vote on HB 1 CONCUR IN SENATE AMENDMENTS (#1765)</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn20">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="ViewDocument.aspx?d=1477014" target="_blank">Senate Vote on HB 1 FINAL PASSAGE (#1381)</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn21">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="CommitteeVote.aspx?moi=1006444" target="_blank">Committee Vote S-FNCE 5/21/2026</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn22">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="ViewDocument.aspx?d=1463311" target="_blank">House Vote on HB 1 FINAL PASSAGE (#564)</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn23">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="CommitteeVote.aspx?moi=981182" target="_blank">Committee Vote H-APP 4/13/2026</a></td>
+						</tr>
+					</table></td>
+				</tr>
+			</table><div class="ctl00_PageBody_MenuDocuments_6 ctl00_PageBody_MenuDocuments_0" id="ctl00_PageBody_MenuDocumentsn3ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+				<img src="/Legis/WebResource.axd?d=ipjuTCqW9PLszAb4R023pfK-fxiRaVaxIm_qOvWhTbdyQ6jpjljh_7EOUjyKS80gMCr4hnLRisFrzkORm0mYpzIikuCtpmxgJA8MwtktdjU1&amp;t=639190664600000000" alt="Scroll up" />
+			</div><div class="ctl00_PageBody_MenuDocuments_6 ctl00_PageBody_MenuDocuments_0" id="ctl00_PageBody_MenuDocumentsn3ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+				<img src="/Legis/WebResource.axd?d=zY31a2t2Ehewqi_SuWrMmHzmJ6NGTWXsuYqKKC1JSvgabSu4aroPE9KKWHs9jAm_z0vIwjGlfHRigpXHw7bFSbALLWiG7DibaJi3S1ZdhT41&amp;t=639190664600000000" alt="Scroll down" />
+			</div>
+		</div><div id="ctl00_PageBody_MenuDocumentsn4Items" class="ctl00_PageBody_MenuDocuments_0 ctl00_PageBody_MenuDocuments_7">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn24">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="ViewDocument.aspx?d=1481792" target="_blank">HB1 Veto Message</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn25">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="ViewDocument.aspx?d=1463142" target="_blank">HRULE 7.19 HB1 Engrossed</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn26">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="ViewDocument.aspx?d=1453860" target="_blank">TEB Appendix</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn27">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="ViewDocument.aspx?d=1448248" target="_blank">Salary Appendix to HB1 2026 - Amended</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn28">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="ViewDocument.aspx?d=1440649" target="_blank">At Enrolled Appendix</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn29">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="ViewDocument.aspx?d=1440647" target="_blank">UAL Retirement Appendix</a></td>
+						</tr>
+					</table></td>
+				</tr>
+			</table><div class="ctl00_PageBody_MenuDocuments_6 ctl00_PageBody_MenuDocuments_0" id="ctl00_PageBody_MenuDocumentsn4ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+				<img src="/Legis/WebResource.axd?d=ipjuTCqW9PLszAb4R023pfK-fxiRaVaxIm_qOvWhTbdyQ6jpjljh_7EOUjyKS80gMCr4hnLRisFrzkORm0mYpzIikuCtpmxgJA8MwtktdjU1&amp;t=639190664600000000" alt="Scroll up" />
+			</div><div class="ctl00_PageBody_MenuDocuments_6 ctl00_PageBody_MenuDocuments_0" id="ctl00_PageBody_MenuDocumentsn4ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+				<img src="/Legis/WebResource.axd?d=zY31a2t2Ehewqi_SuWrMmHzmJ6NGTWXsuYqKKC1JSvgabSu4aroPE9KKWHs9jAm_z0vIwjGlfHRigpXHw7bFSbALLWiG7DibaJi3S1ZdhT41&amp;t=639190664600000000" alt="Scroll down" />
+			</div>
+		</div><div id="ctl00_PageBody_MenuDocumentsn5Items" class="ctl00_PageBody_MenuDocuments_0 ctl00_PageBody_MenuDocuments_7">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="ctl00_PageBody_MenuDocumentsn30">
+					<td><table class="ctl00_PageBody_MenuDocuments_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="white-space:nowrap;width:100%;"><a class="ctl00_PageBody_MenuDocuments_1 ctl00_PageBody_MenuDocuments_5" href="https://house.louisiana.gov/H_Reps/members.aspx?ID=13" target="_blank">Jack McFarland (primary)</a></td>
+						</tr>
+					</table></td>
+				</tr>
+			</table><div class="ctl00_PageBody_MenuDocuments_6 ctl00_PageBody_MenuDocuments_0" id="ctl00_PageBody_MenuDocumentsn5ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+				<img src="/Legis/WebResource.axd?d=ipjuTCqW9PLszAb4R023pfK-fxiRaVaxIm_qOvWhTbdyQ6jpjljh_7EOUjyKS80gMCr4hnLRisFrzkORm0mYpzIikuCtpmxgJA8MwtktdjU1&amp;t=639190664600000000" alt="Scroll up" />
+			</div><div class="ctl00_PageBody_MenuDocuments_6 ctl00_PageBody_MenuDocuments_0" id="ctl00_PageBody_MenuDocumentsn5ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+				<img src="/Legis/WebResource.axd?d=zY31a2t2Ehewqi_SuWrMmHzmJ6NGTWXsuYqKKC1JSvgabSu4aroPE9KKWHs9jAm_z0vIwjGlfHRigpXHw7bFSbALLWiG7DibaJi3S1ZdhT41&amp;t=639190664600000000" alt="Scroll down" />
+			</div>
+		</div><a id="ctl00_PageBody_MenuDocuments_SkipLink"></a>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                
+                        <table border="0" cellpadding="4" cellspacing="0" >
+                            <thead>
+                                <tr valign="bottom">
+                                    <th>&nbsp;Date&nbsp;&nbsp;&nbsp;</th><th>Chamber</u></th><th>Journal<br />Page</th><th align="left">Action</th>
+                                    <th align="right">
+                                        <nobr />
+                                        <span id="ctl00_PageBody_ListViewHistory_Label1" class="Settings">sort history by </span>
+                                        <a id="ctl00_PageBody_ListViewHistory_lbtnSort" class="Settings" href="javascript:__doPostBack(&#39;ctl00$PageBody$ListViewHistory$lbtnSort&#39;,&#39;&#39;)">ascending dates</a>
+                                        <nobr />
+                                    </th>
+                                </tr>
+                            </thead>
+                            
+                        <tr valign="top" class="ResultsListDark">
+                            <td>06/18</td>
+                            <td align="center">H</td>
+                            <td align="center">&nbsp;&nbsp;</td>
+                            <td align="left">Effective date: 07/01/2026.</td>
+                            <td align="left" colspan="2" style="line-height:1.5">&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top">
+                            <td>06/18</td>
+                            <td align="center">H</td>
+                            <td align="center">&nbsp;&nbsp;</td>
+                            <td align="left">Signed by the Governor with one or more line-item vetoes. Becomes Act No. 3.</td>
+                            <td align="left" colspan="2" style="line-height:1.5">&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top" class="ResultsListDark">
+                            <td>06/01</td>
+                            <td align="center">H</td>
+                            <td align="center">&nbsp;&nbsp;</td>
+                            <td align="left">Sent to the Governor for executive approval.</td>
+                            <td align="left" colspan="2" style="line-height:1.5"><a href="https://house.louisiana.gov/H_Video/VideoArchivePlayer.aspx?v=house/2026/jun/0601_26_26rs" target="_blank">House 6/1 Video</a>&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top">
+                            <td>06/01</td>
+                            <td align="center">S</td>
+                            <td align="center"><a href="/meeting_files/26RS/sjournals/26RS - SJ 0601 42.PDF#page=79" target="_blank">79</a>&nbsp;&nbsp;</td>
+                            <td align="left">Signed by the President of the Senate.</td>
+                            <td align="left" colspan="2" style="line-height:1.5"><a href="https://senate.la.gov/s_video/VideoArchivePlayer.aspx?v=senate/2026/06/0601_26_26rs" target="_blank">Senate 6/1 Video</a><br><a href="https://senate.la.gov/s_video/VideoArchivePlayer.aspx?v=senate/2026/06/0601_26_26rs2" target="_blank">Senate 6/1 Video part 2</a><br><a href="https://senate.la.gov/s_video/VideoArchivePlayer.aspx?v=senate/2026/06/0601_26_26rs3" target="_blank">Senate 6/1 Video part 3</a>&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top" class="ResultsListDark">
+                            <td>05/31</td>
+                            <td align="center">H</td>
+                            <td align="center"><a href="/meeting_files/26RS/hjournals/26RS - HJ 0531 45.PDF#page=1" target="_blank">1</a>&nbsp;&nbsp;</td>
+                            <td align="left">Enrolled and signed by the Speaker of the House.</td>
+                            <td align="left" colspan="2" style="line-height:1.5"><a href="https://house.louisiana.gov/H_Video/VideoArchivePlayer.aspx?v=house/2026/may/0531_26_26rs" target="_blank">House 5/31 Video</a>&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top">
+                            <td>05/29</td>
+                            <td align="center">H</td>
+                            <td align="center"><a href="/meeting_files/26RS/hjournals/26RS - HJ 0529 44.PDF#page=141" target="_blank">141</a>&nbsp;&nbsp;</td>
+                            <td align="left">Read by title, roll called, yeas 101, nays 0, Senate amendments concurred in.</td>
+                            <td align="left" colspan="2" style="line-height:1.5"><a href="https://house.louisiana.gov/H_Video/VideoArchivePlayer.aspx?v=house/2026/may/0529_26_26rs" target="_blank">House 5/29 Video</a><br><a href="https://house.louisiana.gov/H_Video/VideoArchivePlayer.aspx?v=house/2026/may/0529_26_26rs2" target="_blank">House 5/29 Video part 2</a><br><a href="https://house.louisiana.gov/H_Video/VideoArchivePlayer.aspx?v=house/2026/may/0529_26_26rs2owen" target="_blank">House 5/29 Video part 3</a>&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top" class="ResultsListDark">
+                            <td>05/29</td>
+                            <td align="center">H</td>
+                            <td align="center"><a href="/meeting_files/26RS/hjournals/26RS - HJ 0529 44.PDF#page=19" target="_blank">19</a>&nbsp;&nbsp;</td>
+                            <td align="left">Read by title, returned to the calendar.</td>
+                            <td align="left" colspan="2" style="line-height:1.5"><a href="https://house.louisiana.gov/H_Video/VideoArchivePlayer.aspx?v=house/2026/may/0529_26_26rs" target="_blank">House 5/29 Video</a><br><a href="https://house.louisiana.gov/H_Video/VideoArchivePlayer.aspx?v=house/2026/may/0529_26_26rs2" target="_blank">House 5/29 Video part 2</a><br><a href="https://house.louisiana.gov/H_Video/VideoArchivePlayer.aspx?v=house/2026/may/0529_26_26rs2owen" target="_blank">House 5/29 Video part 3</a>&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top">
+                            <td>05/29</td>
+                            <td align="center">H</td>
+                            <td align="center"><a href="/meeting_files/26RS/hjournals/26RS - HJ 0529 44.PDF#page=141" target="_blank">141</a>&nbsp;&nbsp;</td>
+                            <td align="left">Called from the calendar.</td>
+                            <td align="left" colspan="2" style="line-height:1.5"><a href="https://house.louisiana.gov/H_Video/VideoArchivePlayer.aspx?v=house/2026/may/0529_26_26rs" target="_blank">House 5/29 Video</a><br><a href="https://house.louisiana.gov/H_Video/VideoArchivePlayer.aspx?v=house/2026/may/0529_26_26rs2" target="_blank">House 5/29 Video part 2</a><br><a href="https://house.louisiana.gov/H_Video/VideoArchivePlayer.aspx?v=house/2026/may/0529_26_26rs2owen" target="_blank">House 5/29 Video part 3</a>&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top" class="ResultsListDark">
+                            <td>05/27</td>
+                            <td align="center">H</td>
+                            <td align="center">&nbsp;&nbsp;</td>
+                            <td align="left">Scheduled for concurrence on 05/29/2026.</td>
+                            <td align="left" colspan="2" style="line-height:1.5">&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top">
+                            <td>05/26</td>
+                            <td align="center">H</td>
+                            <td align="center"><a href="/meeting_files/26RS/hjournals/26RS - HJ 0526 41.PDF#page=77" target="_blank">77</a>&nbsp;&nbsp;</td>
+                            <td align="left">Received from the Senate with amendments.</td>
+                            <td align="left" colspan="2" style="line-height:1.5"><a href="https://house.louisiana.gov/H_Video/VideoArchivePlayer.aspx?v=house/2026/may/0526_26_26rs" target="_blank">House 5/26 Video</a>&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top" class="ResultsListDark">
+                            <td>05/26</td>
+                            <td align="center">S</td>
+                            <td align="center"><a href="/meeting_files/26RS/sjournals/26RS - SJ 0526 37.PDF#page=67" target="_blank">67</a>&nbsp;&nbsp;</td>
+                            <td align="left">Rules suspended.  Senate floor amendments read and adopted.  Read by title, passed by a vote of 38 yeas and 0 nays, and ordered returned to the House.  Motion to reconsider tabled.</td>
+                            <td align="left" colspan="2" style="line-height:1.5"><a href="https://senate.la.gov/s_video/VideoArchivePlayer.aspx?v=senate/2026/05/0526_26_26rs" target="_blank">Senate 5/26 Video</a><br><a href="https://senate.la.gov/s_video/VideoArchivePlayer.aspx?v=senate/2026/05/0526_26_26rs2" target="_blank">Senate 5/26 Video part 2</a><br><a href="https://senate.la.gov/s_video/VideoArchivePlayer.aspx?v=senate/2026/05/0526_26_26rs3" target="_blank">Senate 5/26 Video part 3</a><br><a href="https://senate.la.gov/s_video/VideoArchivePlayer.aspx?v=senate/2026/05/0526_26_26rs4" target="_blank">Senate 5/26 Video part 4</a>&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top">
+                            <td>05/25</td>
+                            <td align="center">S</td>
+                            <td align="center"><a href="/meeting_files/26RS/sjournals/26RS - SJ 0525 36.PDF#page=37" target="_blank">37</a>&nbsp;&nbsp;</td>
+                            <td align="left">Read by title; made Special Order of the Day No. 1 for 5/26.</td>
+                            <td align="left" colspan="2" style="line-height:1.5"><a href="https://senate.la.gov/s_video/VideoArchivePlayer.aspx?v=senate/2026/05/0525_26_26rs" target="_blank">Senate 5/25 Video</a>&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top" class="ResultsListDark">
+                            <td>05/21</td>
+                            <td align="center">S</td>
+                            <td align="center"><a href="/meeting_files/26RS/sjournals/26RS - SJ 0521 35.PDF#page=104" target="_blank">104</a>&nbsp;&nbsp;</td>
+                            <td align="left">Reported without Legislative Bureau amendments.  Read by title and passed to third reading and final passage.</td>
+                            <td align="left" colspan="2" style="line-height:1.5"><a href="https://senate.la.gov/s_video/VideoArchivePlayer.aspx?v=senate/2026/05/0521_26_26rs" target="_blank">Senate 5/21 Video</a>&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top">
+                            <td>05/21</td>
+                            <td align="center">S</td>
+                            <td align="center"><a href="/meeting_files/26RS/sjournals/26RS - SJ 0521 35.PDF#page=49" target="_blank">49</a>&nbsp;&nbsp;</td>
+                            <td align="left">Rules suspended.  Reported with amendments.  Rules suspended.  Committee amendments read and adopted.  Read by title and referred to the Legislative Bureau.</td>
+                            <td align="left" colspan="2" style="line-height:1.5"><a href="https://senate.la.gov/s_video/VideoArchivePlayer.aspx?v=senate/2026/05/0521_26_26rs" target="_blank">Senate 5/21 Video</a>&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top" class="ResultsListDark">
+                            <td>04/21</td>
+                            <td align="center">S</td>
+                            <td align="center"><a href="/meeting_files/26RS/sjournals/26RS - SJ 0421 19.PDF#page=7" target="_blank">7</a>&nbsp;&nbsp;</td>
+                            <td align="left">Read second time by title and referred to the Committee on Finance.</td>
+                            <td align="left" colspan="2" style="line-height:1.5"><a href="https://senate.la.gov/s_video/VideoArchivePlayer.aspx?v=senate/2026/05/0521_26_fnce" target="_blank">FNCE 5/21 Video</a><br><a href="https://senate.la.gov/s_video/VideoArchivePlayer.aspx?v=senate/2026/04/0421_26_26rs_day18" target="_blank">Senate 4/21 Video</a>&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top">
+                            <td>04/20</td>
+                            <td align="center">S</td>
+                            <td align="center"><a href="/meeting_files/26RS/sjournals/26RS - SJ 0420 18.PDF#page=4" target="_blank">4</a>&nbsp;&nbsp;</td>
+                            <td align="left">Received in the Senate.  Read first time by title and placed on the Calendar for a second reading.</td>
+                            <td align="left" colspan="2" style="line-height:1.5"><a href="https://senate.la.gov/s_video/VideoArchivePlayer.aspx?v=senate/2026/04/0420_26_26rs_day17" target="_blank">Senate 4/20 Video</a>&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top" class="ResultsListDark">
+                            <td>04/16</td>
+                            <td align="center">H</td>
+                            <td align="center">&nbsp;&nbsp;</td>
+                            <td align="left">Read third time by title, roll called on final passage, yeas 104, nays 0. Finally passed, title adopted, ordered to the Senate.</td>
+                            <td align="left" colspan="2" style="line-height:1.5"><a href="https://house.louisiana.gov/H_Video/VideoArchivePlayer.aspx?v=house/2026/apr/0416_26_26rs_day20" target="_blank">House 4/16 Video</a>&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top">
+                            <td>04/14</td>
+                            <td align="center">H</td>
+                            <td align="center"><a href="/meeting_files/26RS/hjournals/26RS - HJ 0414 18.PDF#page=28" target="_blank">28</a>&nbsp;&nbsp;</td>
+                            <td align="left">Made Special Order of the day No. 1 for 04/16/2026.</td>
+                            <td align="left" colspan="2" style="line-height:1.5"><a href="https://house.louisiana.gov/H_Video/VideoArchivePlayer.aspx?v=house/2026/apr/0414_26_26rs_day18" target="_blank">House 4/14 Video</a>&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top" class="ResultsListDark">
+                            <td>04/14</td>
+                            <td align="center">H</td>
+                            <td align="center"><a href="/meeting_files/26RS/hjournals/26RS - HJ 0414 18.PDF#page=13" target="_blank">13</a>&nbsp;&nbsp;</td>
+                            <td align="left">Read by title, amended, ordered engrossed, passed to 3rd reading.</td>
+                            <td align="left" colspan="2" style="line-height:1.5"><a href="https://house.louisiana.gov/H_Video/VideoArchivePlayer.aspx?v=house/2026/apr/0414_26_26rs_day18" target="_blank">House 4/14 Video</a>&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top">
+                            <td>04/13</td>
+                            <td align="center">H</td>
+                            <td align="center"><a href="/meeting_files/26RS/hjournals/26RS - HJ 0413 17.PDF#page=53" target="_blank">53</a>&nbsp;&nbsp;</td>
+                            <td align="left">Reported with amendments (18-0).</td>
+                            <td align="left" colspan="2" style="line-height:1.5"><a href="https://house.louisiana.gov/H_Video/VideoArchivePlayer.aspx?v=house/2026/apr/0413_26_26rs_day17" target="_blank">House 4/13 Video</a>&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top" class="ResultsListDark">
+                            <td>03/09</td>
+                            <td align="center">H</td>
+                            <td align="center"><a href="/meeting_files/26RS/hjournals/26RS - HJ 0309 1.PDF#page=10" target="_blank">10</a>&nbsp;&nbsp;</td>
+                            <td align="left">Read by title, under the rules, referred to the Committee on Appropriations.</td>
+                            <td align="left" colspan="2" style="line-height:1.5"><a href="https://house.louisiana.gov/H_Video/VideoArchivePlayer.aspx?v=house/2026/apr/0413_26_ap" target="_blank">APP 4/13 Video</a><br><a href="https://house.louisiana.gov/H_Video/VideoArchivePlayer.aspx?v=house/2026/mar/0309_26_26rs_day01" target="_blank">House 3/9 Video</a>&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top">
+                            <td>02/20</td>
+                            <td align="center">H</td>
+                            <td align="center">&nbsp;&nbsp;</td>
+                            <td align="left">First appeared in the Interim Calendar on 2/20/2026.</td>
+                            <td align="left" colspan="2" style="line-height:1.5">&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top" class="ResultsListDark">
+                            <td>02/20</td>
+                            <td align="center">H</td>
+                            <td align="center">&nbsp;&nbsp;</td>
+                            <td align="left">Under the rules, provisionally referred to the Committee on Appropriations.</td>
+                            <td align="left" colspan="2" style="line-height:1.5">&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        <tr valign="top">
+                            <td>02/20</td>
+                            <td align="center">H</td>
+                            <td align="center">&nbsp;&nbsp;</td>
+                            <td align="left">Prefiled.</td>
+                            <td align="left" colspan="2" style="line-height:1.5">&nbsp;&nbsp;</td>
+                        </tr>
+                    
+                        </table>
+                    
+                <br />
+                <br />  
+            
+	</div>  <!-- end of PanelBillInfo. -->
+            
+            <!-- Code used when recording a user's bill notes:  -->
+            
+            
+            
+
+            
+            <!-- end of bill notes code. -->
+            
+            <!-- Code used when adding a bill to the user's "watch" list:  -->
+            
+
+             <!-- end of PanelWatchList. -->
+            
+            <!-- This panel will allow the user to create a new watch list, if s/he doesn't already have one (same code as in MyLegis2.asxp):  -->
+              <!-- end of PanelEditWatchList. -->
+
+            <!-- This panel allows a user to choose what image they want to use to represent their new watch list:  -->
+            
+            
+            <!-- This panel reports problems when a bill cannot be added to our user's watch list:  -->
+            
+
+            <input type="hidden" name="ctl00$PageBody$HiddenFieldInstId" id="ctl00_PageBody_HiddenFieldInstId" value="249908" />
+            <input type="hidden" name="ctl00$PageBody$HiddenFieldWatchListId" id="ctl00_PageBody_HiddenFieldWatchListId" value="0" />
+            <!-- end of "watch" code. -->
+            
+            
+        
+</div><!-- end of UpdatePanelMyLegis. -->
+
+        </main>
+
+        <footer style="text-align:center;font-size:small">
+             If you experience any technical difficulties navigating this website, <a style="font-size:small; font-weight:bold" href="mailto:weblegis@legis.la.gov">contact the webmaster.</a> 
+             <br/>P.O. Box 94062 (900 North Third Street) Baton Rouge, Louisiana  70804-9062
+        </footer>
+       <br />
+   
+
+<script type="text/javascript">
+//<![CDATA[
+var ctl00_MainMenu_Data = new Object();
+ctl00_MainMenu_Data.disappearAfter = 500;
+ctl00_MainMenu_Data.horizontalOffset = 0;
+ctl00_MainMenu_Data.verticalOffset = 0;
+ctl00_MainMenu_Data.iframeUrl = '/Legis/WebResource.axd?d=CMNSuYt9E0qEVKpGd6C2Mk8gw3o6qYsjFl0U13GSZOFThGLKC8twmARquGB9ruSUoczZtvlPGM3pB_hD5taFEIl2zIK5z9kNCvFYrFVVJZg1&t=639190664600000000';
+var ctl00_PageBody_MenuDocuments_Data = new Object();
+ctl00_PageBody_MenuDocuments_Data.disappearAfter = 500;
+ctl00_PageBody_MenuDocuments_Data.horizontalOffset = 0;
+ctl00_PageBody_MenuDocuments_Data.verticalOffset = 0;
+ctl00_PageBody_MenuDocuments_Data.staticHoverClass = 'ctl00_PageBody_MenuDocuments_9';
+ctl00_PageBody_MenuDocuments_Data.staticHoverHyperLinkClass = 'ctl00_PageBody_MenuDocuments_8';
+ctl00_PageBody_MenuDocuments_Data.iframeUrl = '/Legis/WebResource.axd?d=CMNSuYt9E0qEVKpGd6C2Mk8gw3o6qYsjFl0U13GSZOFThGLKC8twmARquGB9ruSUoczZtvlPGM3pB_hD5taFEIl2zIK5z9kNCvFYrFVVJZg1&t=639190664600000000';
+WebForm_AutoFocus('__Page');//]]>
+</script>
+</form>
+</body>
+</html>
