@@ -169,7 +169,7 @@ footer { padding-block: 0 36px; color: var(--muted); font-size: 0.83rem; }
   <header class="top">
     <h1>Legislative Funding Atlas</h1>
     <p class="lede">See what nonprofits and communities asked state legislatures to fund, what made it into the budget, and what to prepare before you apply.</p>
-    <div class="lookup" role="search"><label class="field">Look up an application<input id="lookup" type="search" disabled autocomplete="off" placeholder="Organization, project, form number or sponsor"></label><div id="lookupResults" class="lookup-results" hidden></div></div>
+    <div class="lookup" role="search"><label class="field">Search every application and project<input id="lookup" type="search" disabled autocomplete="off" placeholder="Organization, project, form number, sponsor or topic, such as tutoring"></label><div id="lookupResults" class="lookup-results" hidden></div></div>
   </header>
 </div>
 <nav class="tabs" aria-label="Sections"><div class="wrap"><div class="tablist" id="tablist"></div></div></nav>
@@ -208,7 +208,7 @@ const FL_PROMPTS = [["What need does this address, and what evidence shows it?",
 const EXAMPLE = { state: "FL", idea: "Mentoring and job-readiness program", population: "Young men ages 18–25 in two high-unemployment neighborhoods; 120 participants per year", need: "", services: "Weekly one-on-one mentoring, resume and interview coaching, paid internships with local employers", outcomes: "70% of participants employed or enrolled in training within 12 months, measured by quarterly follow-up", amount: "250000", match: "$75,000 pledged by a local foundation; two employer partners" };
 
 let records = [], byId = new Map(), meta = null, downloads = null, sample = null, shownLimit = 50, currentRows = [];
-const filters = { q: "mentor", state: "", year: "", category: "", status: "", type: "", sort: "newest", newOnly: false };
+const filters = { q: "", state: "", year: "", category: "", status: "", type: "", sort: "best", newOnly: false };
 let newIds = new Set(), compareData = null, compareScope = "nonprofit";
 const formFiles = {};
 function loadForms(year) { return formFiles[year] || (formFiles[year] = fetch(`data/forms_${year}.json`).then(r => r.ok ? r.json() : {}).catch(() => ({}))); }
@@ -244,8 +244,12 @@ function matchRows(f = filters) {
   const terms = (f.q || "").toLowerCase().split(/\s+/).filter(Boolean);
   let rows = records.filter(r => (!f.newOnly || newIds.has(r.id)) && (!f.state || r.state === f.state) && (!f.year || r.year === f.year) && (!f.category || r.category === f.category)
     && (!f.status || r.status === f.status) && (!f.type || r.type === f.type) && terms.every(t => r.hay.includes(t)));
+  const q = (f.q || "").trim().toLowerCase(), newest = (a, b) => yearKey(b.year).localeCompare(yearKey(a.year)) || (b.appropriated || 0) - (a.appropriated || 0);
+  if (f.sort === "best") {
+    return (q ? rows.map(r => [searchScore(r, q, terms), r]).sort((a, b) => b[0] - a[0] || newest(a[1], b[1])).map(x => x[1]) : rows.sort(newest));
+  }
   const by = {
-    newest: (a, b) => yearKey(b.year).localeCompare(yearKey(a.year)) || (b.appropriated || 0) - (a.appropriated || 0),
+    newest,
     requested: (a, b) => (b.requested || 0) - (a.requested || 0),
     awarded: (a, b) => (b.appropriated || 0) - (a.appropriated || 0),
     name: (a, b) => a.name.localeCompare(b.name),
@@ -254,22 +258,16 @@ function matchRows(f = filters) {
 }
 
 /* Look up an application from any page */
-function lookupRows(query) {
-  const q = query.trim().toLowerCase(), terms = q.split(/\s+/).filter(Boolean);
-  if (!terms.length) return [];
-  const score = r => {
-    const name = r.name.toLowerCase(), org = r.organization.toLowerCase();
-    if (String(r.form || "").toLowerCase() === q || r.id.toLowerCase() === q) return 5;
-    if (name === q || org === q) return 4;
-    if (name.startsWith(q) || org.startsWith(q)) return 3;
-    if (name.includes(q) || org.includes(q)) return 2;
-    return terms.every(t => name.includes(t) || org.includes(t)) ? 1 : 0;
-  };
-  return records.filter(r => terms.every(t => r.hay.includes(t))).map(r => [score(r), r])
-    .sort((a, b) => b[0] - a[0] || yearKey(b[1].year).localeCompare(yearKey(a[1].year)) || (b[1].appropriated || 0) - (a[1].appropriated || 0)).map(x => x[1]);
+function searchScore(r, q, terms) {
+  const name = r.name.toLowerCase(), org = r.organization.toLowerCase();
+  if (String(r.form || "").toLowerCase() === q || r.id.toLowerCase() === q) return 5;
+  if (name === q || org === q) return 4;
+  if (name.startsWith(q) || org.startsWith(q)) return 3;
+  if (name.includes(q) || org.includes(q)) return 2;
+  return terms.every(t => name.includes(t) || org.includes(t)) ? 1 : 0;
 }
 function drawLookup() {
-  const query = $("#lookup").value, box = $("#lookupResults"), rows = lookupRows(query);
+  const query = $("#lookup").value, box = $("#lookupResults"), rows = matchRows({ q: query, state: "", year: "", category: "", status: "", type: "", sort: "best" });
   box.hidden = !query.trim();
   if (box.hidden) return;
   box.innerHTML = (rows.length ? rows.slice(0, 8).map(r => `<button class="lookup-item" data-id="${esc(r.id)}"><span><b>${esc(r.name)}</b></span><span class="small muted">${esc(STATE_NAMES[r.state] || r.state)}, ${esc(r.year)}${r.organization && r.organization !== r.name ? ` · ${esc(r.organization)}` : ""}${r.form ? ` · Form ${esc(r.form)}` : ""}</span><span>${pill(r.status)}</span></button>`).join("") : `<p class="small muted" style="padding:8px">No application matches that. Try fewer words, or part of the organization's name.</p>`)
@@ -278,13 +276,23 @@ function drawLookup() {
 function lookupAll() {
   Object.assign(filters, { q: $("#lookup").value.trim(), state: "", year: "", category: "", status: "", type: "", newOnly: false });
   $("#lookupResults").hidden = true;
+  shownLimit = 50;
   go("explore");
 }
+/** On Explore, the box filters the results below. On other pages, it offers quick matches. */
 function startLookup() {
   let timer = null;
-  $("#lookup").oninput = () => { clearTimeout(timer); timer = setTimeout(drawLookup, 120); };
-  $("#lookup").onfocus = () => { if ($("#lookup").value.trim()) drawLookup(); };
-  $("#lookup").onkeydown = e => { if (e.key === "Enter" && $("#lookup").value.trim()) lookupAll(); if (e.key === "Escape") $("#lookupResults").hidden = true; };
+  const update = () => {
+    if (current === "explore") {
+      filters.q = $("#lookup").value;
+      shownLimit = 50;
+      $$pressed();
+      drawResults();
+    } else drawLookup();
+  };
+  $("#lookup").oninput = () => { clearTimeout(timer); timer = setTimeout(update, 140); };
+  $("#lookup").onfocus = () => { if (current !== "explore" && $("#lookup").value.trim()) drawLookup(); };
+  $("#lookup").onkeydown = e => { if (e.key === "Enter" && current !== "explore") lookupAll(); if (e.key === "Escape") $("#lookupResults").hidden = true; };
   $("#lookupResults").onclick = e => { const b = e.target.closest("button"); if (!b) return; if (b.dataset.all) lookupAll(); else { $("#lookupResults").hidden = true; openRecord(b.dataset.id); } };
   document.addEventListener("click", e => { if (!e.target.closest(".lookup")) $("#lookupResults").hidden = true; });
 }
@@ -302,13 +310,12 @@ function viewExplore() {
         <h2>What are you trying to fund?</h2>
         <div class="chips" id="quick">${QUICK.map(([l, q]) => `<button class="chip" data-q="${esc(q)}" aria-pressed="${filters.q === q}">${esc(l)}</button>`).join("")}</div>
         <div class="filters">
-          <label class="field q">Search projects, organizations, sponsors or descriptions<input type="search" id="fQ" value="${esc(filters.q)}" placeholder="for example, tutoring"></label>
           <label class="field">State<select id="fState">${opt("", "All states", filters.state)}${states.map(s => opt(s, STATE_NAMES[s] || s, filters.state)).join("")}</select></label>
           <label class="field">Fiscal year<select id="fYear">${opt("", "All years", filters.year)}${years.map(y => opt(y, y, filters.year)).join("")}</select></label>
           <label class="field">Program area<select id="fCat">${opt("", "All areas", filters.category)}${cats.map(c => opt(c, c, filters.category)).join("")}</select></label>
           <label class="field">Outcome<select id="fStatus">${opt("", "All outcomes", filters.status)}${stats.map(s => opt(s, STATUS_STYLE[s][2], filters.status)).join("")}</select></label>
           <label class="field">Organization type<select id="fType">${opt("", "All types", filters.type)}${types.map(t => opt(t, t.replace(/ \((auto-tagged|from form)\)/, ""), filters.type)).join("")}</select></label>
-          <label class="field">Sort by<select id="fSort">${[["newest", "Newest first"], ["awarded", "Largest budgeted"], ["requested", "Largest request"], ["name", "Name"]].map(([v, l]) => opt(v, l, filters.sort)).join("")}</select></label>
+          <label class="field">Sort by<select id="fSort">${[["best", "Best match"], ["newest", "Newest first"], ["awarded", "Largest budgeted"], ["requested", "Largest request"], ["name", "Name"]].map(([v, l]) => opt(v, l, filters.sort)).join("")}</select></label>
         </div>
       </section>
       <div class="stats" id="stats"></div>
@@ -319,9 +326,7 @@ function viewExplore() {
         <p class="small muted">Program area and recipient type are automatic keyword tags, so check the source document before relying on them. Open a record to see the evidence.</p>
       </section>
     </div>`;
-  $("#quick").onclick = e => { const b = e.target.closest("[data-q]"); if (!b) return; filters.q = b.dataset.q; shownLimit = 50; viewExplore(); };
-  let timer;
-  $("#fQ").oninput = e => { clearTimeout(timer); timer = setTimeout(() => { filters.q = e.target.value; shownLimit = 50; $$pressed(); drawResults(); }, 160); };
+  $("#quick").onclick = e => { const b = e.target.closest("[data-q]"); if (!b) return; filters.q = b.dataset.q; $("#lookup").value = filters.q; shownLimit = 50; viewExplore(); };
   const bind = (id, key, redraw) => { $(id).onchange = e => { filters[key] = e.target.value; shownLimit = 50; if (redraw) { if (key === "state") filters.year = ""; viewExplore(); } else drawResults(); }; };
   bind("#fState", "state", true); bind("#fYear", "year"); bind("#fCat", "category"); bind("#fStatus", "status"); bind("#fType", "type"); bind("#fSort", "sort");
   const newBtn = $("#newBtn"); if (newBtn) newBtn.onclick = () => { filters.newOnly = !filters.newOnly; shownLimit = 50; viewExplore(); };
