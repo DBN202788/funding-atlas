@@ -4,6 +4,10 @@ on:
   schedule:
     - cron: "0 9 * * 1"  # Mondays at 09:00 UTC
   workflow_dispatch:
+    inputs:
+      max_forms:
+        description: "How many new request forms to download (0 skips them)"
+        default: "500"
 
 permissions:
   contents: write
@@ -35,7 +39,7 @@ jobs:
       # Up to 500 new request forms per run, at the site's 10-second crawl delay.
       - name: Download new request forms
         continue-on-error: true
-        run: python -I pipeline/download_forms.py latest 500
+        run: python -I pipeline/download_forms.py latest ${{ inputs.max_forms || '500' }}
 
       - name: Refresh, check and publish data
         id: update
