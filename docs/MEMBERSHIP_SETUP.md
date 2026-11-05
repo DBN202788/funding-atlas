@@ -24,7 +24,23 @@ Prices were checked on November 5, 2026. Confirm them when you sign up.
 4. Under **Authentication > Emails > SMTP Settings**, connect your email service. You can skip this for your first test, which can only send to your own team's addresses.
 5. Under **Project Settings > API**, find the project URL, the public key and the secret key. You'll use them in steps 3 and 4.
 
-## Step 2: Anthropic
+## Step 2: The AI service
+
+### While testing: Google Gemini's free tier
+
+1. Create a key at [Google AI Studio](https://aistudio.google.com/api-keys).
+2. In Vercel, add it as a **Secret** named `GEMINI_API_KEY`, then redeploy.
+
+Know these limits of [Google's free tier](https://aistudio.google.com/docs/terms):
+
+- **Privacy:** Google may use what's sent to improve its products, and people may review it. Testers shouldn't enter private or personal details, and it isn't suitable for real members.
+- **Who can use it:** it's for people 18 or older, and the free tier can't serve people in the EEA, Switzerland or the UK.
+- **Limits:** [free-tier limits](https://aistudio.google.com/rate-limit) apply per project, and a busy test can hit them.
+- **Costs shown:** the atlas records estimates at Google's paid rate. Nothing is charged, and these numbers won't predict what Claude costs.
+
+### Before launch: Anthropic
+
+Claude and ChatGPT subscriptions don't pay for API use, so a Console account with credit is needed. To switch, add `ANTHROPIC_API_KEY`, set `ADVISOR_PROVIDER=anthropic` in Vercel, and redeploy. No code changes are needed.
 
 1. Create an account at [console.anthropic.com](https://console.anthropic.com) and add a small amount of credit.
 2. **Set a monthly spend limit in the Console.** This is your backstop in case anything in this project goes wrong.

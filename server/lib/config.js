@@ -7,14 +7,19 @@ const number = (value, fallback) => {
 export function readConfig(env = process.env) {
   const stripeKey = env.STRIPE_SECRET_KEY || "";
   const live = /^(sk|rk)_live_/.test(stripeKey);
+  const anthropicKey = env.ANTHROPIC_API_KEY || "", geminiKey = env.GEMINI_API_KEY || "";
+  // Switching later means changing this one setting and supplying that service's key.
+  const provider = env.ADVISOR_PROVIDER || (anthropicKey || !geminiKey ? "anthropic" : "gemini");
   return {
     siteUrl: (env.SITE_URL || "https://dbn202788.github.io/funding-atlas/").replace(/\/?$/, "/"),
     allowedOrigins: (env.ALLOWED_ORIGINS || "https://dbn202788.github.io").split(",").map(s => s.trim()).filter(Boolean),
     dataUrl: (env.ATLAS_DATA_URL || "https://dbn202788.github.io/funding-atlas/data").replace(/\/$/, ""),
     supabaseUrl: env.SUPABASE_URL || "",
     supabaseSecretKey: env.SUPABASE_SECRET_KEY || "",
-    anthropicKey: env.ANTHROPIC_API_KEY || "",
-    model: env.ADVISOR_MODEL || "claude-opus-5-5",
+    provider,
+    anthropicKey,
+    geminiKey,
+    model: env.ADVISOR_MODEL || (provider === "gemini" ? "gemini-3.8-flash" : "claude-opus-5-5"),
     effort: env.ADVISOR_EFFORT || "medium",
     maxTokens: number(env.ADVISOR_MAX_TOKENS, 8000),
     maxRounds: number(env.ADVISOR_MAX_ROUNDS, 6),

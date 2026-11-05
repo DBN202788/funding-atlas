@@ -1,5 +1,5 @@
 // One function per web address. Everything external arrives through deps, so tests can use stand-ins.
-import { MAX_QUESTION_CHARS, runAdvisor } from "./advisor.js";
+import { MAX_QUESTION_CHARS } from "./advisor.js";
 import { applyEvent, cancelSubscriptions, createCheckout, createPortal, isActive } from "./billing.js";
 import { DataUnavailable } from "./data.js";
 import { HttpError, json, monthKey, readJson, requireUser } from "./http.js";
@@ -20,6 +20,7 @@ export async function me(request, deps) {
     questionsUsed: await deps.db.questionsUsed(user.id, monthKey()),
     questionLimit: questionLimit(deps.config, membership),
     memberQuestions: deps.config.memberQuestions,
+    advisorProvider: deps.config.provider,
     paymentsOpen: deps.config.paymentsOpen,
     paymentsMode: deps.config.paymentsMode,
   });
@@ -31,7 +32,7 @@ const BEGIN_REFUSALS = { user_limit: 403, busy: 429, budget_reached: 503 };
 export async function advisor(request, deps) {
   const { config, db } = deps;
   const user = await requireUser(request, deps);
-  if (!deps.anthropic) throw new HttpError(503, "advisor_not_configured");
+  if (!deps.ask) throw new HttpError(503, "advisor_not_configured");
   const body = await readJson(request);
   const question = typeof body.question === "string" ? body.question.trim() : "";
   if (!question) throw new HttpError(400, "question_required");
@@ -65,7 +66,7 @@ export async function advisor(request, deps) {
       };
       let outcome = { status: "failed", code: "server_error", costMicros: 0, toolCalls: 0, model: config.model, tokens: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 } };
       try {
-        outcome = await runAdvisor({ client: deps.anthropic, store: deps.store, config, question, history: body.history, signal: abort.signal, emit });
+        outcome = await deps.ask({ question, history: body.history, signal: abort.signal, emit });
       } catch (error) {
         console.error("advisor failed", error.name, error.message);
       }
@@ -136,7 +137,8 @@ export async function health(request, deps) {
   return json({
     signIn: Boolean(deps.auth),
     database: Boolean(deps.db),
-    advisor: Boolean(deps.anthropic),
+    advisor: Boolean(deps.ask),
+    advisorProvider: deps.config.provider,
     payments: Boolean(deps.stripe),
     webhook: Boolean(deps.config.stripeWebhookSecret),
     paymentsOpen: deps.config.paymentsOpen,

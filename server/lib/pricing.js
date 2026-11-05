@@ -8,6 +8,8 @@ const PRICES = {
   "claude-sonnet-5-5": { input: 2, output: 10, cacheRead: 0.2, cacheWrite: 2.5 },
   "claude-sonnet-5": { input: 2, output: 10, cacheRead: 0.2, cacheWrite: 2.5 },
   "claude-haiku-5-5": { input: 0.1, output: 0.5, cacheRead: 0.01, cacheWrite: 0.125 },
+  // Google's paid rate. On Google's free tier this is an estimate, and nothing is actually charged.
+  "gemini-3.8-flash": { input: 0.75, output: 3.75, cacheRead: 0, cacheWrite: 0 },
 };
 // A model missing from the table is priced high, so the spending limit errs on the safe side.
 const UNKNOWN = { input: 10, output: 50, cacheRead: 1, cacheWrite: 12.5 };

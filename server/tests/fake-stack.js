@@ -7,6 +7,7 @@ import http from "node:http";
 import path from "node:path";
 import Anthropic from "@anthropic-ai/sdk";
 import Stripe from "stripe";
+import { runAdvisor } from "../lib/advisor.js";
 import { createDataStore } from "../lib/data.js";
 import { advisor, checkout, deleteAccount, health, me, portal, stripeWebhook } from "../lib/handlers.js";
 import { endpoint } from "../lib/http.js";
@@ -44,13 +45,14 @@ const fakeStripeApi = {
 const checkouts = new Map();
 
 const config = testConfig({ siteUrl: `${ORIGIN}/`, allowedOrigins: [ORIGIN], stripeWebhookSecret: WEBHOOK_SECRET, freeQuestions: 2, memberQuestions: 50 });
+const store = createDataStore({ baseUrl: "http://data.local", fetchImpl: async url => {
+  const file = path.join(WEB_DATA, url.split("/").pop());
+  return fs.existsSync(file) ? new Response(fs.readFileSync(file)) : new Response("", { status: 404 });
+} });
+const fakeClient = new Anthropic({ apiKey: "fake", baseURL: `${ORIGIN}/fake-anthropic`, maxRetries: 0 });
 const deps = {
-  config, db, stripe: fakeStripeApi,
-  store: createDataStore({ baseUrl: "http://data.local", fetchImpl: async url => {
-    const file = path.join(WEB_DATA, url.split("/").pop());
-    return fs.existsSync(file) ? new Response(fs.readFileSync(file)) : new Response("", { status: 404 });
-  } }),
-  anthropic: new Anthropic({ apiKey: "fake", baseURL: `${ORIGIN}/fake-anthropic`, maxRetries: 0 }),
+  config, db, stripe: fakeStripeApi, store,
+  ask: args => runAdvisor({ client: fakeClient, store, config, ...args }),
   auth: { userFromToken: async token => tokens.get(token) || null },
 };
 const routes = {

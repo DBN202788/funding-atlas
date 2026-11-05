@@ -1,10 +1,10 @@
-// Measures what real questions cost, to help set prices and limits. THIS SPENDS REAL MONEY.
-// Put ANTHROPIC_API_KEY in server/.env, then run: npm run measure-cost
-// Try other settings with ADVISOR_MODEL and ADVISOR_EFFORT in the same file.
-import Anthropic from "@anthropic-ai/sdk";
-import { runAdvisor } from "../lib/advisor.js";
+// Measures what real questions cost, to help set prices and limits. ON A PAID KEY THIS SPENDS REAL MONEY.
+// Put ANTHROPIC_API_KEY or GEMINI_API_KEY in server/.env, then run: npm run measure-cost
+// Try other settings with ADVISOR_PROVIDER, ADVISOR_MODEL and ADVISOR_EFFORT in the same file.
+// On Gemini's free tier, the costs shown are estimates at Google's paid rate.
 import { readConfig } from "../lib/config.js";
 import { createDataStore } from "../lib/data.js";
+import { advisorFor } from "../lib/deps.js";
 
 const QUESTIONS = [
   "What youth mentoring projects were funded in Florida in FY2026-27, and how much did they get?",
@@ -16,13 +16,14 @@ const QUESTIONS = [
 ];
 
 const config = readConfig();
-const client = new Anthropic({ apiKey: config.anthropicKey });
 const store = createDataStore({ baseUrl: config.dataUrl });
+const ask = advisorFor(config, store);
+if (!ask) throw new Error("Add the key for the AI service you're measuring to server/.env.");
 const costs = [];
 console.log(`Model ${config.model}, effort ${config.effort}`);
 for (const question of QUESTIONS) {
   const started = Date.now();
-  const result = await runAdvisor({ client, store, config, question });
+  const result = await ask({ question });
   costs.push(result.costMicros);
   console.log(`$${(result.costMicros / 1e6).toFixed(4)}  ${((Date.now() - started) / 1000).toFixed(0)}s  ${result.toolCalls} searches  ${result.status}${result.code ? ` (${result.code})` : ""}  ${question}`);
 }

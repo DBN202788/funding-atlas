@@ -633,7 +633,7 @@ function viewAdvisor() {
   }
   $("#main").innerHTML = `
     <section class="panel"><h2>Ask the advisor</h2>
-      <p class="small muted">The advisor searches this atlas's records and cites each project. Tap a citation to see its evidence. ${sample ? "Answers use your own Claude usage, and Claude will ask for permission the first time." : `<span id="aUsage">${usageLine()}</span> Your question goes to Anthropic's AI service to be answered. The atlas doesn't save it, but don't include private details.`}</p>
+      <p class="small muted">The advisor searches this atlas's records and cites each project. Tap a citation to see its evidence. ${sample ? "Answers use your own Claude usage, and Claude will ask for permission the first time." : `<span id="aUsage">${usageLine()}</span> ${advisorNotice()}`}</p>
       <div class="chips" id="sugg">${SUGGESTED.map(s => `<button class="chip" data-s="${esc(s)}">${esc(s)}</button>`).join("")}</div>
       <label class="field">Your question<textarea id="aQ" placeholder="Ask about funded programs, funding levels, or how to prepare"></textarea></label>
       <div class="row"><button class="btn" id="aAsk">Ask</button><button class="btn ghost" id="aStop" hidden>Stop</button></div>
@@ -657,6 +657,7 @@ let site = {}, supa = null, session = null, account = null, savedDrafts = null, 
 // While site.previewOnly is on, only browsers that have opened the site with ?preview=1 see accounts.
 if (new URLSearchParams(location.search).get("preview") === "1") store.set("atlas.preview", true);
 const membersWanted = () => !IN_CLAUDE && Boolean(site.apiUrl && site.supabaseUrl && site.supabaseKey) && (!site.previewOnly || store.get("atlas.preview", false));
+const advisorNotice = () => account?.advisorProvider === "gemini" ? "This test version sends your question to Google's free Gemini service, where Google may review it and use it to improve its products. The atlas doesn't save it. Don't include private or personal details." : "Your question goes to Anthropic's AI service to be answered. The atlas doesn't save it, but don't include private details.";
 const usageLine = () => account ? `${Math.max(0, account.questionLimit - account.questionsUsed)} of ${account.questionLimit} questions left this month.` : "";
 
 function loadLibrary() {

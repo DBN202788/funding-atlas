@@ -1,9 +1,12 @@
 // Connects the handlers to the real services, using the keys in the environment.
 import Anthropic from "@anthropic-ai/sdk";
+import { GoogleGenAI } from "@google/genai";
 import { createClient } from "@supabase/supabase-js";
 import Stripe from "stripe";
 import { readConfig } from "./config.js";
+import { runAdvisor } from "./advisor.js";
 import { createDataStore } from "./data.js";
+import { runGeminiAdvisor } from "./gemini.js";
 import { endpoint } from "./http.js";
 
 function supabaseServices(config) {
@@ -44,17 +47,30 @@ function supabaseServices(config) {
   };
 }
 
+/** Picks the AI service named in the settings. No key means the advisor stays off. */
+export function advisorFor(config, store) {
+  if (config.provider === "gemini") {
+    if (!config.geminiKey) return null;
+    const client = new GoogleGenAI({ apiKey: config.geminiKey });
+    return args => runGeminiAdvisor({ client, store, config, ...args });
+  }
+  if (!config.anthropicKey) return null;
+  const client = new Anthropic({ apiKey: config.anthropicKey });
+  return args => runAdvisor({ client, store, config, ...args });
+}
+
 let services = null;
 
 export function realDeps() {
   if (services) return services;
   const config = readConfig();
   if (!config.supabaseUrl || !config.supabaseSecretKey) throw new Error("Supabase settings are missing");
+  const store = createDataStore({ baseUrl: config.dataUrl });
   services = {
     config,
     ...supabaseServices(config),
-    store: createDataStore({ baseUrl: config.dataUrl }),
-    anthropic: config.anthropicKey ? new Anthropic({ apiKey: config.anthropicKey }) : null,
+    store,
+    ask: advisorFor(config, store),
     stripe: config.stripeKey ? new Stripe(config.stripeKey) : null,
   };
   return services;

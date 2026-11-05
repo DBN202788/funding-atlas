@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { after, before, beforeEach, describe, it } from "node:test";
 import Anthropic from "@anthropic-ai/sdk";
 import Stripe from "stripe";
+import { runAdvisor } from "../lib/advisor.js";
 import { isActive, membershipFields } from "../lib/billing.js";
 import { readConfig } from "../lib/config.js";
 import { advisor, checkout, deleteAccount, health, me, portal, stripeWebhook } from "../lib/handlers.js";
@@ -61,7 +62,7 @@ describe("web addresses", () => {
     config = testConfig();
     deps = {
       config, db, store: fakeStore(), stripe,
-      anthropic: new Anthropic({ apiKey: "x", baseURL: api.url, maxRetries: 0 }),
+      ask: args => runAdvisor({ client: new Anthropic({ apiKey: "x", baseURL: api.url, maxRetries: 0 }), store: deps.store, config, ...args }),
       auth: { userFromToken: async token => tokens[token] || null },
     };
   });
@@ -200,7 +201,7 @@ describe("web addresses", () => {
     });
 
     it("says so when the advisor has no key yet", async () => {
-      deps.anthropic = null;
+      deps.ask = null;
       assert.equal((await call(advisor, { body: { question: "Q" } })).status, 503);
     });
   });
