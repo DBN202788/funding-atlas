@@ -18,6 +18,7 @@ and what to prepare before applying. Everything links back to the source documen
 | `data/manual/` | OCR text of the Florida FY2026-27 veto message. |
 | `data/out/` | `funding.sqlite` and `funding.csv`. |
 | `web/` | The static web app. |
+| `server/` | The advisor, sign-in checks and memberships. See `docs/MEMBERSHIP_SETUP.md`. |
 
 ## Run it
 

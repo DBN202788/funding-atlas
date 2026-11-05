@@ -1,0 +1,27 @@
+name: Check the member server
+
+on:
+  push:
+    paths:
+      - "server/**"
+      - "web/index.html"
+      - ".github/workflows/server.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Install packages
+        run: npm ci
+        working-directory: server
+      - name: Run tests
+        run: npm test
+        working-directory: server

@@ -163,9 +163,10 @@ footer { padding-block: 0 36px; color: var(--muted); font-size: 0.83rem; }
 
 <script>
 "use strict";
-// The public website has no Claude connection, so the advisor appears only inside Claude.
+// Inside Claude, the advisor uses the viewer's Claude account.
+// On the public website, the advisor and accounts appear once data/site-config.json has settings.
 const IN_CLAUDE = Boolean(window.claude);
-const VIEWS = [["explore", "Explore funding"], ["compare", "Compare applications"], ["patterns", "Patterns"], ["ready", "Get ready to apply"], ["builder", "Program builder"], ...(IN_CLAUDE ? [["advisor", "Ask the advisor"]] : []), ["sources", "Sources & coverage"]];
+const views = () => [["explore", "Explore funding"], ["compare", "Compare applications"], ["patterns", "Patterns"], ["ready", "Get ready to apply"], ["builder", "Program builder"], ...(IN_CLAUDE || membersWanted() ? [["advisor", "Ask the advisor"]] : []), ...(membersWanted() ? [["account", session ? "Account" : "Sign in"]] : []), ["sources", "Sources & coverage"]];
 const STATE_NAMES = { FL: "Florida", DE: "Delaware", LA: "Louisiana" };
 const FUNDED = new Set(["Funded", "Appropriated", "Appropriated (name match)", "Funded (veto check uncertain)", "In enrolled budget (veto check pending)"]);
 const STATUS_STYLE = {
@@ -182,32 +183,7 @@ const STATUS_STYLE = {
 };
 const QUICK = [["Youth mentoring", "mentor"], ["After-school", "after school"], ["Mental health", "mental health"], ["Workforce training", "workforce"], ["Food & hunger", "food"], ["Housing", "housing"], ["Senior services", "senior"], ["Veterans", "veteran"], ["Arts & culture", "arts"]];
 
-const READY = {
-  LA: {
-    title: "Louisiana: NGO funding request",
-    status: "The question list matches the 2026 NGO request form. Joint Rule 17 details come from search results of the rule's text, and 2025 proposals may have changed it, so confirm the current version.",
-    dates: [["Nov 1 each year", "Requests are due to the House and Senate money committees."], ["After Nov 1", "A late request can be included only if the Joint Legislative Committee on the Budget or the Capital Outlay committee approves it first."]],
-    items: ["Decide which funding you need (operating or capital outlay) and find a legislator to carry it", "Review La. R.S. 39:51.1 and Joint Rule 17 before starting the form", "Entity type, such as nonprofit corporation, and names of the incorporators", "Proof of good standing with the Secretary of State, if registered there", "Last four digits of the taxpayer ID", "Tax exemption status", "Names of everyone on the governing board and all officers", "Physical and mailing address, and a named contact person", "Exact dollar amount, and whether it's a general appropriation, capital outlay, or both", "Project or program summary", "Budget split into salaries, professional services, contracts, acquisitions, major repairs, operating services and other charges", "Public purpose the funds will achieve", "Goals and objectives for achieving that purpose", "Estimated time to accomplish the purpose", "Any outstanding audit issues, and how you're resolving them", "Disclosure of any ties or contracts with state officials or their immediate family"],
-    notes: ["Submitting the form is required for consideration but does not guarantee funding.", "Completed forms are published online, including board names and addresses, so assume everything you enter becomes public.", "Of the 227 requests in 2026, 26 had every named line vetoed, so plan for that risk."],
-    links: [["Joint Rule 17", "https://legis.la.gov/legis/law.aspx?d=113413"], ["NGO form instructions", "https://legis.la.gov/legis/NGO/NgoInstructions.htm"], ["NGO portal", "https://legis.la.gov/Legis/NGO/NgoNew.aspx"]],
-  },
-  FL: {
-    title: "Florida: Local Funding Initiative Request",
-    status: "Questions below come directly from the FY2026-27 Senate request form. Check the form for the year you are filing, and ask your Senate sponsor's office for the filing window.",
-    dates: [["Session cycle", "Requests go through a Senate sponsor. The Senate posts filed forms on its website each fiscal year."], ["Late June", "In 2026 the Governor signed the budget and issued line-item vetoes on June 29. Being in the budget is not final until then."]],
-    items: ["Secure a Senate sponsor (and consider a House member, since funded lines usually cite both chambers)", "Project title and a clear project or program description", "State agency that would receive the funds, and whether you have contacted it", "Amount requested, split between operating and fixed capital outlay", "Total project cost, with federal, state, local and other matching funds", "Whether the project has received state funding before, and any past veto", "Whether future-year funding is likely, and what would replace state money", "For construction: phase, permits, start and end dates, how operations will be funded, and who owns the facility", "How the state money will be spent, by category, including administration and salaries", "Specific purpose or goal the funds will achieve", "Activities and direct services for citizens", "Target population and how many people will be served", "Expected outcome, and how you will measure it", "Penalties the contracting agency could apply if you miss deliverables", "Any natural disaster link, FEMA worksheet, and other federal or state assistance", "Requester, recipient and any lobbyist contact details"],
-    notes: ["Filed forms are public PDFs and include contact details, so use organization contact information.", "In FY2026-27, 478 of the 1,854 requests cited in the budget were vetoed, so plan for that risk."],
-    links: [["Blank FY2026-27 form", "https://flsenate.gov/PublishedContent/Session/Appropriations/Links/LocalFundingInitiativeRequestForm_2026_27.pdf"], ["FY2026-27 filed requests", "https://www.flsenate.gov/Session/Appropriations/FY2026-27/LocalFundingRequests"]],
-  },
-  DE: {
-    title: "Delaware: Grant-in-Aid",
-    status: "Requirements and dates below come directly from the Delaware General Assembly's Grant-in-Aid pages.",
-    dates: [["Dec 4, 2026, 3 pm", "FY2028 General and Veterans applications close. They opened September 8, 2026."], ["Jan 4 – Mar 12, 2027", "FY2028 Senior Center application window, closing at 3 pm."], ["Late June", "The Joint Finance Committee decides. The bill is historically the last appropriations bill enacted, on June 30."], ["July 1, 2028", "New eligibility rules from House Bill 190 begin, affecting the FY2029 cycle."]],
-    items: ["Incorporated nonprofit (or under an incorporated parent) operating for two years before applying", "Bylaws stating your purpose and the duties of the Board", "Active, community-represented, volunteer Board with minutes of its meetings", "Programs not duplicated by other state-supported agencies and meeting unmet needs", "Personnel policies, including job descriptions and classifications", "Non-discrimination practice", "Accounting and budget procedures", "CPA or Public Accountant audit, review or compilation within the past three years, or a statement and supporting records if you can't comply", "Evidence of community support", "Program is not fully funded from other revenue", "Applying directly, not through a fiscal agent", "My.Delaware.gov account for the Grants Management System", "For FY2029: conflict-of-interest and whistleblower policies, and at least 50% of operations funded from other sources"],
-    notes: ["Grant-in-Aid can't pay for child daycare, capital equipment, buying or renovating buildings, elected officials' pay, campaigns, lobbying, or services for people outside Delaware.", "Application materials can be inspected by the public under FOIA."],
-    links: [["Eligibility rules", "https://legis.delaware.gov/GrantInAid/Information"], ["Applications and dates", "https://legis.delaware.gov/GrantInAid/Home/"], ["House Bill 190 changes", "https://legis.delaware.gov/Offices/ControllerGeneral/GrantinAid/HB190"]],
-  },
-};
+let READY = {};
 
 const FL_PROMPTS = [["What need does this address, and what evidence shows it?", "need"], ["Who will be served, and how many people?", "population"], ["What activities and direct services will you provide?", "services"], ["What outcome do you expect, and how will you measure it?", "outcomes"], ["How much state money do you need?", "amount"], ["What other funds or partners are committed?", "match"]];
 const EXAMPLE = { state: "FL", idea: "Mentoring and job-readiness program", population: "Young men ages 18–25 in two high-unemployment neighborhoods; 120 participants per year", need: "", services: "Weekly one-on-one mentoring, resume and interview coaching, paid internships with local employers", outcomes: "70% of participants employed or enrolled in training within 12 months, measured by quarterly follow-up", amount: "250000", match: "$75,000 pledged by a local foundation; two employer partners" };
@@ -543,10 +519,10 @@ function viewBuilder() {
           <label class="field wide">Expected outcome and how you'll measure it<textarea id="bOutcomes">${esc(draft.outcomes)}</textarea></label>
           <label class="field wide">Other funds and partners<textarea id="bMatch">${esc(draft.match)}</textarea></label>
         </div>
-        <div class="row"><button class="btn ghost" id="bClear">Start blank</button><span class="small muted">Your draft stays in this browser.</span></div>
+        <div class="row"><button class="btn ghost" id="bClear">Start blank</button><button class="btn ghost" id="bSave" hidden>Save to my account</button><span class="small muted" id="bSaved">${membersWanted() ? "Your draft stays in this browser until you save it to your account." : "Your draft stays in this browser."}</span></div>
       </section>
       <div class="stack">
-        <section class="panel"><div class="row" style="justify-content:space-between"><h2>Draft outline</h2><div class="row"><button class="btn ghost" id="bCopy">Copy</button><button class="btn" id="bAi" hidden>Review with Claude</button></div></div>
+        <section class="panel"><div class="row" style="justify-content:space-between"><h2>Draft outline</h2><div class="row"><button class="btn ghost" id="bCopy">Copy</button><button class="btn" id="bAi" hidden>${sample ? "Review with Claude" : "Review my draft"}</button></div></div>
           <div class="draft" id="bOut"></div><div id="bAiOut" class="answer"></div></section>
         <section class="panel"><h3>Check against funded applications</h3><div id="bCheck" class="small stack"></div></section>
         <section class="panel"><h3>Similar projects that reached a budget</h3><div id="bSimilar" class="stack small"></div>
@@ -571,10 +547,12 @@ function viewBuilder() {
   };
   Object.entries(ids).forEach(([k, id]) => { $("#" + id).oninput = e => { draft[k] = e.target.value; isExample = false; store.set("atlas.draft", draft); redraw(); }; });
   $("#bSimilar").onclick = e => { const t = e.target.closest("[data-id]"); if (t) openRecord(t.dataset.id); };
-  $("#bClear").onclick = () => { draft = { state: draft.state, amount: "", idea: "", need: "", population: "", services: "", outcomes: "", match: "" }; isExample = false; store.set("atlas.draft", draft); viewBuilder(); };
+  $("#bClear").onclick = () => { draftId = null; draft = { state: draft.state, amount: "", idea: "", need: "", population: "", services: "", outcomes: "", match: "" }; isExample = false; store.set("atlas.draft", draft); viewBuilder(); };
   $("#bCopy").onclick = async e => { const text = $("#bOut").textContent; try { await navigator.clipboard.writeText(text); e.target.textContent = "Copied"; } catch { const range = document.createRange(); range.selectNodeContents($("#bOut")); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range); e.target.textContent = "Text selected"; } };
-  const ai = $("#bAi"); ai.hidden = !sample;
-  ai.onclick = () => runAdvisor(`Review this draft nonprofit program for a ${STATE_NAMES[draft.state]} legislative funding request. Use search_funding to find comparable projects in that state, and get_requirements for its rules. Then list: (1) the weakest parts of the draft, (2) what the state's form asks that the draft doesn't yet answer, (3) how comparable projects were scoped and funded, with citations. Keep it under 300 words.\n\nDRAFT:\n${$("#bOut").textContent}`, $("#bAiOut"), ai, []);
+  const save = $("#bSave"); save.hidden = !membersWanted();
+  save.onclick = () => session ? saveDraft(save) : go("account");
+  const ai = $("#bAi"); ai.hidden = !sample && !membersWanted();
+  ai.onclick = () => !sample && !session ? go("account") : runAdvisor(`Review this draft nonprofit program for a ${STATE_NAMES[draft.state]} legislative funding request. Use search_funding to find comparable projects in that state, and get_requirements for its rules. Then list: (1) the weakest parts of the draft, (2) what the state's form asks that the draft doesn't yet answer, (3) how comparable projects were scoped and funded, with citations. Keep it under 300 words.\n\nDRAFT:\n${$("#bOut").textContent}`, $("#bAiOut"), ai, []);
   redraw();
 }
 
@@ -621,7 +599,7 @@ function renderAnswer(text, el) {
   if (inList) html += "</ul>";
   el.innerHTML = html;
 }
-const ERR = { not_granted: "The advisor needs your permission to use Claude, and that was declined for this visit.", sampling_disabled: "Claude isn't available on this account.", rate_limited: "You've reached a usage limit. Try again later.", session_expired: "Sign in to Claude again, then retry.", refused: "Claude declined that question. Try rewording it.", empty_completion: "No answer came back. Try a simpler question.", tools_unavailable: "This view can't search the records with the advisor." };
+const ERR = { sign_in_required: "Sign in to use the advisor.", user_limit: "You've used all your advisor questions for this month.", busy: "Your last question is still running. Wait for it to finish, then try again.", budget_reached: "The advisor has reached its spending limit for this month. Search and checklists still work.", question_too_long: "That's too long for one question. Shorten it and try again.", data_unavailable: "The funding records couldn't be loaded. Try again shortly.", advisor_not_configured: "The advisor isn't switched on yet.", provider_busy: "The AI service is busy right now. Try again in a minute. This didn't use up a question.", provider_unreachable: "The AI service couldn't be reached. This didn't use up a question.", provider_error: "The AI service had a problem. This didn't use up a question.", timeout: "That took too long, so it was stopped. Try a narrower question. This didn't use up a question.", offline: "The connection dropped before the answer finished. Check your connection and try again.", too_long: "The answer was too long to finish. Ask for less at a time.", too_many_steps: "That needed too many searches. Try a narrower question. This didn't use up a question.", empty: "No answer came back. Try rewording it.", not_granted: "The advisor needs your permission to use Claude, and that was declined for this visit.", sampling_disabled: "Claude isn't available on this account.", rate_limited: "You've reached a usage limit. Try again later.", session_expired: "Sign in to Claude again, then retry.", refused: "Claude declined that question. Try rewording it.", empty_completion: "No answer came back. Try a simpler question.", tools_unavailable: "This view can't search the records with the advisor." };
 let controller = null;
 async function runAdvisor(question, out, btn, history, stopBtn) {
   controller = new AbortController();
@@ -631,25 +609,31 @@ async function runAdvisor(question, out, btn, history, stopBtn) {
   try {
     const turns = [{ role: "user", content: RULES }, ...history, { role: "user", content: question }];
     const tools = TOOLS.map(t => ({ ...t, execute(input) { const hint = out.querySelector("p.muted"); if (hint) hint.textContent = "Searching the records…"; return t.execute(input); } }));
-    const res = await sample(turns, { tools, signal: controller.signal, onText: ({ text }) => renderAnswer(text, out) });
+    const res = sample ? await sample(turns, { tools, signal: controller.signal, onText: ({ text }) => renderAnswer(text, out) }) : await askServer(question, history, out, controller.signal);
     renderAnswer(res.text, out);
     if (res.truncated) out.insertAdjacentHTML("beforeend", `<p class="small muted">This answer was cut short. Ask for less at a time.</p>`);
     return res.text;
   } catch (e) {
     if (e.text && e.code !== "refused") renderAnswer(e.text, out); else out.innerHTML = "";
-    if (e.code !== "cancelled") out.insertAdjacentHTML("beforeend", `<p class="small st-no">${esc(ERR[e.code] || "The advisor couldn't finish. You can try again.")}</p>`);
+    if (e.code !== "cancelled") out.insertAdjacentHTML("beforeend", `<p class="small st-no">${esc(ERR[e.code] || "The advisor couldn't finish. You can try again.")}${e.code === "user_limit" || e.code === "sign_in_required" ? ` <a href="#account" data-go="account">See your account</a>.` : ""}</p>`);
+    // A stopped question still counts, so show the current number.
+    if (!sample && session) loadAccount().then(() => { const line = $("#aUsage"); if (line) line.textContent = usageLine(); });
     return null;
   } finally { if (btn) btn.disabled = false; if (stopBtn) stopBtn.hidden = true; }
 }
 const chat = [];
 function viewAdvisor() {
-  if (!sample) {
+  if (!sample && membersWanted() && !session) {
+    $("#main").innerHTML = `<section class="panel"><h2>Ask the advisor</h2><p>The advisor searches these records for you and cites each project. Sign in with your email to ask questions. Searching the records, the checklists and the program builder stay free without an account.</p><div class="row"><a class="btn" href="#account" data-go="account" style="text-decoration:none">Sign in</a></div></section>`;
+    return;
+  }
+  if (!sample && !membersWanted()) {
     $("#main").innerHTML = `<section class="panel"><h2>Ask the advisor</h2><p>The advisor runs on Claude and is available when you open this page in Claude while signed in. Everything else here works without it, so you can use <a href="#explore" data-go="explore">Explore funding</a> to search the records directly.</p></section>`;
     return;
   }
   $("#main").innerHTML = `
     <section class="panel"><h2>Ask the advisor</h2>
-      <p class="small muted">The advisor searches this atlas's records and cites each project. Tap a citation to see its evidence. Answers use your own Claude usage, and Claude will ask for permission the first time.</p>
+      <p class="small muted">The advisor searches this atlas's records and cites each project. Tap a citation to see its evidence. ${sample ? "Answers use your own Claude usage, and Claude will ask for permission the first time." : `<span id="aUsage">${usageLine()}</span> Your question goes to Anthropic's AI service to be answered. The atlas doesn't save it, but don't include private details.`}</p>
       <div class="chips" id="sugg">${SUGGESTED.map(s => `<button class="chip" data-s="${esc(s)}">${esc(s)}</button>`).join("")}</div>
       <label class="field">Your question<textarea id="aQ" placeholder="Ask about funded programs, funding levels, or how to prepare"></textarea></label>
       <div class="row"><button class="btn" id="aAsk">Ask</button><button class="btn ghost" id="aStop" hidden>Stop</button></div>
@@ -665,6 +649,213 @@ function viewAdvisor() {
     const text = await runAdvisor(q, turn.lastChild, $("#aAsk"), chat.slice(-6), $("#aStop"));
     if (text) chat.push({ role: "user", content: q }, { role: "assistant", content: text });
   };
+}
+
+/* Accounts and memberships */
+const SUPABASE_LIBRARY = { src: "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js", integrity: "sha384-TcHRA3zBbn+Lexh5n+Oil4guNPOS3rjNDpGRAN46u/s/mB2IZ50ceC6TYDU2yvgK" };
+let site = {}, supa = null, session = null, account = null, savedDrafts = null, draftId = null, accountNotice = "";
+const membersWanted = () => !IN_CLAUDE && Boolean(site.apiUrl && site.supabaseUrl && site.supabaseKey);
+const usageLine = () => account ? `${Math.max(0, account.questionLimit - account.questionsUsed)} of ${account.questionLimit} questions left this month.` : "";
+
+function loadLibrary() {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = SUPABASE_LIBRARY.src; script.integrity = SUPABASE_LIBRARY.integrity; script.crossOrigin = "anonymous";
+    script.onload = resolve; script.onerror = reject;
+    document.head.append(script);
+  });
+}
+async function callApi(path, options = {}) {
+  const { data } = await supa.auth.getSession();
+  if (!data.session) throw { code: "sign_in_required" };
+  return fetch(site.apiUrl + path, { ...options, headers: { authorization: `Bearer ${data.session.access_token}`, ...(options.body ? { "content-type": "application/json" } : {}) } });
+}
+async function loadAccount() {
+  try { const response = await callApi("/api/me"); account = response.ok ? await response.json() : null; } catch { account = null; }
+}
+async function startMembers() {
+  if (!membersWanted()) return;
+  const params = new URLSearchParams(location.search), arrivedFromEmail = params.has("code"), checkoutResult = params.get("checkout");
+  try {
+    await loadLibrary();
+    supa = window.supabase.createClient(site.supabaseUrl, site.supabaseKey, { auth: { flowType: "pkce", detectSessionInUrl: true, persistSession: true } });
+  } catch { if (current === "account") viewAccount(); return; }
+  const refresh = async () => {
+    account = null; savedDrafts = null;
+    if (session) await loadAccount();
+    drawTabs();
+    if (arrivedFromEmail && session && current !== "account") go("account", false);
+    else if (["account", "advisor", "builder"].includes(current)) RENDER[current]();
+  };
+  // Supabase asks that its own calls not be made directly inside this callback.
+  supa.auth.onAuthStateChange((event, next) => {
+    const changed = next?.user?.id !== session?.user?.id;
+    session = next;
+    if (changed) setTimeout(refresh, 0);
+  });
+  const { data } = await supa.auth.getSession();
+  session = data.session;
+  await refresh();
+  if (checkoutResult) {
+    history.replaceState(null, "", location.pathname + "#account");
+    accountNotice = checkoutResult === "done" ? "Thanks. Your membership will show here as soon as the payment is confirmed." : "Checkout was cancelled, and you weren't charged.";
+    if (current !== "account") go("account", false); else viewAccount();
+    // Stripe confirms separately, so check a few times.
+    for (let i = 0; checkoutResult === "done" && session && i < 6 && !account?.member; i++) {
+      await new Promise(resolve => setTimeout(resolve, 2500));
+      await loadAccount();
+    }
+    if (account?.member) accountNotice = "Your membership is active. Thank you.";
+    if (current === "account") viewAccount();
+  }
+}
+async function askServer(question, history, out, signal) {
+  let response, text = "", final = null, failure = null, buffer = "";
+  try {
+    response = await callApi("/api/advisor", { method: "POST", body: JSON.stringify({ question, history }), signal });
+  } catch (error) { throw error.code ? error : { code: error.name === "AbortError" ? "cancelled" : "offline" }; }
+  if (!response.ok) {
+    const body = await response.json().catch(() => ({}));
+    throw { code: body.error || "server_error" };
+  }
+  const reader = response.body.pipeThrough(new TextDecoderStream()).getReader();
+  try {
+    for (;;) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      buffer += value;
+      const lines = buffer.split("\n");
+      buffer = lines.pop();
+      for (const line of lines.filter(Boolean)) {
+        const event = JSON.parse(line);
+        if (event.type === "text") { text += event.text; renderAnswer(text, out); }
+        else if (event.type === "reset") { text = ""; }
+        else if (event.type === "status") { const hint = out.querySelector("p.muted"); if (hint) hint.textContent = event.text; }
+        else if (event.type === "error") failure = event.code;
+        else if (event.type === "done") final = event;
+      }
+    }
+  } catch (error) { throw { code: error.name === "AbortError" ? "cancelled" : "offline", text }; }
+  if (final) {
+    if (account && final.questionsUsed != null) { account.questionsUsed = final.questionsUsed; const line = $("#aUsage"); if (line) line.textContent = usageLine(); }
+    return { text: final.text, truncated: final.truncated };
+  }
+  throw { code: failure || "offline", text };
+}
+const DRAFT_KEYS = ["state", "amount", "idea", "need", "population", "services", "outcomes", "match"];
+async function saveDraft(button) {
+  button.disabled = true;
+  const row = { title: (draft.idea || "Untitled draft").slice(0, 200), data: Object.fromEntries(DRAFT_KEYS.map(k => [k, draft[k] ?? ""])), updated_at: new Date().toISOString() };
+  const saved = supa.from("saved_items");
+  const { data, error } = await (draftId ? saved.update(row).eq("id", draftId) : saved.insert(row)).select("id").single();
+  button.disabled = false;
+  const note = $("#bSaved"); if (!note) return;
+  if (error) { note.textContent = "That didn't save. Your draft is still in this browser, so try again."; return; }
+  draftId = data.id; savedDrafts = null; isExample = false;
+  note.textContent = "Saved to your account.";
+}
+async function drawSavedDrafts() {
+  const box = $("#savedList"); if (!box) return;
+  if (!savedDrafts) {
+    const { data, error } = await supa.from("saved_items").select("id, title, data, updated_at").order("updated_at", { ascending: false }).limit(100);
+    if (error) { box.innerHTML = `<p class="small st-no">Your saved drafts couldn't be loaded.</p>`; return; }
+    savedDrafts = data;
+  }
+  box.innerHTML = savedDrafts.length ? savedDrafts.map(d => `<div class="row" style="justify-content:space-between"><span>${esc(d.title)} <span class="small muted">${esc(new Date(d.updated_at).toLocaleDateString())}</span></span><span class="row"><button class="btn ghost" data-open="${esc(d.id)}">Open</button><button class="btn ghost" data-remove="${esc(d.id)}">Delete</button></span></div>`).join("") : `<p class="small muted">Nothing saved yet. Use "Save to my account" in the <a href="#builder" data-go="builder">Program builder</a>.</p>`;
+  box.onclick = async e => {
+    const open = e.target.closest("[data-open]"), remove = e.target.closest("[data-remove]");
+    if (open) {
+      const item = savedDrafts.find(d => d.id === open.dataset.open);
+      draft = Object.fromEntries(DRAFT_KEYS.map(k => [k, String(item.data[k] ?? "")]));
+      if (!READY[draft.state]) draft.state = Object.keys(READY)[0];
+      draftId = item.id; isExample = false; store.set("atlas.draft", draft);
+      go("builder");
+    } else if (remove && confirm("Delete this saved draft? This can't be undone.")) {
+      const { error } = await supa.from("saved_items").delete().eq("id", remove.dataset.remove);
+      if (error) return;
+      if (draftId === remove.dataset.remove) draftId = null;
+      savedDrafts = savedDrafts.filter(d => d.id !== remove.dataset.remove);
+      drawSavedDrafts();
+    }
+  };
+}
+const LEGAL = () => [site.termsUrl && `<a href="${esc(site.termsUrl)}">Terms</a>`, site.privacyUrl && `<a href="${esc(site.privacyUrl)}">Privacy</a>`, site.refundUrl && `<a href="${esc(site.refundUrl)}">Refunds</a>`].filter(Boolean).join(" · ");
+function viewAccount() {
+  if (!supa) {
+    $("#main").innerHTML = `<section class="panel"><h2>Sign in</h2><p>${membersWanted() ? "Sign-in is loading. If this doesn't change, reload the page. Searching the records doesn't need an account." : "Accounts aren't available on this copy of the atlas."}</p></section>`;
+    return;
+  }
+  if (!session) {
+    $("#main").innerHTML = `<section class="panel" style="max-width:560px"><h2>Sign in</h2>
+      <p>Enter your email and we'll send you a sign-in link, with no password to remember. If you're new, this creates your free account.</p>
+      <form id="signIn" class="stack"><label class="field">Email<input type="email" id="signEmail" required autocomplete="email"></label>
+      <div class="row"><button class="btn" id="signBtn">Email me a link</button></div></form>
+      <p id="signMsg" class="small" role="status"></p>
+      ${LEGAL() ? `<p class="small muted">By signing in, you agree to these: ${LEGAL()}.</p>` : ""}</section>`;
+    $("#signIn").onsubmit = async e => {
+      e.preventDefault();
+      const button = $("#signBtn"), message = $("#signMsg");
+      button.disabled = true; message.textContent = "";
+      const { error } = await supa.auth.signInWithOtp({ email: $("#signEmail").value.trim(), options: { emailRedirectTo: location.origin + location.pathname } });
+      button.disabled = false;
+      message.textContent = error ? (error.status === 429 ? "Too many sign-in emails were sent. Wait a few minutes and try again." : "That email couldn't be sent. Check the address and try again.") : "Check your email for the link, and open it in this same browser.";
+    };
+    return;
+  }
+  const a = account;
+  const periodEnd = a?.periodEnd ? new Date(a.periodEnd).toLocaleDateString() : "";
+  const canUpgrade = a && !a.member && a.paymentsOpen && (a.paymentsMode === "test" || (site.termsUrl && site.privacyUrl));
+  $("#main").innerHTML = `<div class="stack">
+    ${accountNotice ? `<p class="notice small" role="status">${esc(accountNotice)}</p>` : ""}
+    <section class="panel"><h2>Your account</h2>
+      <p>Signed in as <b>${esc(session.user.email)}</b></p>
+      ${!a ? `<p class="small st-no">Your plan couldn't be loaded. Reload the page to try again.</p>` : `
+      <p><b>${a.member ? "Member" : "Free plan"}</b>${a.member && periodEnd ? `<span class="muted"> · ${a.cancelAtPeriodEnd ? "ends" : "renews"} ${esc(periodEnd)}</span>` : ""}</p>
+      ${a.status === "past_due" ? `<p class="notice small">Your last payment didn't go through. Update your card under Manage billing to keep your membership.</p>` : ""}
+      <p class="small muted">${usageLine()} Questions reset on the first of each month (UTC).</p>
+      ${canUpgrade && a.paymentsMode === "test" ? `<p class="notice small">Test mode: no real money moves. Use Stripe's test card, not a real one.</p>` : ""}
+      ${!a.member && !canUpgrade ? `<p class="small muted">Paid memberships aren't open yet.</p>` : ""}
+      <div class="row">
+        ${canUpgrade ? `<button class="btn" id="upgrade">Become a member${site.priceLabel ? ` (${esc(site.priceLabel)})` : ""}</button>` : ""}
+        ${a.canManageBilling ? `<button class="btn ghost" id="billing">Manage billing</button>` : ""}
+      </div>
+      ${canUpgrade ? `<p class="small muted">Members get ${a.memberQuestions} advisor questions a month, including draft reviews. Search, checklists and the program builder stay free.${LEGAL() ? ` ${LEGAL()}.` : ""}</p>` : ""}
+      <p id="billMsg" class="small st-no" role="status"></p>`}
+    </section>
+    <section class="panel"><h3>Saved drafts</h3><div id="savedList" class="stack"><p class="small muted">Loading…</p></div></section>
+    <section class="panel"><h3>Sign out or delete</h3>
+      <div class="row"><button class="btn ghost" id="signOut">Sign out</button><button class="btn ghost" id="deleteStart">Delete my account</button></div>
+      <form id="deleteForm" class="stack" hidden><p class="small">This cancels any membership right away and permanently deletes your saved drafts. It can't be undone. Type DELETE to confirm.</p>
+        <label class="field">Confirmation<input type="text" id="deleteWord" autocomplete="off"></label>
+        <div class="row"><button class="btn" id="deleteGo">Delete my account</button></div><p id="deleteMsg" class="small st-no" role="status"></p></form>
+    </section></div>`;
+  const billing = async (button, path) => {
+    button.disabled = true; $("#billMsg").textContent = "";
+    try {
+      const response = await callApi(path, { method: "POST" });
+      const body = await response.json().catch(() => ({}));
+      if (response.ok && body.url) { location.href = body.url; return; }
+      if (body.error === "already_member") { await loadAccount(); viewAccount(); return; }
+      $("#billMsg").textContent = "That page couldn't be opened. Try again shortly.";
+    } catch { $("#billMsg").textContent = "That page couldn't be opened. Check your connection and try again."; }
+    button.disabled = false;
+  };
+  if ($("#upgrade")) $("#upgrade").onclick = e => billing(e.target, "/api/checkout");
+  if ($("#billing")) $("#billing").onclick = e => billing(e.target, "/api/portal");
+  $("#signOut").onclick = () => { draftId = null; accountNotice = ""; supa.auth.signOut(); };
+  $("#deleteStart").onclick = () => { $("#deleteForm").hidden = false; $("#deleteWord").focus(); };
+  $("#deleteForm").onsubmit = async e => {
+    e.preventDefault();
+    if ($("#deleteWord").value.trim() !== "DELETE") { $("#deleteMsg").textContent = "Type DELETE in capital letters to confirm."; return; }
+    $("#deleteGo").disabled = true;
+    try {
+      const response = await callApi("/api/delete-account", { method: "POST", body: JSON.stringify({ confirm: "DELETE" }) });
+      if (!response.ok) throw new Error();
+      draftId = null; accountNotice = "";
+      await supa.auth.signOut({ scope: "local" });
+    } catch { $("#deleteMsg").textContent = "Your account couldn't be deleted, and nothing changed. Try again shortly."; $("#deleteGo").disabled = false; }
+  };
+  drawSavedDrafts();
 }
 
 /* Sources */
@@ -710,7 +901,7 @@ function viewSources() {
 }
 
 /* Shell */
-const RENDER = { explore: viewExplore, compare: viewCompare, patterns: viewPatterns, ready: viewReady, builder: viewBuilder, advisor: viewAdvisor, sources: viewSources };
+const RENDER = { explore: viewExplore, compare: viewCompare, patterns: viewPatterns, ready: viewReady, builder: viewBuilder, advisor: viewAdvisor, sources: viewSources, account: viewAccount };
 let current = "explore";
 function go(view, push = true) {
   if (!RENDER[view]) view = "explore"; current = view;
@@ -719,7 +910,10 @@ function go(view, push = true) {
   RENDER[view]();
   if (push) { try { history.replaceState(null, "", "#" + view); } catch {} }
 }
-$("#tablist").innerHTML = VIEWS.map(([v, l]) => `<button data-v="${v}">${esc(l)}</button>`).join("");
+function drawTabs() {
+  $("#tablist").innerHTML = views().map(([v, l]) => `<button data-v="${v}"${v === current ? ' aria-current="page"' : ""}>${esc(l)}</button>`).join("");
+}
+drawTabs();
 $("#tablist").onclick = e => { const b = e.target.closest("[data-v]"); if (b) { go(b.dataset.v); window.scrollTo(0, 0); } };
 document.addEventListener("click", e => { const a = e.target.closest("[data-go]"); if (a) { e.preventDefault(); go(a.dataset.go); window.scrollTo(0, 0); } });
 const tip = $("#tip");
@@ -731,12 +925,15 @@ $("#dlg").addEventListener("click", e => { if (e.target === $("#dlg")) $("#dlg")
 
 (async function start() {
   try {
-    const [recs, m] = await Promise.all([fetch("data/records.json").then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }), fetch("data/meta.json").then(r => r.json())]);
-    records = decode(recs); meta = m; byId = new Map(records.map(r => [r.id, r]));
+    const [recs, m, ready] = await Promise.all([fetch("data/records.json").then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }), fetch("data/meta.json").then(r => r.json()), fetch("data/requirements.json").then(r => r.json())]);
+    records = decode(recs); meta = m; READY = ready; byId = new Map(records.map(r => [r.id, r]));
     newIds = new Set((m.changes && m.changes.new) || []);
     if (m.form_years) FORM_YEARS = m.form_years;
+    if (!IN_CLAUDE) site = await fetch("data/site-config.json").then(r => r.ok ? r.json() : {}).catch(() => ({}));
+    drawTabs();
     const hash = location.hash.replace("#", "");
     go(RENDER[hash] ? hash : "explore", false);
+    startMembers();
   } catch (error) {
     $("#main").innerHTML = `<section class="panel"><h2>The funding records didn't load</h2><p>Reload the page to try again. If it keeps happening, the data file may be missing from this copy.</p></section>`;
     return;

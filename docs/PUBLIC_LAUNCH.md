@@ -62,5 +62,5 @@ Buy a domain from any registrar, then add it under **Settings > Pages > Custom d
 
 - **Legal review:** have someone qualified review the disclaimer, your use of public records, and any paid services.
 - **The name:** "Legislative Funding Atlas" is a working name. Check that it's available before promoting it.
-- **Advisor:** it doesn't run on the public site, because it depends on a viewer's Claude account. A public version needs a small server and an AI account paid per use.
+- **Advisor and memberships:** these are built but stay hidden until the accounts are connected. Follow `docs/MEMBERSHIP_SETUP.md`.
 - **Source sites:** the job identifies itself and follows each site's crawl delay. If a site asks you to stop or limit access, respect that.
