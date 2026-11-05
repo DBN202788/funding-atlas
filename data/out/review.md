@@ -2,7 +2,7 @@
 
 **Result:** published
 
-New records: 0. Changed: 0. Removed: 0.
+New records: 4619. Changed: 0. Removed: 0.
 
 ## Veto message not processed
 - FL FY2017-18

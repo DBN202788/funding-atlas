@@ -125,7 +125,7 @@ export function fakeStore() {
     meta: async () => ({ form_years: ["FY2026-27"] }),
     forms: async key => key === "FY2026-27" ? { 1: { organization: "Mentors Inc", description: "x".repeat(20000) } } : { 3: { organization: "Ward", act_lines: ["Act 4 p.140"] } },
     compare: async () => [{ fiscal_year: "FY2026-27", forms_compared: 500, forms_read: 500, by_org_type: [], nonprofit: { counts: { funded: 40 }, features: [{ key: "has_match", funded: 60 }] }, all: { counts: { funded: 90 }, features: [] } }],
-    requirements: async () => ({ FL: { title: "Florida" }, DE: { title: "Delaware" }, LA: { title: "Louisiana" } }),
+    requirements: async () => ({ FL: { title: "Florida" }, DE: { title: "Delaware" }, LA: { title: "Louisiana" }, MD: { title: "Maryland" }, UT: { title: "Utah" } }),
     vetoNotes: async () => ({ how_to_ask: "Ask your sponsor.", FL: { "FY2026-27": { letter_date: "June 29, 2026", says: "No reason given." } } }),
   };
 }

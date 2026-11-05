@@ -112,9 +112,26 @@ if la_total:
     check("Louisiana: saved requests use only approved fields", not (saved_fields - allowed - {"name", "listed_name", "amount"}), str(saved_fields - allowed))
     check("Louisiana: no request pages were saved", not (ROOT / "data" / "raw" / "louisiana_requests").exists())
 
+if db.execute("select count(*) from records where state='MD'").fetchone()[0]:
+    # Figures from the 2026 Joint Chairmen's Report, read by hand from the published PDF.
+    def md_total(column_session):
+        return db.execute("select sum(appropriated) from records where state='MD' and fiscal_year=?", (column_session,)).fetchone()[0]
+    def md_row(name):
+        return db.execute("select * from records where state='MD' and fiscal_year='2026 Regular Session' and name=?", (name,)).fetchone()
+    check("Maryland: Allegany College of Maryland has $61,000, as in the report", md_row("Allegany College of Maryland")["appropriated"] == 61000)
+    check("Maryland: Allegany County Support Home has $300,000, as in the report", md_row("Allegany County Support Home")["appropriated"] == 300000)
+    check("Maryland: Barton Hose Company has no funding, as in the report", md_row("Barton Hose Company")["status"] == "No funding listed")
+    check("Maryland: 2026 total funding matches the source table", md_total("2026 Regular Session") == 77933915, str(md_total("2026 Regular Session")))
+    check("Maryland: unfunded requests never count as money", not db.execute("select sum(appropriated) from records where state='MD' and status<>'Funded'").fetchone()[0])
+if db.execute("select count(*) from records where state='UT'").fetchone()[0]:
+    check("Utah: no outcome is claimed, because the list doesn't show one", db.execute("select count(*) from records where state='UT' and (status<>'Requested (budget not yet checked)' or appropriated is not null)").fetchone()[0] == 0)
+    rfa = db.execute("select * from records where state='UT' and name='Strangulation Forensic Exam Reimbursement Program' and fiscal_year='2026 General Session'").fetchone()
+    check("Utah: H.A.R. 104 of 2026 adds its three listed amounts to $720,000", rfa is not None and rfa["requested"] == 720000 and rfa["form_number"] == "H.A.R. 104")
+
 # 6. Personal contact details must not be in the published files.
 web = "".join(pathlib.Path(p).read_text(encoding="utf-8") for p in glob.glob(str(WEB / "*.json")))
-emails = re.findall(r"[\w.+-]+@[\w-]+\.[a-zA-Z]{2,}", web)
+# A real address has a letter or digit on each side of the @. File names like Day_@_Center.pdf don't.
+emails = re.findall(r"[\w.+-]*[A-Za-z0-9]@[A-Za-z0-9][\w-]*\.[a-zA-Z]{2,}", web)
 phones = re.findall(r"\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}", web)
 check("no email addresses in published data", not emails, str(emails[:3]))
 check("no phone numbers in published data", not phones, str(phones[:3]))

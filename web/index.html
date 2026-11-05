@@ -186,7 +186,7 @@ footer { padding-block: 0 36px; color: var(--muted); font-size: 0.83rem; }
 // On the public website, the advisor and accounts appear once data/site-config.json has settings.
 const IN_CLAUDE = Boolean(window.claude);
 const views = () => [["explore", "Explore funding"], ["compare", "Compare applications"], ["patterns", "Patterns"], ["ready", "Get ready to apply"], ["builder", "Program builder"], ...(membersWanted() ? [["account", session ? "Account" : "Sign in"]] : []), ["sources", "Sources & coverage"]];
-const STATE_NAMES = { FL: "Florida", DE: "Delaware", LA: "Louisiana" };
+const STATE_NAMES = { FL: "Florida", DE: "Delaware", LA: "Louisiana", MD: "Maryland", UT: "Utah" };
 const FUNDED = new Set(["Funded", "Appropriated", "Appropriated (name match)", "Funded (veto check uncertain)", "In enrolled budget (veto check pending)"]);
 const STATUS_STYLE = {
   "Funded": ["funded", "✓", "Funded"],
@@ -198,7 +198,9 @@ const STATUS_STYLE = {
   "In enrolled budget (veto check pending)": ["pending", "◐", "In budget, vetoes not checked"],
   "Vetoed by Governor": ["vetoed", "✕", "Vetoed"],
   "No budget citation found": ["none", "–", "No budget citation"],
-  "Requested (budget not yet checked)": ["none", "?", "Budget not checked"],
+  "Requested (budget not yet checked)": ["none", "?", "Outcome not checked"],
+  "No funding listed": ["none", "–", "No funding listed"],
+  "Withdrawn": ["none", "–", "Withdrawn"],
 };
 const QUICK = [["Youth mentoring", "mentor"], ["After-school", "after school"], ["Mental health", "mental health"], ["Workforce training", "workforce"], ["Food & hunger", "food"], ["Housing", "housing"], ["Senior services", "senior"], ["Veterans", "veteran"], ["Arts & culture", "arts"]];
 
@@ -554,12 +556,12 @@ function viewReady() {
 /* Program builder */
 let draft = store.get("atlas.draft", null), isExample = !draft;
 if (!draft) draft = { ...EXAMPLE };
-const OUTCOME_SCOPE = { FL: { year: "FY2026-27", rates: true, limits: "Only FY2026-27 has been checked for vetoes." }, LA: { year: "2026 Regular Session", rates: true, limits: "Louisiana outcomes come from matching organization names, so an act's money may not be for the requested project." }, DE: { year: "FY2027", rates: false, limits: "Delaware publishes awards only, so unsuccessful requests can't be counted." } };
+const OUTCOME_SCOPE = { FL: { year: "FY2026-27", rates: true, limits: "Only FY2026-27 has been checked for vetoes." }, LA: { year: "2026 Regular Session", rates: true, limits: "Louisiana outcomes come from matching organization names, so an act's money may not be for the requested project." }, DE: { year: "FY2027", rates: false, limits: "Delaware publishes awards only, so unsuccessful requests can't be counted." }, MD: { year: "2026 Regular Session", rates: true, limits: "Maryland's list covers capital projects only." }, UT: { year: "2026 General Session", rates: false, limits: "Utah's list doesn't show whether a request was funded, so no outcome can be counted." } };
 const median = values => { if (!values.length) return null; const s = [...values].sort((a, b) => a - b), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
 /** minMatch 0 needs every term. A higher number needs at least that many terms. Past outcomes only, never a prediction. */
 function similarOutcomes(state, terms, minMatch) {
   const scope = OUTCOME_SCOPE[state];
-  if (!scope) throw new Error("Only FL, DE and LA have outcomes loaded.");
+  if (!scope) throw new Error("Only FL, DE, LA, MD and UT have outcomes loaded.");
   const need = minMatch || terms.length;
   const rows = terms.length ? records.filter(r => r.state === state && r.year === scope.year && terms.filter(t => r.hay.includes(t)).length >= need) : [];
   const funded = rows.filter(r => FUNDED.has(r.status)), vetoed = rows.filter(r => r.status === "Vetoed by Governor");
@@ -615,7 +617,7 @@ function viewBuilder() {
   const drawSimilarOutcomes = () => {
     const terms = draftTerms(draft), o = similarOutcomes(draft.state, terms, Math.min(2, terms.length));
     const amounts = o.median_budgeted == null ? "" : ` Budgeted amounts ran from ${short(o.lowest_budgeted)} to ${short(o.highest_budgeted)}, with a median of ${short(o.median_budgeted)}.`;
-    const counts = !OUTCOME_SCOPE[draft.state].rates ? `${o.matches} similar awards in Delaware's ${esc(o.year)} list.${amounts}` : o.matches < 10 ? `Only ${o.matches} similar requests in ${esc(o.year)}, too few to show percentages.${amounts}` : `Of ${o.matches} similar requests in ${esc(o.year)}, ${o.in_budget} (${o.in_budget_percent}%) reached the budget and ${o.vetoed} (${o.vetoed_percent}%) were vetoed.${amounts}`;
+    const counts = draft.state === "UT" ? `${o.matches} similar requests in Utah's ${esc(o.year)} list. Its list doesn't show which were funded.` : !OUTCOME_SCOPE[draft.state].rates ? `${o.matches} similar awards in Delaware's ${esc(o.year)} list.${amounts}` : o.matches < 10 ? `Only ${o.matches} similar requests in ${esc(o.year)}, too few to show percentages.${amounts}` : `Of ${o.matches} similar requests in ${esc(o.year)}, ${o.in_budget} (${o.in_budget_percent}%) reached the budget and ${o.vetoed} (${o.vetoed_percent}%) were vetoed.${amounts}`;
     $("#bOdds").innerHTML = terms.length ? `<p>${counts}</p><p class="muted">${esc(o.limits)}</p>` : `<p class="muted">Describe your program to compare it with past requests.</p>`;
   };
   const drawCheck = async () => {
@@ -654,10 +656,10 @@ Rules:
 - Never say why something was funded or that a strategy will win. The public record doesn't explain decisions. You may describe patterns as patterns.
 - A budget line is an appropriation, not proof of payment or that a program worked. Only Florida FY2026-27 has been checked for vetoes. Earlier Florida years say "In enrolled budget (veto check pending)".
 - For "what do funded applications have in common", use compare_applications and report it as patterns with their sample sizes. Never present a pattern as a way to guarantee funding.
-- Coverage: Florida has requests with budget links, and FY2026-27 applications can be read with get_application. Delaware has awards only, with no request amounts, for FY2019, FY2021, FY2022, FY2025, FY2026 and FY2027. Louisiana has 2026 session requests matched to Act 3, Act 4 and Act 961 by organization name, with vetoes applied. Read its forms with get_application.
+- Coverage: Maryland has Legislative Bond Initiative requests from 2019 to 2026 with sponsors and funding. Those are capital projects only, and a listing isn't proof that a grant agreement or payment followed. Utah has Requests for Appropriation from 2016 to 2026 with sponsors and amounts, but its list doesn't show whether a request was funded, so never say that one was. Florida has requests with budget links, and FY2026-27 applications can be read with get_application. Delaware has awards only, with no request amounts, for FY2019, FY2021, FY2022, FY2025, FY2026 and FY2027. Louisiana has 2026 session requests matched to Act 3, Act 4 and Act 961 by organization name, with vetoes applied. Read its forms with get_application.
 - Louisiana matches are by name. An act's money may not be for the requested project, so say that when reporting Louisiana amounts. "Not found by name" doesn't prove a request went unfunded.
 - If asked whether a request will be funded, never give a chance, score or prediction. Use comparable_outcomes to report how similar requests fared, with counts and limits, and say what the draft could strengthen.
-- Unless the person names one state, cover every state in the atlas that has matching records (FL, DE and LA), give each its own findings, and say when a state has none. Search results list by_state counts, so use them. When comparing states, say how their data differs instead of ranking them on unlike figures.
+- Unless the person names one state, cover every state in the atlas that has matching records (FL, DE, LA, MD and UT), give each its own findings, and say when a state has none. Search results list by_state counts, so use them. When comparing states, say how their data differs instead of ranking them on unlike figures.
 - The Governors' veto letters don't give a reason for individual items. If asked why something was vetoed, use get_veto_details, say that plainly, link the letter, and never suggest a reason. You may then describe vetoes as patterns from summarize_funding or compare_applications, clearly labeled as patterns.
 - Help people develop their own ideas. Never draft text copied from another organization's application.
 - This isn't legal or financial advice. Recommend confirming deadlines and rules with the official source.
@@ -665,7 +667,7 @@ Rules:
 const isVetoed = r => r.status === "Vetoed by Governor" || Boolean(r.vetoed);
 const vetoNoteFor = r => vetoNotes[r.state]?.[r.year];
 const UNREVIEWED_LETTER = "The veto letter for this year hasn't been reviewed for reasons, so read it directly.";
-const TOOL_STATES = ["FL", "DE", "LA"];
+const TOOL_STATES = ["FL", "DE", "LA", "MD", "UT"];
 function stateCounts(rows) {
   return Object.fromEntries(TOOL_STATES.map(state => { const here = rows.filter(r => r.state === state), funded = here.filter(r => FUNDED.has(r.status)); return [state, { matches: here.length, in_budget: funded.length, vetoed: here.filter(r => r.status === "Vetoed by Governor").length, budgeted: funded.reduce((sum, r) => sum + (r.appropriated || 0), 0) }]; }));
 }
@@ -677,10 +679,10 @@ function shareAcrossStates(rows, limit) {
 }
 const TOOLS = [
   { name: "search_funding", description: "Search the funding records by keywords. Leave out state to search every state. Returns up to 15 matching records with id, name, state, year, requested, budgeted, vetoed, status, program area and sponsor, shared across states when no state is given, plus the total number of matches and by_state counts.",
-    inputSchema: { type: "object", properties: { query: { type: "string", description: "Keywords; every word must match" }, state: { type: "string", enum: ["FL", "DE", "LA"] }, fiscal_year: { type: "string", description: "Such as FY2026-27 for Florida, FY2027 for Delaware, or 2026 Regular Session for Louisiana" }, outcome: { type: "string", enum: Object.keys(STATUS_STYLE) } } },
+    inputSchema: { type: "object", properties: { query: { type: "string", description: "Keywords; every word must match" }, state: { type: "string", enum: TOOL_STATES }, fiscal_year: { type: "string", description: "Such as FY2026-27 for Florida, FY2027 for Delaware, or 2026 Regular Session for Louisiana" }, outcome: { type: "string", enum: Object.keys(STATUS_STYLE) } } },
     execute(i) { const rows = matchRows({ q: String(i.query || ""), state: i.state ? String(i.state) : "", year: i.fiscal_year ? String(i.fiscal_year) : "", category: "", status: i.outcome ? String(i.outcome) : "", type: "", sort: "awarded" }); const picked = i.state ? rows.slice(0, 15) : shareAcrossStates(rows, 15); return { total_matches: rows.length, by_state: stateCounts(rows), records: picked.map(r => ({ id: r.id, name: r.name, state: r.state, year: r.year, requested: r.requested, budgeted: r.appropriated, vetoed: r.vetoed, status: r.status, area: r.category, sponsor: r.sponsor, ...(r.vetoUrl && isVetoed(r) ? { veto_letter: r.vetoUrl } : {}) })) }; } },
   { name: "summarize_funding", description: "Return totals for a state and fiscal year, grouped by program area: number of records, number in a budget or act, number vetoed, dollars requested and dollars budgeted.",
-    inputSchema: { type: "object", properties: { state: { type: "string", enum: ["FL", "DE", "LA"] }, fiscal_year: { type: "string" } }, required: ["state"] },
+    inputSchema: { type: "object", properties: { state: { type: "string", enum: TOOL_STATES }, fiscal_year: { type: "string" } }, required: ["state"] },
     execute(i) { const rows = records.filter(r => r.state === String(i.state) && (!i.fiscal_year || r.year === String(i.fiscal_year))); return uniq(rows.map(r => r.category)).map(c => { const x = statusSplit(rows.filter(r => r.category === c)); return { area: c, records: x.n, in_budget: x.f, vetoed: x.v, requested: x.req, budgeted: x.fAmt }; }); } },
   { name: "get_application", description: "Return what an application says, by record id, for Florida FY2026-27 and Louisiana 2026: organization, type, budget, description or summary, goals, and outcome. Louisiana records also list the act lines that name the organization.",
     inputSchema: { type: "object", properties: { id: { type: "string" } }, required: ["id"] },
@@ -688,15 +690,15 @@ const TOOLS = [
   { name: "compare_applications", description: "Return how often features such as matching funds, a stated number served, and measurable outcomes appear in funded, vetoed and uncited Florida FY2026-27 applications, with sample sizes.",
     inputSchema: { type: "object", properties: { scope: { type: "string", enum: ["nonprofit", "all"] } } },
     async execute(i) { if (!compareData) compareData = await fetch("data/compare.json").then(r => r.json()); const c = pickCompare(), s = c[i.scope === "all" ? "all" : "nonprofit"]; return { fiscal_year: c.fiscal_year, forms_read: c.forms_read, counts: s.counts, features: s.features, by_org_type: c.by_org_type }; } },
-  { name: "comparable_outcomes", description: "Show how similar past requests fared, using the most recent year with checked outcomes for FL or LA, or awards only for DE. Returns counts, percentages when there are at least 10 matches, amount ranges, examples and the limits of the data. It describes the past and doesn't predict funding.",
-    inputSchema: { type: "object", properties: { query: { type: "string", description: "One to three short keywords; every word must match" }, state: { type: "string", enum: ["FL", "DE", "LA"] } }, required: ["query", "state"] },
+  { name: "comparable_outcomes", description: "Show how similar past requests fared, using the most recent year with checked outcomes for FL, LA or MD, awards only for DE, or requests only for UT. Returns counts, percentages when there are at least 10 matches, amount ranges, examples and the limits of the data. It describes the past and doesn't predict funding.",
+    inputSchema: { type: "object", properties: { query: { type: "string", description: "One to three short keywords; every word must match" }, state: { type: "string", enum: TOOL_STATES } }, required: ["query", "state"] },
     execute(i) { return similarOutcomes(String(i.state), String(i.query).toLowerCase().split(/\s+/).filter(Boolean), 0); } },
   { name: "get_veto_details", description: "Return what the official record says about a vetoed item, by record id: the vetoed amount, a link to the Governor's letter, what that letter says, and how to ask for a reason.",
     inputSchema: { type: "object", properties: { id: { type: "string" } }, required: ["id"] },
     execute(i) { const r = byId.get(String(i.id)); if (!r) throw new Error("No record has that id."); if (!isVetoed(r)) return { id: r.id, name: r.name, status: r.status, vetoed: false }; const note = vetoNoteFor(r); return { id: r.id, name: r.name, status: r.status, vetoed: true, vetoed_amount: r.vetoed, letter_url: r.vetoUrl || null, letter_date: note?.letter_date || null, reason_given_for_this_item: false, what_the_letter_says: note?.says || UNREVIEWED_LETTER, how_to_ask: vetoNotes.how_to_ask }; } },
-  { name: "get_requirements", description: "Return the application checklist, key dates, cautions and official links for FL, DE or LA.",
-    inputSchema: { type: "object", properties: { state: { type: "string", enum: ["FL", "DE", "LA"] } }, required: ["state"] },
-    execute(i) { const d = READY[String(i.state)]; if (!d) throw new Error("Only FL, DE and LA have requirements loaded."); return d; } },
+  { name: "get_requirements", description: "Return the application checklist, key dates, cautions and official links for FL, DE, LA, MD or UT.",
+    inputSchema: { type: "object", properties: { state: { type: "string", enum: TOOL_STATES } }, required: ["state"] },
+    execute(i) { const d = READY[String(i.state)]; if (!d) throw new Error("Only FL, DE, LA, MD and UT have requirements loaded."); return d; } },
 ];
 function renderAnswer(text, el) {
   const lines = esc(text).split("\n"); let html = "", inList = false;
@@ -1043,16 +1045,20 @@ function viewSources() {
   const fy27 = flLink.find(r => r.fiscal_year === "FY2026-27") || {};
   const pendingYears = flLink.filter(r => r.status !== "published").map(r => r.fiscal_year);
   const laReport = reports.find(r => r.state === "LA" && r.status === "published");
+  const mdReports = reports.filter(r => r.state === "MD" && r.status === "published"), utReports = reports.filter(r => r.state === "UT" && r.status === "published");
   const rows = [
     ["Florida", "ok", `${flRecords.toLocaleString()} Senate requests, FY2017-18 to FY2026-27`, `${linkedCount.toLocaleString()} requests linked to enrolled budgets by exact form number${pendingYears.length ? `. Budget not yet linked: ${pendingYears.join(", ")}` : ""}. Vetoes checked for FY2026-27 only.`],
     ["Delaware", "ok", `${dePub.reduce((s, r) => s + r.records, 0).toLocaleString()} appropriations in ${dePub.length} years (${dePub.map(r => r.fiscal_year.slice(2)).sort().join(", ")})`, `Each year matches the act's printed totals to the dollar. Held back until they reconcile: ${deHeld.map(r => r.fiscal_year.slice(2)).sort().join(", ")}. Request amounts aren't published.`],
     laReport ? ["Louisiana", "ok", `${laReport.records.toLocaleString()} NGO requests from the 2026 Regular Session`, `Matched to Act 3, Act 4 and Act 961 by organization name, with the Governor's vetoes applied. ${laReport.excluded ? `${laReport.excluded} directory entry that looks like a test is left out. ` : ""}Earlier sessions aren't loaded yet.`]
       : ["Louisiana", "no", "Not loaded", "The Legislature's data could not be read in the latest update."],
-    ["Utah", "no", "Not loaded", "Requests are published by sponsor, but the site could not be reached from the build machine."],
+    mdReports.length ? ["Maryland", "ok", `${mdReports.reduce((s, r) => s + r.records, 0).toLocaleString()} Legislative Bond Initiative requests, ${mdReports.length} sessions`, "From the General Assembly's request tables, including unfunded and withdrawn requests. 2026 funding is checked against the Joint Chairmen's Report. These are capital projects only."]
+      : ["Maryland", "no", "Not loaded", "The General Assembly's data could not be read in the latest update."],
+    utReports.length ? ["Utah", "partial", `${utReports.reduce((s, r) => s + r.records, 0).toLocaleString()} Requests for Appropriation, ${utReports.length} sessions`, "Each legislator's rows are checked against the printed totals. The list shows requests and sponsors only, not whether a request was funded."]
+      : ["Utah", "no", "Not loaded", "The Legislature's request list could not be read in the latest update."],
     ["Hawaii", "no", "Not loaded", "Grant applications are published, but the site blocks automated access. It needs a manual export or permission."],
-    ["Other states", "warn", "Not surveyed", "A Connecticut legislative research report names Delaware, Florida, Hawaii and Utah as clear examples and says it isn't a full survey. No public Georgia list turned up in limited searching, which doesn't prove none exists."],
+    ["Other states", "warn", "Not surveyed", "Virginia publishes member budget requests and is the next candidate. A Connecticut legislative research report names Delaware, Florida, Hawaii and Utah as clear examples. No public Georgia list turned up in limited searching, which doesn't prove none exists."],
   ];
-  const cls = { ok: "st-ok", warn: "st-warn", no: "st-no" }, sym = { ok: "✓ Loaded", warn: "◐ Unknown", no: "✕ Not loaded" };
+  const cls = { ok: "st-ok", warn: "st-warn", partial: "st-warn", no: "st-no" }, sym = { ok: "✓ Loaded", warn: "◐ Unknown", partial: "◐ Requests only", no: "✕ Not loaded" };
   $("#main").innerHTML = `
     <div class="stack">
       <section class="panel"><h2>What's covered</h2><p class="small muted">Data last checked ${esc(meta.checked || meta.generated)}, with ${meta.record_count.toLocaleString()} records.${(meta.stale_sources || []).length ? ` ${meta.stale_sources.length} source pages couldn't be reached in that check, so their last saved copies were used.` : ""}${!IN_CLAUDE ? ` <a href="data/funding.csv">Download all records (CSV)</a>.` : ""}</p>

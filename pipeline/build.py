@@ -23,6 +23,8 @@ import florida  # noqa: E402
 import florida_budget  # noqa: E402
 import florida_forms  # noqa: E402
 import louisiana  # noqa: E402
+import maryland  # noqa: E402
+import utah  # noqa: E402
 
 ROOT = HERE.parent
 STAGING = os.environ.get("ATLAS_STAGING")
@@ -82,6 +84,10 @@ def collect_all(refresh=False):
     la_records, la_reports = louisiana.collect(refresh=refresh)
     records += la_records
     reports += la_reports
+    for state in (maryland, utah):
+        state_records, state_reports = state.collect(refresh=refresh)
+        records += state_records
+        reports += state_reports
     all_forms, comparisons, form_reports = apply_forms(records)
     reports += form_reports
     return records, reports, all_forms, comparisons

@@ -43,6 +43,11 @@ jobs:
         continue-on-error: true
         run: python -I pipeline/download_forms.py latest ${{ inputs.max_forms || '3000' }} 200
 
+      # le.utah.gov can't be reached from every machine, but it can from here.
+      - name: Save Utah's request list
+        continue-on-error: true
+        run: python -I pipeline/ut_fetch.py
+
       - name: Refresh, check and publish data
         id: update
         continue-on-error: true

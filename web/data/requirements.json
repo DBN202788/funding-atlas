@@ -150,5 +150,108 @@
     "https://legis.delaware.gov/Offices/ControllerGeneral/GrantinAid/HB190"
    ]
   ]
+ },
+ "MD": {
+  "title": "Maryland: Legislative Bond Initiative",
+  "status": "From the General Assembly's guide, How to Request a Legislative Bond Initiative (updated 2024). Check the current year's submission guidelines.",
+  "dates": [
+   [
+    "December 1",
+    "Sponsors may begin requesting initiatives."
+   ],
+   [
+    "Day 27 (Senate), day 31 (House)",
+    "Requested by these days of session, the sponsor is guaranteed the documents in time."
+   ],
+   [
+    "Day 55 of session",
+    "Last day to introduce without suspending the rules. The Fact Sheet is also due around now."
+   ],
+   [
+    "March to April",
+    "Budget committees review and vote, then both chambers vote on the package in the capital budget."
+   ],
+   [
+    "June 1",
+    "Effective date for approved initiatives."
+   ]
+  ],
+  "items": [
+   "A capital project, meaning land or structures: acquisition, planning and design, construction or renovation",
+   "A State or local public purpose, such as a community center, health facility, museum or recreational facility",
+   "A 15-year service life for the project",
+   "A legislator to sponsor the request, because the member files it",
+   "The grantee's name exactly as on record with the State Department of Assessments and Taxation",
+   "Ownership of the property, or a lease of at least 15 years, or the owner joining as co-grantee or beneficiary",
+   "A funding plan showing committed non-State money to complete the project",
+   "A schedule showing State money can be spent quickly; spending within two years gets priority",
+   "The online Fact Sheet, which the legislature uses to make funding decisions",
+   "Evidence of jobs created or kept, and of support from your legislative delegation"
+  ],
+  "notes": [
+   "Funds can't be used for religious purposes, operating expenses, or certain non-capital equipment or furnishings.",
+   "Not submitting the Fact Sheet may lead to a decision not to fund the project.",
+   "Authorizations can end if you don't sign a grant agreement or certify any required match within two years, or if money is unspent after seven years."
+  ],
+  "links": [
+   [
+    "Bond Initiatives",
+    "https://mgaleg.maryland.gov/mgawebsite/Budget/BondInitiatives"
+   ],
+   [
+    "Submission guidelines",
+    "https://mgaleg.maryland.gov/pubs-current/LBI_Submission_Guidelines_2025.pdf"
+   ],
+   [
+    "Request form",
+    "https://mgaleg.maryland.gov/pubs-current/LBI_Request_Form.pdf"
+   ],
+   [
+    "Capital grants after approval",
+    "https://dgs.maryland.gov/Pages/Capital%20Grants/index.aspx"
+   ]
+  ]
+ },
+ "UT": {
+  "title": "Utah: Request for Appropriation",
+  "status": "From the Legislative Fiscal Analyst's guide, The ABCs of RFAs (January 2023). Its date is for that year, and the form's full questions aren't loaded, so confirm with your legislator.",
+  "dates": [
+   [
+    "Day 11 of the General Session, noon",
+    "Requests are due, by legislative rule."
+   ],
+   [
+    "Third week of session",
+    "Subcommittees rank requests in order of preference and present them to the Executive Appropriations Committee."
+   ],
+   [
+    "After that review",
+    "The committee's review is the final step before items are added to an appropriations act."
+   ]
+  ],
+  "items": [
+   "A legislator to file the request, because this is how legislators seek funding",
+   "A public project, or an expansion of an existing state program",
+   "A funding need that doesn't come from a bill, which uses the separate fiscal note process",
+   "The state agency that would pass the money along, since all requests go through executive branch agencies",
+   "A clear amount, split into one-time and ongoing money, with the funding source",
+   "How success will be measured, which the application asks about",
+   "Readiness to follow state procurement laws",
+   "Readiness for state reporting requirements, unless you were picked through a competitive process"
+  ],
+  "notes": [
+   "The Legislature can't send money directly to entities outside the state.",
+   "A request can be approved for filing and still go unfunded. This atlas's Utah list doesn't show which requests were funded."
+  ],
+  "links": [
+   [
+    "The ABCs of RFAs",
+    "https://budget.utah.gov/the-abcs-of-rfas/"
+   ],
+   [
+    "Requests by legislator",
+    "https://le.utah.gov/sessions/requestsAppropSpon.jsp"
+   ]
+  ]
  }
 }

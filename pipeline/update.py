@@ -37,6 +37,8 @@ WATCHED_PAGES = {
     "Delaware House Bill 190 changes": "https://legis.delaware.gov/Offices/ControllerGeneral/GrantinAid/HB190",
     "Louisiana Joint Rule 17": "https://legis.la.gov/legis/law.aspx?d=113413",
     "Louisiana NGO instructions": "https://legis.la.gov/legis/NGO/NgoInstructions.htm",
+    "Maryland bond initiatives": "https://mgaleg.maryland.gov/pubs-current/LBI_Submission_Guidelines_2025.pdf",
+    "Utah RFA guide": "https://budget.utah.gov/the-abcs-of-rfas/",
     "Florida request form": "https://flsenate.gov/PublishedContent/Session/Appropriations/Links/LocalFundingInitiativeRequestForm_2026_27.pdf",
 }
 

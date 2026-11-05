@@ -1,7 +1,7 @@
 // The advisor's tools. Each one only reads published data, so nothing an application
 // says can make the advisor change anything. These mirror TOOLS in web/index.html.
-const STATES = ["FL", "DE", "LA"];
-export const OUTCOMES = ["Funded", "Appropriated", "Appropriated (name match)", "Possible match, check source", "No appropriation found by name", "Funded (veto check uncertain)", "In enrolled budget (veto check pending)", "Vetoed by Governor", "No budget citation found", "Requested (budget not yet checked)"];
+const STATES = ["FL", "DE", "LA", "MD", "UT"];
+export const OUTCOMES = ["Funded", "Appropriated", "Appropriated (name match)", "Possible match, check source", "No appropriation found by name", "Funded (veto check uncertain)", "In enrolled budget (veto check pending)", "Vetoed by Governor", "No budget citation found", "Requested (budget not yet checked)", "No funding listed", "Withdrawn"];
 const IN_BUDGET = new Set(["Funded", "Appropriated", "Appropriated (name match)", "Funded (veto check uncertain)", "In enrolled budget (veto check pending)"]);
 // A single very long application shouldn't be able to use up a question's budget.
 const MAX_RESULT_CHARS = 12000;
@@ -37,7 +37,7 @@ const DESCRIPTIONS = {
   summarize_funding: "Return totals for a state and fiscal year, grouped by program area: number of records, number in a budget or act, number vetoed, dollars requested and dollars budgeted.",
   get_application: "Return what an application says, by record id, for Florida FY2026-27 and Louisiana 2026: organization, type, budget, description or summary, goals, and outcome. Louisiana records also list the act lines that name the organization.",
   compare_applications: "Return how often features such as matching funds, a stated number served, and measurable outcomes appear in funded, vetoed and uncited Florida FY2026-27 applications, with sample sizes.",
-  comparable_outcomes: "Show how similar past requests fared, using the most recent year with checked outcomes for FL or LA, or awards only for DE. Returns counts, percentages when there are at least 10 matches, amount ranges, examples and the limits of the data. It describes the past and doesn't predict funding.",
+  comparable_outcomes: "Show how similar past requests fared, using the most recent year with checked outcomes for FL, LA or MD, awards only for DE, or requests only for UT. Returns counts, percentages when there are at least 10 matches, amount ranges, examples and the limits of the data. It describes the past and doesn't predict funding.",
   get_veto_details: "Return what the official record says about a vetoed item, by record id: the vetoed amount, a link to the Governor's letter, what that letter says, and how to ask for a reason.",
   get_requirements: "Return the application checklist, key dates, cautions and official links for FL, DE or LA.",
 };
@@ -68,6 +68,8 @@ const OUTCOME_SCOPE = {
   FL: { year: "FY2026-27", rates: true, limits: "Only FY2026-27 has been checked for vetoes." },
   LA: { year: "2026 Regular Session", rates: true, limits: "Louisiana outcomes come from matching organization names, so an act's money may not be for the requested project." },
   DE: { year: "FY2027", rates: false, limits: "Delaware publishes awards only, so unsuccessful requests can't be counted." },
+  MD: { year: "2026 Regular Session", rates: true, limits: "Maryland's list covers capital projects only." },
+  UT: { year: "2026 General Session", rates: false, limits: "Utah's list doesn't show whether a request was funded, so no outcome can be counted." },
 };
 const median = values => {
   if (!values.length) return null;
