@@ -4,11 +4,6 @@
 
 New records: 0. Changed: 0. Removed: 0.
 
-## Rules page changed: update the checklist if needed
-- Delaware Grant-in-Aid eligibility: https://legis.delaware.gov/GrantInAid/Information
-- Delaware applications and dates: https://legis.delaware.gov/GrantInAid/Home/
-- Delaware House Bill 190 changes: https://legis.delaware.gov/Offices/ControllerGeneral/GrantinAid/HB190
-
 ## Veto message not processed
 - FL FY2017-18
 - FL FY2018-19
