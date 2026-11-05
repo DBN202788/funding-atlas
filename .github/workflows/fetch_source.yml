@@ -1,0 +1,39 @@
+name: Fetch a state's public source
+
+# For sites that can't be reached from the project owner's computer.
+on:
+  workflow_dispatch:
+    inputs:
+      script:
+        description: "Script in pipeline/ to run"
+        default: "ut_fetch.py"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: source-fetch
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch the source
+        run: python -I pipeline/${{ inputs.script }}
+
+      - name: Save public documents
+        run: |
+          git config user.name "funding-atlas-bot"
+          git config user.email "funding-atlas-bot@users.noreply.github.com"
+          git add data/raw/utah
+          git diff --cached --quiet || git commit -m "Update public source documents"
+          git pull --rebase --autostash
+          git push

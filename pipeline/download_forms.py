@@ -6,9 +6,12 @@ random order, so a partial download is still a fair sample for early analysis.
 The PDFs contain contact details, so data/raw/florida_forms is never committed or
 published. Only pipeline/states/florida_forms.py output leaves this machine.
 
-Usage: python -I pipeline/download_forms.py FY2026-27 [max_forms]
+Usage: python -I pipeline/download_forms.py FY2026-27 [max_forms] [max_minutes]
+On GitHub, it reports how many forms it read and how many remain, so the job can
+run itself again until every form has been read.
 """
 import json
+import os
 import pathlib
 import random
 import sys
@@ -38,7 +41,15 @@ def latest_year():
     raise SystemExit("No request list could be read.")
 
 
-def download(fiscal_year, limit=None):
+def report_progress(done, remaining):
+    """Lets a GitHub workflow decide whether to run again."""
+    output = os.environ.get("GITHUB_OUTPUT")
+    if output:
+        with open(output, "a", encoding="utf-8") as handle:
+            handle.write(f"done={done}\nremaining={remaining}\n")
+
+
+def download(fiscal_year, limit=None, max_minutes=None):
     if fiscal_year == "latest":
         fiscal_year = latest_year()
     url = f"{florida.BASE}/Session/Appropriations/{fiscal_year}/LocalFundingRequests"
@@ -50,8 +61,12 @@ def download(fiscal_year, limit=None):
     pending = [r for r in rows if r["form_number"] not in read and not cache_path(r["source_url"], "florida_forms").exists()]
     print(f"{fiscal_year}: {len(rows)} forms, {len(pending)} to download", flush=True)
 
+    deadline = time.monotonic() + max_minutes * 60 if max_minutes else None
     done, failed, consecutive = 0, [], 0
     for row in pending[:limit]:
+        if deadline and time.monotonic() > deadline:
+            print("Time budget used. The next run continues from here.", flush=True)
+            break
         try:
             body = fetch(row["source_url"], "florida_forms")
             if body[:4] != b"%PDF":
@@ -75,8 +90,9 @@ def download(fiscal_year, limit=None):
             print("Stopping after repeated failures. Rerun later to resume.", flush=True)
             break
     print(f"finished: {done} downloaded, {len(failed)} failed: {failed[:30]}", flush=True)
+    report_progress(done, len(pending) - done)
 
 
 if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-    download(sys.argv[1], int(sys.argv[2]) if len(sys.argv) > 2 else None)
+    download(sys.argv[1], int(sys.argv[2]) if len(sys.argv) > 2 else None, float(sys.argv[3]) if len(sys.argv) > 3 else None)

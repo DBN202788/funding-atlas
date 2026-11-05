@@ -7,9 +7,10 @@ on:
     inputs:
       max_forms:
         description: "How many new request forms to download (0 skips them)"
-        default: "500"
+        default: "3000"
 
 permissions:
+  actions: write
   contents: write
   issues: write
   pages: write
@@ -36,10 +37,11 @@ jobs:
       - name: Run logic tests
         run: python -I tests/test_update.py
 
-      # Up to 500 new request forms per run, at the site's 10-second crawl delay.
+      # New request forms, at the site's 10-second crawl delay, within GitHub's time limit for a job.
       - name: Download new request forms
+        id: forms
         continue-on-error: true
-        run: python -I pipeline/download_forms.py latest ${{ inputs.max_forms || '500' }}
+        run: python -I pipeline/download_forms.py latest ${{ inputs.max_forms || '3000' }} 200
 
       - name: Refresh, check and publish data
         id: update
@@ -73,6 +75,13 @@ jobs:
           else
             gh issue create --title "Atlas review list" --label review --body-file data/out/review.md
           fi
+
+      # Keeps going until every form is read. A run that reads nothing stops the chain until the next schedule.
+      - name: Continue downloading if forms remain
+        if: steps.forms.outputs.remaining != '' && steps.forms.outputs.remaining != '0' && steps.forms.outputs.done != '0' && steps.update.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run update.yml --ref main
 
       # A held-back update fails the job, so GitHub emails the repository owner.
       - name: Report a held-back update
