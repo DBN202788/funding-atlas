@@ -26,7 +26,7 @@ New records: 0. Changed: 0. Removed: 0.
 - DE FY2017
 
 ## State not loaded
-- LA: <urlopen error [Errno 11001] getaddrinfo failed>
+- LA: Directory returned 86808 bytes; the parser still has to be written against it
 
 ## Forms not yet read
 - FL FY2026-27: 38 of 2808

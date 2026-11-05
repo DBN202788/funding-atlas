@@ -1094,8 +1094,8 @@
    "state": "LA",
    "fiscal_year": "2026 Regular Session",
    "source": "https://www.legis.la.gov/legis/NGO/NgoSearch.aspx?s=26RS",
-   "status": "unreachable",
-   "reason": "<urlopen error [Errno 11001] getaddrinfo failed>"
+   "status": "reachable_parser_needed",
+   "reason": "Directory returned 86808 bytes; the parser still has to be written against it"
   },
   {
    "state": "FL",
