@@ -1,7 +1,8 @@
 {
-  "apiUrl": "",
-  "supabaseUrl": "",
-  "supabaseKey": "",
+  "apiUrl": "https://funding-atlas-server.vercel.app",
+  "supabaseUrl": "https://fkhdsfsaysvclegpsajp.supabase.co",
+  "supabaseKey": "sb_publishable_aBbTBBC0mato6F2D7g4EFw_tfguWSSm",
+  "previewOnly": true,
   "priceLabel": "",
   "termsUrl": "",
   "privacyUrl": "",

@@ -654,7 +654,9 @@ function viewAdvisor() {
 /* Accounts and memberships */
 const SUPABASE_LIBRARY = { src: "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js", integrity: "sha384-TcHRA3zBbn+Lexh5n+Oil4guNPOS3rjNDpGRAN46u/s/mB2IZ50ceC6TYDU2yvgK" };
 let site = {}, supa = null, session = null, account = null, savedDrafts = null, draftId = null, accountNotice = "";
-const membersWanted = () => !IN_CLAUDE && Boolean(site.apiUrl && site.supabaseUrl && site.supabaseKey);
+// While site.previewOnly is on, only browsers that have opened the site with ?preview=1 see accounts.
+if (new URLSearchParams(location.search).get("preview") === "1") store.set("atlas.preview", true);
+const membersWanted = () => !IN_CLAUDE && Boolean(site.apiUrl && site.supabaseUrl && site.supabaseKey) && (!site.previewOnly || store.get("atlas.preview", false));
 const usageLine = () => account ? `${Math.max(0, account.questionLimit - account.questionsUsed)} of ${account.questionLimit} questions left this month.` : "";
 
 function loadLibrary() {
