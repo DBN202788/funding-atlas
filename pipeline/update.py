@@ -15,6 +15,7 @@ import hashlib
 import json
 import os
 import pathlib
+import re
 import shutil
 import subprocess
 import sys
@@ -68,6 +69,15 @@ def safety_problems(before, diff, reports):
     return problems
 
 
+def page_fingerprint(body):
+    """Hash what a reader sees. Web pages carry session codes that change on every visit."""
+    if body[:4] == b"%PDF":
+        return hashlib.sha1(body).hexdigest()
+    text = body.decode("utf-8", "replace")
+    text = re.sub(r"<script.*?</script>|<style.*?</style>|<!--.*?-->|<input[^>]*>|<[^>]+>", " ", text, flags=re.S | re.I)
+    return hashlib.sha1(re.sub(r"\s+", " ", text).strip().encode("utf-8")).hexdigest()
+
+
 def check_watched_pages(offline):
     """Report rule pages whose text changed since the last run."""
     if offline:
@@ -83,7 +93,7 @@ def check_watched_pages(offline):
         try:
             request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
             with urllib.request.urlopen(request, timeout=60) as response:
-                digest = hashlib.sha1(response.read()).hexdigest()
+                digest = page_fingerprint(response.read())
         except Exception as error:
             unreachable.append(f"{label}: {error}")
             continue
