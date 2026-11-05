@@ -23,6 +23,11 @@ const SCHEMAS = {
   },
   get_application: { type: "object", properties: { id: { type: "string" } }, required: ["id"] },
   compare_applications: { type: "object", properties: { scope: { type: "string", enum: ["nonprofit", "all"] } } },
+  comparable_outcomes: {
+    type: "object",
+    properties: { query: { type: "string", description: "One to three short keywords; every word must match" }, state: { type: "string", enum: STATES } },
+    required: ["query", "state"],
+  },
   get_requirements: { type: "object", properties: { state: { type: "string", enum: STATES } }, required: ["state"] },
 };
 
@@ -31,6 +36,7 @@ const DESCRIPTIONS = {
   summarize_funding: "Return totals for a state and fiscal year, grouped by program area: number of records, number in a budget or act, number vetoed, dollars requested and dollars budgeted.",
   get_application: "Return what an application says, by record id, for Florida FY2026-27 and Louisiana 2026: organization, type, budget, description or summary, goals, and outcome. Louisiana records also list the act lines that name the organization.",
   compare_applications: "Return how often features such as matching funds, a stated number served, and measurable outcomes appear in funded, vetoed and uncited Florida FY2026-27 applications, with sample sizes.",
+  comparable_outcomes: "Show how similar past requests fared, using the most recent year with checked outcomes for FL or LA, or awards only for DE. Returns counts, percentages when there are at least 10 matches, amount ranges, examples and the limits of the data. It describes the past and doesn't predict funding.",
   get_requirements: "Return the application checklist, key dates, cautions and official links for FL, DE or LA.",
 };
 
@@ -55,6 +61,17 @@ export function inputProblem(name, input) {
   }
   return null;
 }
+
+const OUTCOME_SCOPE = {
+  FL: { year: "FY2026-27", rates: true, limits: "Only FY2026-27 has been checked for vetoes." },
+  LA: { year: "2026 Regular Session", rates: true, limits: "Louisiana outcomes come from matching organization names, so an act's money may not be for the requested project." },
+  DE: { year: "FY2027", rates: false, limits: "Delaware publishes awards only, so unsuccessful requests can't be counted." },
+};
+const median = values => {
+  if (!values.length) return null;
+  const sorted = [...values].sort((a, b) => a - b), middle = sorted.length >> 1;
+  return sorted.length % 2 ? sorted[middle] : (sorted[middle - 1] + sorted[middle]) / 2;
+};
 
 const IMPLEMENTATIONS = {
   async search_funding(input, store) {
@@ -100,6 +117,22 @@ const IMPLEMENTATIONS = {
     if (!picked) throw new Error("No comparison is available yet.");
     const scope = picked[input.scope === "all" ? "all" : "nonprofit"];
     return { fiscal_year: picked.fiscal_year, forms_read: picked.forms_read, counts: scope.counts, features: scope.features, by_org_type: picked.by_org_type };
+  },
+  async comparable_outcomes(input, store) {
+    const { records } = await store.records();
+    const scope = OUTCOME_SCOPE[input.state];
+    const terms = input.query.toLowerCase().split(/\s+/).filter(Boolean);
+    const rows = terms.length ? records.filter(r => r.state === input.state && r.year === scope.year && terms.every(t => r.hay.includes(t))) : [];
+    const funded = rows.filter(r => IN_BUDGET.has(r.status)), vetoed = rows.filter(r => r.status === "Vetoed by Governor");
+    const amounts = funded.map(r => r.appropriated).filter(n => n != null), asked = rows.map(r => r.requested).filter(n => n != null);
+    const share = n => scope.rates && rows.length >= 10 ? Math.round(n / rows.length * 100) : null;
+    return {
+      state: input.state, year: scope.year, matches: rows.length, in_budget: funded.length, vetoed: vetoed.length, other: rows.length - funded.length - vetoed.length,
+      in_budget_percent: share(funded.length), vetoed_percent: share(vetoed.length),
+      median_requested: median(asked), median_budgeted: median(amounts), lowest_budgeted: amounts.length ? Math.min(...amounts) : null, highest_budgeted: amounts.length ? Math.max(...amounts) : null,
+      examples: [...rows].sort((a, b) => (b.appropriated || 0) - (a.appropriated || 0)).slice(0, 5).map(r => ({ id: r.id, name: r.name, status: r.status, requested: r.requested, budgeted: r.appropriated })),
+      limits: `${scope.limits} This matches words, so some records may not be truly similar. It shows what happened, not why, and doesn't predict funding.`,
+    };
   },
   async get_requirements(input, store) {
     const requirements = await store.requirements();

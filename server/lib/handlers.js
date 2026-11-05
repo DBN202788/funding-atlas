@@ -53,7 +53,10 @@ export async function advisor(request, deps) {
 
   const encoder = new TextEncoder();
   const abort = new AbortController();
-  let open = true;
+  request.signal?.addEventListener("abort", () => abort.abort(), { once: true });
+  let open = true, finished;
+  const done = new Promise(resolve => { finished = resolve; });
+  deps.keepAlive?.(done);
   const stream = new ReadableStream({
     async start(controller) {
       const emit = event => {
@@ -82,6 +85,7 @@ export async function advisor(request, deps) {
       } else if (outcome.status !== "stopped") {
         emit({ type: "error", code: outcome.code || "server_error" });
       }
+      finished();
       if (open) controller.close();
     },
     cancel() {

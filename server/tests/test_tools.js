@@ -6,9 +6,10 @@ import { describe, it } from "node:test";
 import { createDataStore, DataUnavailable } from "../lib/data.js";
 import { RULES } from "../lib/prompt.js";
 import { inputProblem, OUTCOMES, runTool, TOOLS } from "../lib/tools.js";
-import { fakeStore, PROJECT_ROOT } from "./helpers.js";
+import { fakeStore, PROJECT_ROOT, SERVER_ROOT } from "./helpers.js";
 
 const WEB = path.join(PROJECT_ROOT, "web");
+const piece_fl = 'FL: { year: "FY2026-27", rates: true';
 const page = fs.readFileSync(path.join(WEB, "index.html"), "utf8").replaceAll(String.fromCharCode(13), "");
 const localFetch = async url => {
   const file = path.join(WEB, "data", url.split("/").pop());
@@ -58,6 +59,36 @@ describe("advisor tools", () => {
   it("summarizes by program area", async () => {
     const [youth] = await call("summarize_funding", { state: "FL" });
     assert.deepEqual(youth, { area: "Youth", records: 2, in_budget: 1, vetoed: 1, requested: 400, budgeted: 50 });
+  });
+
+  it("describes how similar requests fared, without a prediction", async () => {
+    const fake = await call("comparable_outcomes", { query: "mentor", state: "FL" });
+    assert.deepEqual([fake.matches, fake.in_budget, fake.vetoed, fake.in_budget_percent, fake.median_budgeted], [2, 1, 1, null, 50]);
+    assert.match(fake.limits, /doesn't predict/);
+    assert.equal(JSON.stringify(fake).includes("chance"), false);
+    assert.equal((await call("comparable_outcomes", { state: "FL" })).is_error, true);
+  });
+
+  it("gets real comparable outcomes, and shows no rates where they'd mislead", async () => {
+    const store = realStore();
+    const fl = await call("comparable_outcomes", { query: "mentor", state: "FL" }, store);
+    assert.equal(fl.matches, fl.in_budget + fl.vetoed + fl.other);
+    assert.ok(fl.matches >= 10);
+    assert.equal(fl.in_budget_percent, Math.round(fl.in_budget / fl.matches * 100));
+    assert.ok(fl.lowest_budgeted <= fl.median_budgeted && fl.median_budgeted <= fl.highest_budgeted);
+    const everyFl = await call("comparable_outcomes", { query: "a", state: "FL" }, store);
+    assert.equal(everyFl.year, "FY2026-27");
+    const de = await call("comparable_outcomes", { query: "arts", state: "DE" }, store);
+    assert.ok(de.matches > 0);
+    assert.deepEqual([de.in_budget_percent, de.vetoed_percent], [null, null]);
+    assert.match(de.limits, /awards only/);
+    const la = await call("comparable_outcomes", { query: "ward", state: "LA" }, store);
+    assert.match(la.limits, /matching organization names/);
+  });
+
+  it("uses the same outcome rules as the website", () => {
+    for (const piece of ['FL: { year: "FY2026-27", rates: true', 'LA: { year: "2026 Regular Session", rates: true', 'DE: { year: "FY2027", rates: false']) assert.ok(page.includes(piece), piece);
+    assert.ok(fs.readFileSync(path.join(SERVER_ROOT, "lib", "tools.js"), "utf8").includes(piece_fl));
   });
 
   it("reads only applications that have been read", async () => {

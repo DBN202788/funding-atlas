@@ -56,7 +56,7 @@ describe("Gemini advisor", () => {
     const [first, second] = requests;
     assert.match(first.url, /gemini-3\.8-flash:streamGenerateContent/);
     assert.match(first.body.systemInstruction.parts[0].text, /research advisor/);
-    assert.equal(first.body.tools[0].functionDeclarations.length, 5);
+    assert.equal(first.body.tools[0].functionDeclarations.length, 6);
     assert.equal(first.body.generationConfig.maxOutputTokens, 8000);
     assert.deepEqual(second.body.contents[1], { role: "model", parts: [call] });
     const response = second.body.contents[2].parts[0].functionResponse;

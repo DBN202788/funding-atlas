@@ -183,6 +183,25 @@ describe("web addresses", () => {
       assert.ok(Number(run.cost_micros) > 0);
     });
 
+    it("stops the model and frees the next question when the page closes", async () => {
+      let opened, kept;
+      const started = new Promise(resolve => { opened = resolve; });
+      deps.keepAlive = promise => { kept = promise; };
+      api.queue.push(res => { streamMessage(res, { content: [{ type: "text", text: "Beginning" }], holdOpen: true }); opened(); });
+      const page = new AbortController();
+      const response = await endpoint(advisor, { methods: ["POST"], getDeps: () => deps }).fetch(new Request("https://api.test/x", { method: "POST", signal: page.signal, headers: { authorization: "Bearer alice-token" }, body: JSON.stringify({ question: "Q" }) }));
+      const reader = response.body.getReader();
+      await started;
+      await reader.read();
+      page.abort();
+      await kept;
+      assert.equal((await pg.query("select status from advisor_runs")).rows[0].status, "stopped");
+      api.queue.push(answer("Next"));
+      const next = await call(advisor, { body: { question: "Next" } });
+      assert.equal(next.status, 200);
+      await next.text();
+    });
+
     it("refuses a second question while one is running", async () => {
       api.queue.push(res => streamMessage(res, { content: [{ type: "text", text: "Slow" }], holdOpen: true }));
       const first = await call(advisor, { body: { question: "Q" } });

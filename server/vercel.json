@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "functions": { "api/advisor.js": { "maxDuration": 300 } },
+  "functions": { "api/advisor.js": { "maxDuration": 300, "supportsCancellation": true } },
   "rewrites": [
     { "source": "/data/site-config.json", "destination": "/api/site-config" },
     { "source": "/", "destination": "https://dbn202788.github.io/funding-atlas/" },

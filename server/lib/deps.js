@@ -2,6 +2,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { GoogleGenAI } from "@google/genai";
 import { createClient } from "@supabase/supabase-js";
+import { waitUntil } from "@vercel/functions";
 import Stripe from "stripe";
 import { readConfig } from "./config.js";
 import { runAdvisor } from "./advisor.js";
@@ -71,6 +72,7 @@ export function realDeps() {
     ...supabaseServices(config),
     store,
     ask: advisorFor(config, store),
+    keepAlive: waitUntil,
     stripe: config.stripeKey ? new Stripe(config.stripeKey) : null,
   };
   return services;
