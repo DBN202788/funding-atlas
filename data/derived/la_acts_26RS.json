@@ -1,0 +1,50 @@
+{
+ "HB1": {
+  "act": {
+   "url": "https://www.legis.la.gov/legis/ViewDocument.aspx?d=1481824",
+   "number": "3"
+  },
+  "veto": {
+   "url": "https://www.legis.la.gov/legis/ViewDocument.aspx?d=1481792",
+   "number": null
+  }
+ },
+ "HB2": {
+  "act": {
+   "url": "https://www.legis.la.gov/legis/ViewDocument.aspx?d=1481825",
+   "number": "4"
+  },
+  "veto": {
+   "url": "https://www.legis.la.gov/legis/ViewDocument.aspx?d=1481793",
+   "number": null
+  }
+ },
+ "HB312": {
+  "act": {
+   "url": "https://www.legis.la.gov/legis/ViewDocument.aspx?d=1481867",
+   "number": "961"
+  },
+  "veto": {
+   "url": "https://www.legis.la.gov/legis/ViewDocument.aspx?d=1481794",
+   "number": null
+  }
+ },
+ "HB313": {
+  "act": {
+   "url": "https://www.legis.la.gov/legis/ViewDocument.aspx?d=1480540",
+   "number": "636"
+  }
+ },
+ "HB314": {
+  "act": {
+   "url": "https://www.legis.la.gov/legis/ViewDocument.aspx?d=1481525",
+   "number": "905"
+  }
+ },
+ "HB3": {
+  "act": {
+   "url": "https://www.legis.la.gov/legis/ViewDocument.aspx?d=1481216",
+   "number": "779"
+  }
+ }
+}
