@@ -36,6 +36,3 @@ New records: 0. Changed: 0. Removed: 0.
 
 ## Forms not yet read
 - FL FY2026-27: 312 of 2808
-
-## Source failed, so the last saved copy was used
-- https://www.flsenate.gov/Session/Appropriations/FY2025-26/LocalFundingRequests: HTTP Error 429: Too Many Requests

@@ -1155,12 +1155,7 @@
    "errors": []
   }
  ],
- "stale_sources": [
-  {
-   "url": "https://www.flsenate.gov/Session/Appropriations/FY2025-26/LocalFundingRequests",
-   "reason": "HTTP Error 429: Too Many Requests"
-  }
- ],
+ "stale_sources": [],
  "checked": "2026-11-05",
  "changes": {
   "new": [],
