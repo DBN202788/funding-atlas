@@ -1,0 +1,15 @@
+{
+ "how_to_ask": "To ask why an item was vetoed, contact the legislator who sponsored it or the Governor's office.",
+ "FL": {
+  "FY2026-27": {
+   "letter_date": "June 29, 2026",
+   "says": "The Governor's letter lists each vetoed item and says the listed portions are vetoed \"with my objections\". It gives no reason for any single item. Its opening speaks generally about fiscal responsibility and reducing the budget."
+  }
+ },
+ "LA": {
+  "2026 Regular Session": {
+   "letter_date": "June 24, 2026",
+   "says": "The Governor's letters list each veto by page and line number. They give no reason for any veto."
+  }
+ }
+}

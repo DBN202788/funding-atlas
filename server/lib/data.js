@@ -6,7 +6,7 @@ export function decodeRecords(payload) {
   return payload.rows.map(r => {
     const rec = {
       state: d.state[r[0]], year: d.year[r[2]], name: r[3], group: r[4] < 0 ? "" : d.group[r[4]], category: d.category[r[5]],
-      sponsor: r[7] < 0 ? "" : d.sponsor[r[7]], requested: r[8], appropriated: r[9], vetoed: r[10], status: d.status[r[11]], form: r[12], id: r[18], organization: r[19] || "",
+      sponsor: r[7] < 0 ? "" : d.sponsor[r[7]], requested: r[8], appropriated: r[9], vetoed: r[10], status: d.status[r[11]], form: r[12], vetoUrl: r[17] < 0 ? "" : d.veto[r[17]], id: r[18], organization: r[19] || "",
     };
     rec.hay = `${rec.name} ${rec.organization} ${rec.group} ${rec.sponsor} ${rec.category} ${rec.form} ${r[20] || ""}`.toLowerCase();
     return rec;
@@ -37,5 +37,6 @@ export function createDataStore({ baseUrl, fetchImpl = fetch, ttlMs = 3600_000 }
     forms: key => load(`forms_${key}.json`),
     compare: () => load("compare.json"),
     requirements: () => load("requirements.json"),
+    vetoNotes: () => load("veto_notes.json"),
   };
 }

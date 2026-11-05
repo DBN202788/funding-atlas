@@ -28,6 +28,7 @@ const SCHEMAS = {
     properties: { query: { type: "string", description: "One to three short keywords; every word must match" }, state: { type: "string", enum: STATES } },
     required: ["query", "state"],
   },
+  get_veto_details: { type: "object", properties: { id: { type: "string" } }, required: ["id"] },
   get_requirements: { type: "object", properties: { state: { type: "string", enum: STATES } }, required: ["state"] },
 };
 
@@ -37,6 +38,7 @@ const DESCRIPTIONS = {
   get_application: "Return what an application says, by record id, for Florida FY2026-27 and Louisiana 2026: organization, type, budget, description or summary, goals, and outcome. Louisiana records also list the act lines that name the organization.",
   compare_applications: "Return how often features such as matching funds, a stated number served, and measurable outcomes appear in funded, vetoed and uncited Florida FY2026-27 applications, with sample sizes.",
   comparable_outcomes: "Show how similar past requests fared, using the most recent year with checked outcomes for FL or LA, or awards only for DE. Returns counts, percentages when there are at least 10 matches, amount ranges, examples and the limits of the data. It describes the past and doesn't predict funding.",
+  get_veto_details: "Return what the official record says about a vetoed item, by record id: the vetoed amount, a link to the Governor's letter, what that letter says, and how to ask for a reason.",
   get_requirements: "Return the application checklist, key dates, cautions and official links for FL, DE or LA.",
 };
 
@@ -101,7 +103,7 @@ const IMPLEMENTATIONS = {
     return {
       total_matches: rows.length,
       by_state: stateCounts(rows),
-      records: (input.state ? rows.slice(0, 15) : shareAcrossStates(rows, 15)).map(r => ({ id: r.id, name: r.name, state: r.state, year: r.year, requested: r.requested, budgeted: r.appropriated, vetoed: r.vetoed, status: r.status, area: r.category, sponsor: r.sponsor })),
+      records: (input.state ? rows.slice(0, 15) : shareAcrossStates(rows, 15)).map(r => ({ id: r.id, name: r.name, state: r.state, year: r.year, requested: r.requested, budgeted: r.appropriated, vetoed: r.vetoed, status: r.status, area: r.category, sponsor: r.sponsor, ...(r.vetoUrl && (r.vetoed || r.status === "Vetoed by Governor") ? { veto_letter: r.vetoUrl } : {}) })),
     };
   },
   async summarize_funding(input, store) {
@@ -151,6 +153,17 @@ const IMPLEMENTATIONS = {
       median_requested: median(asked), median_budgeted: median(amounts), lowest_budgeted: amounts.length ? Math.min(...amounts) : null, highest_budgeted: amounts.length ? Math.max(...amounts) : null,
       examples: [...rows].sort((a, b) => (b.appropriated || 0) - (a.appropriated || 0)).slice(0, 5).map(r => ({ id: r.id, name: r.name, status: r.status, requested: r.requested, budgeted: r.appropriated })),
       limits: `${scope.limits} This matches words, so some records may not be truly similar. It shows what happened, not why, and doesn't predict funding.`,
+    };
+  },
+  async get_veto_details(input, store) {
+    const { byId } = await store.records();
+    const r = byId.get(input.id);
+    if (!r) throw new Error("No record has that id.");
+    if (r.status !== "Vetoed by Governor" && !r.vetoed) return { id: r.id, name: r.name, status: r.status, vetoed: false };
+    const notes = await store.vetoNotes(), note = notes[r.state]?.[r.year];
+    return {
+      id: r.id, name: r.name, status: r.status, vetoed: true, vetoed_amount: r.vetoed, letter_url: r.vetoUrl || null, letter_date: note?.letter_date || null,
+      reason_given_for_this_item: false, what_the_letter_says: note?.says || "The veto letter for this year hasn't been reviewed for reasons, so read it directly.", how_to_ask: notes.how_to_ask,
     };
   },
   async get_requirements(input, store) {

@@ -103,6 +103,21 @@ describe("advisor tools", () => {
     assert.ok(fs.readFileSync(path.join(SERVER_ROOT, "lib", "tools.js"), "utf8").includes(piece_fl));
   });
 
+  it("says plainly that no reason was given for a veto, and links the letter", async () => {
+    const fake = await call("get_veto_details", { id: "FL-FY2026-27-2" });
+    assert.deepEqual([fake.vetoed, fake.reason_given_for_this_item, fake.what_the_letter_says], [true, false, "No reason given."]);
+    assert.deepEqual((await call("get_veto_details", { id: "FL-FY2026-27-1" })).vetoed, false);
+    assert.equal((await call("get_veto_details", { id: "nope" })).is_error, true);
+    const store = realStore();
+    const vetoed = await call("search_funding", { state: "LA", outcome: "Vetoed by Governor" }, store);
+    const real = await call("get_veto_details", { id: vetoed.records[0].id }, store);
+    assert.match(real.letter_url, /^https:/);
+    assert.equal(vetoed.records[0].veto_letter, real.letter_url);
+    assert.match(real.what_the_letter_says, /no reason/i);
+    const fl = await call("search_funding", { state: "FL", fiscal_year: "FY2026-27", outcome: "Vetoed by Governor" }, store);
+    assert.match((await call("get_veto_details", { id: fl.records[0].id }, store)).what_the_letter_says, /no reason/i);
+  });
+
   it("reads only applications that have been read", async () => {
     assert.equal((await call("get_application", { id: "LA-26RS-3" })).organization, "Ward");
     assert.equal((await call("get_application", { id: "DE-FY2027-9" })).is_error, true);
