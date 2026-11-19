@@ -817,6 +817,19 @@ function scrollChatIfOpen() { if (chatEl && chatEl.isConnected) scrollChat(); }
 /* Accounts and memberships */
 const SUPABASE_LIBRARY = { src: "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js", integrity: "sha384-TcHRA3zBbn+Lexh5n+Oil4guNPOS3rjNDpGRAN46u/s/mB2IZ50ceC6TYDU2yvgK" };
 let site = {}, supa = null, session = null, account = null, savedDrafts = null, draftId = null, accountNotice = "";
+let authSettings = {}, signInMode = "password", signInEmail = "", recovering = false;
+const MIN_PASSWORD = 8;
+/** Supabase's error messages are written for developers, so translate the common ones. */
+function authMessage(error) {
+  const text = String(error?.message || "").toLowerCase();
+  if (error?.status === 429 || text.includes("rate limit")) return "Too many attempts or emails. Wait a few minutes and try again.";
+  if (text.includes("invalid login")) return "That email and password don't match. Check them, or choose Forgot password.";
+  if (text.includes("not confirmed")) return "Confirm your email first, using the link we sent, then sign in.";
+  if (text.includes("already registered") || text.includes("already been registered")) return "That email already has an account. Sign in instead, or choose Forgot password.";
+  if (text.includes("password")) return `Choose a stronger password of at least ${MIN_PASSWORD} characters.`;
+  if (text.includes("signup") && text.includes("disabled")) return "New accounts aren't open right now.";
+  return "That didn't work. Check your details and try again.";
+}
 // While site.previewOnly is on, only browsers that have opened the site with ?preview=1 see accounts.
 if (new URLSearchParams(location.search).get("preview") === "1") store.set("atlas.preview", true);
 const membersWanted = () => !IN_CLAUDE && Boolean(site.apiUrl && site.supabaseUrl && site.supabaseKey) && (!site.previewOnly || store.get("atlas.preview", false));
@@ -841,11 +854,17 @@ async function loadAccount() {
 }
 async function startMembers() {
   if (!membersWanted()) return;
-  const params = new URLSearchParams(location.search), arrivedFromEmail = params.has("code"), checkoutResult = params.get("checkout");
+  const params = new URLSearchParams(location.search), arrivedFromEmail = params.has("code") || params.has("error_description"), checkoutResult = params.get("checkout");
   try {
     await loadLibrary();
     supa = window.supabase.createClient(site.supabaseUrl, site.supabaseKey, { auth: { flowType: "pkce", detectSessionInUrl: true, persistSession: true } });
   } catch { if (current === "account") viewAccount(); return; }
+  // Shows only the sign-in methods turned on in Supabase, such as Google.
+  try {
+    const settings = await fetch(`${site.supabaseUrl}/auth/v1/settings`, { headers: { apikey: site.supabaseKey } }).then(r => r.json());
+    authSettings = { google: Boolean(settings.external?.google) };
+  } catch { authSettings = {}; }
+  if (params.get("error_description")) accountNotice = "Sign-in didn't finish. Try again, or use another way to sign in.";
   const refresh = async () => {
     account = null; savedDrafts = null;
     if (session) await loadAccount();
@@ -859,6 +878,10 @@ async function startMembers() {
   supa.auth.onAuthStateChange((event, next) => {
     const changed = next?.user?.id !== session?.user?.id;
     session = next;
+    if (event === "PASSWORD_RECOVERY") {
+      recovering = true;
+      setTimeout(() => go("account", false), 0);
+    }
     if (changed) setTimeout(refresh, 0);
   });
   const { data } = await supa.auth.getSession();
@@ -964,20 +987,66 @@ function viewAccount() {
     $("#main").innerHTML = `<section class="panel"><h2>Sign in</h2><p>${membersWanted() ? "Sign-in is loading. If this doesn't change, reload the page. Searching the records doesn't need an account." : "Accounts aren't available on this copy of the atlas."}</p></section>`;
     return;
   }
+  if (recovering && session) {
+    $("#main").innerHTML = `<section class="panel" style="max-width:560px"><h2>Choose a new password</h2>
+      <form id="newPass" class="stack"><label class="field">New password<input type="password" id="newPassword" required minlength="${MIN_PASSWORD}" autocomplete="new-password"></label>
+      <div class="row"><button class="btn" id="newPassBtn">Save password</button></div></form><p id="newPassMsg" class="small" role="status"></p></section>`;
+    $("#newPass").onsubmit = async e => {
+      e.preventDefault();
+      $("#newPassBtn").disabled = true;
+      const { error } = await supa.auth.updateUser({ password: $("#newPassword").value });
+      $("#newPassBtn").disabled = false;
+      if (error) { $("#newPassMsg").textContent = authMessage(error); return; }
+      recovering = false; accountNotice = "Your new password is saved."; viewAccount();
+    };
+    return;
+  }
   if (!session) {
-    $("#main").innerHTML = `<section class="panel" style="max-width:560px"><h2>Sign in</h2>
-      <p>Enter your email and we'll send you a sign-in link, with no password to remember. If you're new, this creates your free account.</p>
-      <form id="signIn" class="stack"><label class="field">Email<input type="email" id="signEmail" required autocomplete="email"></label>
-      <div class="row"><button class="btn" id="signBtn">Email me a link</button></div></form>
+    const mode = signInMode;
+    $("#main").innerHTML = `<section class="panel" style="max-width:560px"><h2>Sign in or create an account</h2>
+      ${authSettings.google ? `<button class="btn ghost" id="googleBtn" style="justify-self:start">Continue with Google</button><p class="small muted">Or use your email:</p>` : ""}
+      <div class="chips" role="tablist" aria-label="How to sign in"><button class="chip" data-mode="password" aria-pressed="${mode === "password"}">Password</button><button class="chip" data-mode="link" aria-pressed="${mode === "link"}">Email me a link</button></div>
+      <form id="signIn" class="stack"><label class="field">Email<input type="email" id="signEmail" required autocomplete="email" value="${esc(signInEmail)}"></label>
+      ${mode === "password" ? `<label class="field">Password<input type="password" id="signPassword" required minlength="${MIN_PASSWORD}" autocomplete="current-password"></label>
+      <label class="small"><input type="checkbox" id="showPassword"> Show password</label>
+      <div class="row"><button class="btn" id="signBtn">Sign in</button><button class="btn ghost" type="button" id="signUpBtn">Create account</button><button class="btn ghost" type="button" id="forgotBtn">Forgot password?</button></div>
+      <p class="small muted">New here? Enter your email and a password of at least ${MIN_PASSWORD} characters, then choose Create account.</p>`
+      : `<div class="row"><button class="btn" id="signBtn">Email me a link</button></div><p class="small muted">No password needed. If you're new, this creates your free account.</p>`}</form>
       <p id="signMsg" class="small" role="status"></p>
       ${LEGAL() ? `<p class="small muted">By signing in, you agree to these: ${LEGAL()}.</p>` : ""}</section>`;
+    const message = $("#signMsg"), email = () => $("#signEmail").value.trim();
+    const busy = on => $("#signIn").querySelectorAll("button").forEach(b => { b.disabled = on; });
+    $("#signEmail").oninput = e => { signInEmail = e.target.value; };
+    $("#main").querySelector('[role="tablist"]').onclick = e => { const b = e.target.closest("[data-mode]"); if (b) { signInMode = b.dataset.mode; viewAccount(); } };
+    if ($("#googleBtn")) $("#googleBtn").onclick = async () => {
+      const { error } = await supa.auth.signInWithOAuth({ provider: "google", options: { redirectTo: location.origin + location.pathname } });
+      if (error) message.textContent = "Google sign-in couldn't start. Try again, or use your email.";
+    };
+    if (mode === "password") {
+      $("#showPassword").onchange = e => { $("#signPassword").type = e.target.checked ? "text" : "password"; };
+      $("#signUpBtn").onclick = async () => {
+        if (!$("#signIn").reportValidity()) return;
+        busy(true); message.textContent = "";
+        const { data, error } = await supa.auth.signUp({ email: email(), password: $("#signPassword").value, options: { emailRedirectTo: location.origin + location.pathname } });
+        busy(false);
+        message.textContent = error ? authMessage(error) : data.session ? "" : "Check your email to confirm your address, then sign in.";
+      };
+      $("#forgotBtn").onclick = async () => {
+        if (!email()) { message.textContent = "Enter your email first, then choose Forgot password."; return; }
+        busy(true);
+        const { error } = await supa.auth.resetPasswordForEmail(email(), { redirectTo: location.origin + location.pathname });
+        busy(false);
+        message.textContent = error ? authMessage(error) : "If that email has an account, a reset link is on its way. Open it in this same browser.";
+      };
+    }
     $("#signIn").onsubmit = async e => {
       e.preventDefault();
-      const button = $("#signBtn"), message = $("#signMsg");
-      button.disabled = true; message.textContent = "";
-      const { error } = await supa.auth.signInWithOtp({ email: $("#signEmail").value.trim(), options: { emailRedirectTo: location.origin + location.pathname } });
-      button.disabled = false;
-      message.textContent = error ? (error.status === 429 ? "Too many sign-in emails were sent. Wait a few minutes and try again." : "That email couldn't be sent. Check the address and try again.") : "Check your email for the link, and open it in this same browser.";
+      busy(true); message.textContent = "";
+      const { error } = mode === "password"
+        ? await supa.auth.signInWithPassword({ email: email(), password: $("#signPassword").value })
+        : await supa.auth.signInWithOtp({ email: email(), options: { emailRedirectTo: location.origin + location.pathname } });
+      busy(false);
+      message.textContent = error ? authMessage(error) : mode === "password" ? "" : "Check your email for the link, and open it in this same browser.";
     };
     return;
   }
@@ -1002,6 +1071,10 @@ function viewAccount() {
       <p id="billMsg" class="small st-no" role="status"></p>`}
     </section>
     <section class="panel"><h3>Saved drafts</h3><div id="savedList" class="stack"><p class="small muted">Loading…</p></div></section>
+    <section class="panel"><h3>Password</h3>
+      <form id="passwordForm" class="row"><label class="field" style="flex:1;min-width:200px">Set or change your password<input type="password" id="accountPassword" required minlength="${MIN_PASSWORD}" autocomplete="new-password"></label><button class="btn ghost" id="passwordGo">Save password</button></form>
+      <p id="passwordMsg" class="small" role="status"></p>
+    </section>
     <section class="panel"><h3>Sign out or delete</h3>
       <div class="row"><button class="btn ghost" id="signOut">Sign out</button><button class="btn ghost" id="deleteStart">Delete my account</button></div>
       <form id="deleteForm" class="stack" hidden><p class="small">This cancels any membership right away and permanently deletes your saved drafts. It can't be undone. Type DELETE to confirm.</p>
@@ -1021,7 +1094,15 @@ function viewAccount() {
   };
   if ($("#upgrade")) $("#upgrade").onclick = e => billing(e.target, "/api/checkout");
   if ($("#billing")) $("#billing").onclick = e => billing(e.target, "/api/portal");
-  $("#signOut").onclick = () => { draftId = null; accountNotice = ""; supa.auth.signOut(); };
+  $("#signOut").onclick = () => { draftId = null; accountNotice = ""; recovering = false; supa.auth.signOut(); };
+  $("#passwordForm").onsubmit = async e => {
+    e.preventDefault();
+    $("#passwordGo").disabled = true;
+    const { error } = await supa.auth.updateUser({ password: $("#accountPassword").value });
+    $("#passwordGo").disabled = false;
+    $("#passwordMsg").textContent = error ? authMessage(error) : "Saved. You can now sign in with your email and this password.";
+    if (!error) $("#accountPassword").value = "";
+  };
   $("#deleteStart").onclick = () => { $("#deleteForm").hidden = false; $("#deleteWord").focus(); };
   $("#deleteForm").onsubmit = async e => {
     e.preventDefault();

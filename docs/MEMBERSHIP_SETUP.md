@@ -23,6 +23,15 @@ Prices were checked on November 5, 2026. Confirm them when you sign up.
 3. Under **Authentication > URL Configuration**, set **Site URL** to `https://dbn202788.github.io/funding-atlas/` and add the same address to **Redirect URLs**.
 4. Under **Authentication > Emails > SMTP Settings**, connect your email service. You can skip this for your first test, which can only send to your own team's addresses.
 5. Under **Project Settings > API**, find the project URL, the public key and the secret key. You'll use them in steps 3 and 4.
+6. Free projects pause after about a week without use, and sign-in stops working until you choose **Restore project** in the dashboard. A paid plan doesn't pause.
+
+### Sign-in methods
+
+The site offers each method that's turned on in Supabase, under **Authentication > Sign In / Providers**:
+
+- **Email and password:** on by default. With **Confirm email** on, new accounts need an email, so they hit the same email limit as sign-in links until custom SMTP is set up.
+- **Email link:** works without a password, but needs email too.
+- **Google:** needs no email from Supabase. In [Google Cloud Console](https://console.cloud.google.com/apis/credentials), create an OAuth client ID of type **Web application**. Add `https://YOUR-PROJECT.supabase.co/auth/v1/callback` as an authorized redirect URI, then paste its client ID and secret into Supabase's Google provider. While Google's consent screen is in **Testing**, only the Google accounts you list as test users can sign in.
 
 ## Step 2: The AI service
 

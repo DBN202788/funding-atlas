@@ -102,8 +102,40 @@ function sessionFor(user) {
   return { access_token: token, refresh_token: randomUUID(), expires_in: 3600, expires_at: Math.floor(Date.now() / 1000) + 3600, token_type: "bearer", user: { id: user.id, email: user.email, aud: "authenticated", role: "authenticated", app_metadata: {}, user_metadata: {}, created_at: new Date().toISOString() } };
 }
 
+async function findOrCreate(email, password) {
+  let user = [...users.values()].find(u => u.email === email);
+  if (!user) {
+    user = { id: randomUUID(), email, password };
+    users.set(user.id, user);
+    await addUser(pg, user.id, user.email);
+  }
+  return user;
+}
+
 async function auth(req, res, url, body) {
   const send = (status, data) => { res.writeHead(status, { "content-type": "application/json" }); res.end(JSON.stringify(data)); };
+  if (url.pathname === "/auth/v1/settings") return send(200, { external: { email: true, google: true }, mailer_autoconfirm: true });
+  // Stand-in for Google's sign-in page, which sends the person back with a code.
+  if (url.pathname === "/auth/v1/authorize") {
+    const code = randomUUID();
+    pendingCodes.set(code, await findOrCreate("google-user@example.test"));
+    res.writeHead(200, { "content-type": "text/html; charset=utf-8" });
+    return res.end(`<!doctype html><meta charset="utf-8"><body style="font:16px system-ui;margin:40px"><h1>Stand-in Google sign-in</h1><p><a id="continue" href="${url.searchParams.get("redirect_to")}?code=${code}">Continue as google-user@example.test</a></p>`);
+  }
+  if (url.pathname === "/auth/v1/signup") {
+    if ([...users.values()].some(u => u.email === body.email)) return send(422, { code: 422, error_code: "user_already_exists", msg: "User already registered" });
+    if (String(body.password || "").length < 8) return send(422, { code: 422, error_code: "weak_password", msg: "Password should be at least 8 characters" });
+    return send(200, sessionFor(await findOrCreate(body.email, body.password)));
+  }
+  if (url.pathname === "/auth/v1/recover") {
+    const user = [...users.values()].find(u => u.email === body.email);
+    if (user) {
+      const code = randomUUID();
+      pendingCodes.set(code, user);
+      lastLink = `${url.searchParams.get("redirect_to")}?code=${code}`;
+    }
+    return send(200, {});
+  }
   if (url.pathname === "/auth/v1/otp") {
     let user = [...users.values()].find(u => u.email === body.email);
     if (!user) {
@@ -121,10 +153,15 @@ async function auth(req, res, url, body) {
       const user = pendingCodes.get(body.auth_code);
       return user ? send(200, sessionFor(user)) : send(400, { error_code: "bad_code", msg: "bad code" });
     }
+    if (url.searchParams.get("grant_type") === "password") {
+      const user = [...users.values()].find(u => u.email === body.email && u.password && u.password === body.password);
+      return user ? send(200, sessionFor(user)) : send(400, { error_code: "invalid_credentials", msg: "Invalid login credentials" });
+    }
     return send(400, { msg: "unsupported" });
   }
   if (url.pathname === "/auth/v1/user") {
     const user = tokens.get((req.headers.authorization || "").slice(7));
+    if (user && req.method === "PUT" && body.password) user.password = body.password;
     return user ? send(200, sessionFor(user).user) : send(401, { msg: "no user" });
   }
   if (url.pathname === "/auth/v1/logout") { res.writeHead(204); return res.end(); }
